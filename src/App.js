@@ -13,19 +13,19 @@ class App extends Component {
     return (
       <div className="container">
 
-        <div className="row">
+        <div className="row-12">
           <Header />
         </div>
 
-        <div className="row">
+        <div className="row-12">
           <BorrowersForm />
         </div>
 
-        <div className="row">
+        <div className="row-12">
           <DogForm />
         </div>
 
-        <div className="row">
+        <div className="row-12">
           <DogsAvailable />
         </div>
 

@@ -6,7 +6,7 @@ class Header extends Component {
     render() {
 
         return (
-            <div className="row-12">
+            <div className="col-12">
                 <img src={BorrowMyRescueInfo} alt="BorrowMyRescueInfo" />
             </div>
         );

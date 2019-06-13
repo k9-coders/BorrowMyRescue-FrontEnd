@@ -6,6 +6,7 @@ class BorrowersForm extends Component {
 
         return (
             <div className="col">
+                <h2>Borrower Input Form</h2>
                 <h5>Please enter your personal details here:</h5>
                 <form>
                     <div className="row-12">

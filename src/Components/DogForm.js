@@ -9,56 +9,108 @@ class DogForm extends Component {
                 <h2>Dog Input Form</h2>
                 <h5>Please enter the dogs available to borrow:</h5>
                 <form>
-                    <div className="row-12">
-                        <label className="col-2 font-weight-bold">Dog's Name:</label>
-                        <input className="col-4" type="text" />
-                        <label className="col-2 font-weight-bold">Other dogs?:</label>
-                        <label className="col-1 font-weight-bold">Yes:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-1 font-weight-bold">No:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Adult Males?:</label>
-                        <label className="col-1 font-weight-bold">Yes:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-1 font-weight-bold">No:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Adult Females?:</label>
-                        <label className="col-1 font-weight-bold">Yes:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-1 font-weight-bold">No:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Children?:</label>
-                        <label className="col-1 font-weight-bold">Yes:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-1 font-weight-bold">No:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Age From:</label>
-                        <input className="col-1" type="number" />
-                        <h6>Dog's Size:</h6>
-                        <label className="col-2 font-weight-bold">Small:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Medium:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Large:</label>
-                        <input className="col-1" type="radio" />
-                        <h6>Dog's Pace:</h6>
-                        <label className="col-2 font-weight-bold">Slow:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Moderate:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Energetic:</label>
-                        <input className="col-1" type="radio" />
-                        <h6>Any behaviour issues?:</h6>
-                        <label className="col-2 font-weight-bold">Nervous:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Barking:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Lead Pulling:</label>
-                        <input className="col-1" type="radio" />
-                        <label className="col-2 font-weight-bold">Reactive:</label>
-                        <input className="col-1" type="radio" />
-                        
+
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                            <label for="firstName">Dog's name:</label>
+                            <input type="text" className="form-control" id="dogtName" placeholder="Dog's name"></input>
+                        </div>
                     </div>
+
+                    <h5>Ok with other dogs?: </h5>
+                    <div className="custom-control custom-radio custom-control-inline">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label class="form-check-label" for="inlineRadio2">No</label>
+                        </div>
+                    </div>
+
+                    <h5>Ok with males / females?: </h5>
+                    <div className="custom-control custom-radio custom-control-inline">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <label class="form-check-label" for="inlineRadio1">Males</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label class="form-check-label" for="inlineRadio2">Females</label>
+                        </div>
+                    </div>
+                    <h5>Ok with children aged:</h5>
+
+                    <div className="custom-control custom-radio custom-control-inline">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <label class="form-check-label" for="inlineRadio1">0 to 5</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label class="form-check-label" for="inlineRadio2">6 to 12</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <label class="form-check-label" for="inlineRadio3">13 to 17</label>
+                        </div>
+                    </div>
+                    <h5>Dog's Size</h5>
+                    <div className="custom-control custom-radio custom-control-inline">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <label class="form-check-label" for="inlineRadio1">Small</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label class="form-check-label" for="inlineRadio2">Medium</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <label class="form-check-label" for="inlineRadio3">Large</label>
+                        </div>
+                    </div>
+                    <h5>Dog's Pace</h5>
+                    <div className="custom-control custom-radio custom-control-inline">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <label class="form-check-label" for="inlineRadio1">Slow</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label class="form-check-label" for="inlineRadio2">Moderate</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <label class="form-check-label" for="inlineRadio3">Energetic</label>
+                        </div>
+                    </div>
+                    <h5>Any behaviour issues?</h5>
+                    <div className="custom-control custom-radio custom-control-inline">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <label class="form-check-label" for="inlineRadio1">Nervous</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label class="form-check-label" for="inlineRadio2">Barking</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <label class="form-check-label" for="inlineRadio3">Lead Pulling</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <label class="form-check-label" for="inlineRadio3">Reactive</label>
+                        </div>
+                    </div>
+              
                 </form>
             </div>
         );

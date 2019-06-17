@@ -6,7 +6,6 @@ class DogsAvailable extends Component {
 
         return (
             <div className="col">
-                
 
                 <div className="row">
 

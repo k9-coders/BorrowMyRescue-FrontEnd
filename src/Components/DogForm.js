@@ -2,6 +2,17 @@ import React, { Component } from "react";
 
 class DogForm extends Component {
 
+    state = {
+        dogName: "",
+    }
+
+    dogNameData = (event) => {
+        const dogName = event.target.value;
+        this.setState({
+            dogName: dogName
+        });
+    }
+
     render() {
 
         return (
@@ -12,12 +23,12 @@ class DogForm extends Component {
 
                     <div className="form-row">
                         <div className="form-group col-md-6">
-                            <label for="firstName">Dog's name:</label>
-                            <input type="text" className="form-control" id="dogtName" placeholder="Dog's name"></input>
+                            <label for="dogName">Dog's name:</label>
+                            <input type="text" className="form-control" id="dogName" placeholder="Dog's name" onChange={this.dogNameData} ></input>
                         </div>
                     </div>
 
-                    <h5>Ok with other dogs?: </h5>
+                    <h5>Suitable with other dogs?: </h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
                         <div class="form-check form-check-inline">
@@ -30,7 +41,7 @@ class DogForm extends Component {
                         </div>
                     </div>
 
-                    <h5>Ok with males / females?: </h5>
+                    <h5>Suitable with males / females?: </h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
                         <div class="form-check form-check-inline">
@@ -42,7 +53,8 @@ class DogForm extends Component {
                             <label class="form-check-label" for="inlineRadio2">Females</label>
                         </div>
                     </div>
-                    <h5>Ok with children aged:</h5>
+
+                    <h5>Suitable with children aged:</h5>
 
                     <div className="custom-control custom-radio custom-control-inline">
 
@@ -110,7 +122,7 @@ class DogForm extends Component {
                             <label class="form-check-label" for="inlineRadio3">Reactive</label>
                         </div>
                     </div>
-              
+
                 </form>
             </div>
         );

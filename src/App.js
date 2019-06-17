@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import uuid from "uuid/v4";
 import Header from "./Components/Header";
+import UserSelection from "./Components/UserSelection";
 import BorrowersForm from "./Components/BorrowersForm";
 import DogForm from "./Components/DogForm";
 import DogsAvailable from "./Components/DogsAvailable";
@@ -36,6 +37,10 @@ class App extends Component {
 
         <div className="row-12">
           <FundRaising />
+        </div>
+        
+        <div className="row-12">
+          <UserSelection />
         </div>
 
         <div className="row-12">

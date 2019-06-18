@@ -18,7 +18,12 @@ class BorrowersForm extends Component {
         dayThurs: "",
         dayFri: "",
         daySat: "",
-        daySun: ""
+        daySun: "",
+        adultMales: "",
+        adultFemales: "",
+        childAgeBand05: "",
+        childAgeBand612: "",
+        childAgeBand1317: ""
     }
 
     firstNameData = (event) => {
@@ -133,6 +138,41 @@ class BorrowersForm extends Component {
         });
     }
 
+    adultMalesData = (event) => {
+        const adultMales = event.target.value;
+        this.setState({
+            adultMales: adultMales
+        });
+    }
+
+    adultFemalesData = (event) => {
+        const adultFemales = event.target.value;
+        this.setState({
+            adultFemales: adultFemales
+        });
+    }
+
+    childAgeBand05Data = (event) => {
+        const childAgeBand05 = event.target.value;
+        this.setState({
+            childAgeBand05: childAgeBand05
+        });
+    }
+
+    childAgeBand612Data = (event) => {
+        const childAgeBand612 = event.target.value;
+        this.setState({
+            childAgeBand612: childAgeBand612
+        });
+    }
+
+    childAgeBand1317Data = (event) => {
+        const childAgeBand1317 = event.target.value;
+        this.setState({
+            childAgeBand1317: childAgeBand1317
+        });
+    }
+
     render() {
 
         return (
@@ -237,26 +277,26 @@ class BorrowersForm extends Component {
 
                         <div className="form-group col-md-6">
                             <label htmlFor="borrowerMales">Number of Adult Males</label>
-                            <input type="number" className="form-control" id="borrowerMales"></input>
+                            <input type="number" className="form-control" id="borrowerMales" onChange={this.borrowerMalesData} ></input>
                         </div>
 
                         <div className="form-group col-md-6">
                             <label htmlFor="borrowerFemales">Number of Adult Females</label>
-                            <input type="number" className="form-control" id="borrowerFemales"></input>
+                            <input type="number" className="form-control" id="borrowerFemales" onChange={this.borrowerFemalesData} ></input>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-4">
-                            <label htmlFor="childrenBand05">Number of children aged 0-5</label>
-                            <input type="number" className="form-control" id="childrenBand05"></input>
+                            <label htmlFor="childAgeBand05">Number of children aged 0-5</label>
+                            <input type="number" className="form-control" id="childAgeBand05" onChange={this.childAgeBand05Data} ></input>
                         </div>
                         <div className="form-group col-md-4">
-                            <label htmlFor="childrenBand612">Number of children aged 6-12</label>
-                            <input type="number" className="form-control" id="childrenBand612"></input>
+                            <label htmlFor="childAgeBand612">Number of children aged 6-12</label>
+                            <input type="number" className="form-control" id="childAgeBand612" onChange={this.childAgeBand612Data} ></input>
                         </div>
                         <div className="form-group col-md-4">
-                            <label htmlFor="childrenBand1317">Number of children aged 13-17</label>
-                            <input type="number" className="form-control" id="childrenBand1317"></input>
+                            <label htmlFor="childAgeBand1317">Number of children aged 13-17</label>
+                            <input type="number" className="form-control" id="childAgeBand1317" onChange={this.childAgeBand1317Data} ></input>
                         </div>
                     </div>
                     <h6>Other Dogs?:</h6>
@@ -265,7 +305,7 @@ class BorrowersForm extends Component {
                         <div className="custom-control custom-radio custom-control-inline">
 
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.otherDogYesSelected}/>
                                 <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
                             </div>
                             <div className="form-check form-check-inline">

@@ -2,6 +2,17 @@ import React, { Component } from "react";
 
 class BorrowersForm extends Component {
 
+    state = {
+        firstName: "",
+    }
+
+    firstNameData = (event) => {
+        const firstName = event.target.value;
+        this.setState({
+            firstName: firstName
+        });
+    }
+
     render() {
 
         return (
@@ -14,7 +25,7 @@ class BorrowersForm extends Component {
 
                         <div className="form-group col-md-6">
                             <label for="firstName">First name</label>
-                            <input type="text" className="form-control" id="firstName" placeholder="First name"></input>
+                            <input type="text" className="form-control" id="firstName" placeholder="First name" onChange={this.firstNameData}></input>
                         </div>
 
                         <div className="form-group col-md-6">
@@ -43,7 +54,7 @@ class BorrowersForm extends Component {
                         </div>
 
                         <div className="form-group col-md-6">
-                            <label for="address2">Address2</label>
+                            <label for="address2">Address 2</label>
                             <input type="text" className="form-control" id="address2"></input>
                         </div>
 
@@ -52,16 +63,13 @@ class BorrowersForm extends Component {
                     <div className="form-row">
 
                         <div className="form-group col-md-6">
-                            <label for="townCity">Town/City</label>
-                            <input type="text" className="form-control" id="townCity"></input>
+                            <label for="address3">Address 3</label>
+                            <input type="text" className="form-control" id="address3"></input>
                         </div>
 
                         <div className="form-group col-md-4">
-                            <label for="County">County</label>
-                            <select id="county" className="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                            </select>
+                            <label for="townCity">Town/City</label>
+                            <input type="text" className="form-control" id="townCity"></input>
                         </div>
 
                         <div className="form-group col-md-2">
@@ -131,7 +139,7 @@ class BorrowersForm extends Component {
                             <input type="number" className="form-control" id="childrenBand1317"></input>
                         </div>
                     </div>
-                    <h6>Other Dogs? If yes, please enter your type of dog and brief details of any issues e.g. nervous, reactive behaviour:</h6>
+                    <h6>Other Dogs?:</h6>
 
                     <div className="form-row">
                         <div className="custom-control custom-radio custom-control-inline">
@@ -146,9 +154,14 @@ class BorrowersForm extends Component {
                             </div>
                         </div>
                     </div>
+                    <h5>If yes, please enter your type of dog and brief details of any issues e.g. nervous, reactive behaviour</h5>
                     <div className="form-row">
-                        <div className="col-12">
-                            <label for="ownDogDetails">Your own dog type, and any issues (if applicable):</label>
+                        <div className="col-6">
+                            <label for="ownDogType">Your own dog type (if applicable):</label>
+                            <input type="text" className="form-control" id="ownDogType"></input>
+                        </div>
+                        <div className="col-6">
+                            <label for="ownDogDetails">Any issues (if applicable):</label>
                             <input type="text" className="form-control" id="ownDogDetails"></input>
                         </div>
                     </div>
@@ -159,54 +172,58 @@ class BorrowersForm extends Component {
                         <h6>The pace of dog for your day out: (Click all that apply)</h6>
                         <div className="custom-control custom-radio custom-control-inline">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-                                <label class="form-check-label" for="inlineRadio1">Slow</label>
+                                <input class="form-check-input" type="radio" name="slowInlineRadioOptions" id="SlowInlineRadio1" value="option1" />
+                                <label class="form-check-label" for="slowInlineRadio1">Slow</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                <label class="form-check-label" for="inlineRadio2">Moderate</label>
+                                <input class="form-check-input" type="radio" name="moderateInlineRadioOptions" id="moderateInlineRadio2" value="option2" />
+                                <label class="form-check-label" for="moderateInlineRadio2">Moderate</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
-                                <label class="form-check-label" for="inlineRadio3">Energetic</label>
+                                <input class="form-check-input" type="radio" name="energeticInlineRadioOptions" id="energeticInlineRadio3" value="option3" />
+                                <label class="form-check-label" for="energeticInlineRadio3">Energetic</label>
                             </div>
                         </div>
+
                         <h6>The size of dog for your day out: (Click all that apply)</h6>
                         <div className="custom-control custom-radio custom-control-inline"></div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-                            <label class="form-check-label" for="inlineRadio1">Small, e.g. Jack Russell</label>
+                            <input class="form-check-input" type="radio" name="smallInlineRadioOptions" id="smallInlineRadio1" value="option1" />
+                            <label class="form-check-label" for="smallInlineRadio1">Small, e.g. Jack Russell</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                            <label class="form-check-label" for="inlineRadio2">Medium, e.g. Spaniel</label>
+                            <input class="form-check-input" type="radio" name="mediumInlineRadioOptions" id="mediumInlineRadio2" value="option2" />
+                            <label class="form-check-label" for="mediumInlineRadio2">Medium, e.g. Spaniel</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
-                            <label class="form-check-label" for="inlineRadio3">Large, e.g. Labrador</label>
+                            <input class="form-check-input" type="radio" name="largeInlineRadioOptions" id="largeInlineRadio3" value="option3" />
+                            <label class="form-check-label" for="largeInlineRadio3">Large, e.g. Labrador</label>
                         </div>
                     </div>
 
                     <h6>Some of our dogs need a little bit more dog handling experience. If you have of any experience of the following please select: (Click all that apply, if no experience of these issues leave blank)</h6>
+
                     <div className="custom-control custom-radio custom-control-inline">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-                            <label class="form-check-label" for="inlineRadio1">Nervous</label>
+                            <input class="form-check-input" type="radio" name="nervousInlineRadioOptions" id="nervousInlineRadio1" value="option1" />
+                            <label class="form-check-label" for="nervousInlineRadio1">Nervous</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                            <label class="form-check-label" for="inlineRadio2">Barking</label>
+                            <input class="form-check-input" type="radio" name="barkingInlineRadioOptions" id="barkingInlineRadio2" value="option2" />
+                            <label class="form-check-label" for="barkingInlineRadio2">Barking</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
-                            <label class="form-check-label" for="inlineRadio3">Lead Pulling</label>
+                            <input class="form-check-input" type="radio" name="pullingInlineRadioOptions" id="pullingInlineRadio3" value="option3" />
+                            <label class="form-check-label" for="pullingInlineRadio3">Lead Pulling</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
-                            <label class="form-check-label" for="inlineRadio3">Reactive</label>
+                            <input class="form-check-input" type="radio" name="reactiveInlineRadioOptions" id="reactiveInlineRadio3" value="option3" />
+                            <label class="form-check-label" for="reactiveInlineRadio3">Reactive</label>
                         </div>
                     </div>
-
+                    <div>
+                        <button className="btn btn-primary btn-am m-2" onClick={this.addborrowerClicked} > Submit</button>
+                    </div>
                 </form>
             </div>
         );

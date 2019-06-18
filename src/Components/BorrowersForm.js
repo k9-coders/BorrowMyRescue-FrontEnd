@@ -221,7 +221,9 @@ class BorrowersForm extends Component {
                             <label class="form-check-label" for="reactiveInlineRadio3">Reactive</label>
                         </div>
                     </div>
-
+                    <div>
+                        <button className="btn btn-primary btn-am m-2" onClick={this.addborrowerClicked} > Submit</button>
+                    </div>
                 </form>
             </div>
         );

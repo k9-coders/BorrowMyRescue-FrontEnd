@@ -4,12 +4,132 @@ class BorrowersForm extends Component {
 
     state = {
         firstName: "",
+        surname: "",
+        email: "",
+        mobile: "",
+        address1: "",
+        address2: "",
+        address3: "",
+        townCity: "",
+        postcode: "",
+        dayMon: "",
+        dayTues: "",
+        dayWed: "",
+        dayThurs: "",
+        dayFri: "",
+        daySat: "",
+        daySun: ""
     }
 
     firstNameData = (event) => {
         const firstName = event.target.value;
         this.setState({
             firstName: firstName
+        });
+    }
+
+    surnameData = (event) => {
+        const surname = event.target.value;
+        this.setState({
+            surname: surname
+        });
+    }
+
+    emailData = (event) => {
+        const email = event.target.value;
+        this.setState({
+            email: email
+        });
+    }
+
+    mobileData = (event) => {
+        const mobile = event.target.value;
+        this.setState({
+            mobile: mobile
+        });
+    }
+
+    address1Data = (event) => {
+        const address1 = event.target.value;
+        this.setState({
+            address1: address1
+        });
+    }
+
+    address2Data = (event) => {
+        const address2 = event.target.value;
+        this.setState({
+            address2: address2
+        });
+    }
+
+    address3Data = (event) => {
+        const address3 = event.target.value;
+        this.setState({
+            address3: address3
+        });
+    }
+
+    townCityData = (event) => {
+        const townCity = event.target.value;
+        this.setState({
+            townCity: townCity
+        });
+    }
+
+    postcodeData = (event) => {
+        const postcode = event.target.value;
+        this.setState({
+            postcode: postcode
+        });
+    }
+
+    dayMonSelected = (event) => {
+        const dayMon = event.target.value;
+        this.setState({
+            dayMon: dayMon
+        });
+    }
+
+    dayTuesSelected = (event) => {
+        const dayTues = event.target.value;
+        this.setState({
+            dayTues: dayTues
+        });
+    }
+
+    dayWedSelected = (event) => {
+        const dayWed = event.target.value;
+        this.setState({
+            dayWed: dayWed
+        });
+    }
+
+    dayThursSelected = (event) => {
+        const dayThurs = event.target.value;
+        this.setState({
+            dayThurs: dayThurs
+        });
+    }
+
+    dayFriSelected = (event) => {
+        const dayFri = event.target.value;
+        this.setState({
+            dayFri: dayFri
+        });
+    }
+
+    daySatSelected = (event) => {
+        const daySat = event.target.value;
+        this.setState({
+            daySat: daySat
+        });
+    }
+
+    daySunSelected = (event) => {
+        const daySun = event.target.value;
+        this.setState({
+            daySun: daySun
         });
     }
 
@@ -30,19 +150,19 @@ class BorrowersForm extends Component {
 
                         <div className="form-group col-md-6">
                             <label htmlFor="surname">Surname</label>
-                            <input type="text" className="form-control" id="surname" placeholder="Surname"></input>
+                            <input type="text" className="form-control" id="surname" placeholder="Surname" onChange={this.surnameData} ></input>
                         </div>
                     </div>
 
                     <div className="form-row">
                         <div className="form-group col-md-8">
                             <label htmlFor="inputEmail4">Email</label>
-                            <input type="email" className="form-control" id="inputEmail4" placeholder="Email"></input>
+                            <input type="email" className="form-control" id="inputEmail4" placeholder="Email" onChange={this.emailData} ></input>
                         </div>
 
                         <div className="form-group col-md-4">
                             <label htmlFor="mobile">Mobile</label>
-                            <input type="text" className="form-control" id="mobile" placeholder="Mobile"></input>
+                            <input type="text" className="form-control" id="mobile" placeholder="Mobile" onChange={this.mobileData} ></input>
                         </div>
                     </div>
 
@@ -50,12 +170,12 @@ class BorrowersForm extends Component {
 
                         <div className="form-group col-md-6">
                             <label htmlFor="address1">Address 1</label>
-                            <input type="text" className="form-control" id="address1"></input>
+                            <input type="text" className="form-control" id="address1" onChange={this.address1Data} ></input>
                         </div>
 
                         <div className="form-group col-md-6">
                             <label htmlFor="address2">Address 2</label>
-                            <input type="text" className="form-control" id="address2"></input>
+                            <input type="text" className="form-control" id="address2" onChange={this.address2Data} ></input>
                         </div>
 
                     </div>
@@ -64,48 +184,48 @@ class BorrowersForm extends Component {
 
                         <div className="form-group col-md-6">
                             <label htmlFor="address3">Address 3</label>
-                            <input type="text" className="form-control" id="address3"></input>
+                            <input type="text" className="form-control" id="address3" onChange={this.address3Data} ></input>
                         </div>
 
                         <div className="form-group col-md-4">
                             <label htmlFor="townCity">Town/City</label>
-                            <input type="text" className="form-control" id="townCity"></input>
+                            <input type="text" className="form-control" id="townCity" onChange={this.townCityData} ></input>
                         </div>
 
                         <div className="form-group col-md-2">
                             <label htmlFor="postcode">Post Code</label>
-                            <input type="text" className="form-control" id="postcode"></input>
+                            <input type="text" className="form-control" id="postcode" onChange={this.postcodeData} ></input>
                         </div>
 
                     </div>
                     <h5>Please select all the days you are available to borow a dog (select all that apply)</h5>
                     <div className="form-group">
                         <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayMoncustomRadioInline1" name="dayMoncustomRadioInline1" className="custom-control-input"></input>
+                            <input type="radio" id="dayMoncustomRadioInline1" name="dayMoncustomRadioInline1" className="custom-control-input" onChange={this.dayMonSelected} ></input>
                             <label className="custom-control-label" htmlFor="dayMoncustomRadioInline1">Monday</label>
                         </div>
                         <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayTuescustomRadioInline1" name="dayTuescustomRadioInline1" className="custom-control-input"></input>
+                            <input type="radio" id="dayTuescustomRadioInline1" name="dayTuescustomRadioInline1" className="custom-control-input" onChange={this.dayTuesSelected} ></input>
                             <label className="custom-control-label" htmlFor="dayTuescustomRadioInline1">Tuesday</label>
                         </div>
                         <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayWedcustomRadioInline1" name="dayWedcustomRadioInline1" className="custom-control-input"></input>
+                            <input type="radio" id="dayWedcustomRadioInline1" name="dayWedcustomRadioInline1" className="custom-control-input" onChange={this.dayWedSelected} ></input>
                             <label className="custom-control-label" htmlFor="dayWedcustomRadioInline1">Wednesday</label>
                         </div>
                         <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayThurscustomRadioInline1" name="dayThurscustomRadioInline1" className="custom-control-input"></input>
+                            <input type="radio" id="dayThurscustomRadioInline1" name="dayThurscustomRadioInline1" className="custom-control-input" onChange={this.dayThursSelected} ></input>
                             <label className="custom-control-label" htmlFor="dayThurscustomRadioInline1">Thursday</label>
                         </div>
                         <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayFricustomRadioInline1" name="dayFricustomRadioInline1" className="custom-control-input"></input>
+                            <input type="radio" id="dayFricustomRadioInline1" name="dayFricustomRadioInline1" className="custom-control-input" onChange={this.dayFriSelected} ></input>
                             <label className="custom-control-label" htmlFor="dayFricustomRadioInline1">Friday</label>
                         </div>
                         <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="daySatcustomRadioInline1" name="daySatcustomRadioInline1" className="custom-control-input"></input>
+                            <input type="radio" id="daySatcustomRadioInline1" name="daySatcustomRadioInline1" className="custom-control-input" onChange={this.daySatSelected} ></input>
                             <label className="custom-control-label" htmlFor="daySatcustomRadioInline1">Saturday</label>
                         </div>
                         <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="daySuncustomRadioInline1" name="daySuncustomRadioInline1" className="custom-control-input"></input>
+                            <input type="radio" id="daySuncustomRadioInline1" name="daySuncustomRadioInline1" className="custom-control-input" onChange={this.daySunSelected} ></input>
                             <label className="custom-control-label" htmlFor="daySuncustomRadioInline1">Sunday</label>
                         </div>
                     </div>

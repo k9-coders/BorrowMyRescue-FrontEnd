@@ -47,8 +47,8 @@ class App extends Component {
         </div>
 
         <div className="row-12">
-          <DogForm />
-          addDogFunction={this.addDogs}
+          <DogForm
+          addDogFunction={this.addDogs} />
         </div>
 
         <div className="row-12">
@@ -61,7 +61,7 @@ class App extends Component {
                 otherDogs={item.otherDogs}
                 adultMales={item.adultMales}
                 adultFemales={item.adultFemales}
-                children={item.children}
+                withChildren={item.withChildren}
                 fromAge={item.fromAge}
                 dogSize={item.dogSize}
                 dogPace={item.dogPace}

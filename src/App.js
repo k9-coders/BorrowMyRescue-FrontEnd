@@ -48,7 +48,7 @@ class App extends Component {
 
         <div className="row-12">
           <DogForm />
-          addDogFunction={this.addDog}
+          addDogFunction={this.addDogs}
         </div>
 
         <div className="row-12">

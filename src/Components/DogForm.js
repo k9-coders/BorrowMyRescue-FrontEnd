@@ -146,7 +146,7 @@ class DogForm extends Component {
 
                     <div className="form-row">
                         <div className="form-group col-md-6">
-                            <label for="dogName">Dog's name:</label>
+                            <label htmlFor="dogName">Dog's name:</label>
                             <input type="text" className="form-control" id="dogName" placeholder="Dog's name" onChange={this.dogNameData} ></input>
                         </div>
                     </div>
@@ -154,26 +154,26 @@ class DogForm extends Component {
                     <h5>Suitable with other dogs?: </h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.otherDogsData} />
-                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.otherDogsData} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                            <label class="form-check-label" for="inlineRadio2">No</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label className="form-check-label" htmlFor="inlineRadio2">No</label>
                         </div>
                     </div>
 
                     <h5>Suitable with males / females?: </h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.adultMalesSelected} />
-                            <label class="form-check-label" for="inlineRadio1">Males</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.adultMalesSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">Males</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onChange={this.adultFemalesSelected} />
-                            <label class="form-check-label" for="inlineRadio2">Females</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onChange={this.adultFemalesSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio2">Females</label>
                         </div>
                     </div>
 
@@ -181,73 +181,73 @@ class DogForm extends Component {
 
                     <div className="custom-control custom-radio custom-control-inline">
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.withChildrenSelected} />
-                            <label class="form-check-label" for="inlineRadio1">None</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.withChildrenSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">None</label>
                         </div>
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.withChildren05Selected} />
-                            <label class="form-check-label" for="inlineRadio1">aged 0 to 5</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.withChildren05Selected} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">aged 0 to 5</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onChange={this.withChildren612Selected} />
-                            <label class="form-check-label" for="inlineRadio2">aged 6 to 12</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onChange={this.withChildren612Selected} />
+                            <label className="form-check-label" htmlFor="inlineRadio2">aged 6 to 12</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onChange={this.withChildren1317Selected} />
-                            <label class="form-check-label" for="inlineRadio3">aged 13 to 17</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onChange={this.withChildren1317Selected} />
+                            <label className="form-check-label" htmlFor="inlineRadio3">aged 13 to 17</label>
                         </div>
                     </div>
                     <h5>Dog's Size</h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.dogSizeSelected} />
-                            <label class="form-check-label" for="inlineRadio1">Small</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.dogSizeSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">Small</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                            <label class="form-check-label" for="inlineRadio2">Medium</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label className="form-check-label" htmlFor="inlineRadio2">Medium</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
-                            <label class="form-check-label" for="inlineRadio3">Large</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <label className="form-check-label" htmlFor="inlineRadio3">Large</label>
                         </div>
                     </div>
                     <h5>Dog's Pace</h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.dogPaceSelected} />
-                            <label class="form-check-label" for="inlineRadio1">Slow</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.dogPaceSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">Slow</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                            <label class="form-check-label" for="inlineRadio2">Moderate</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label className="form-check-label" htmlFor="inlineRadio2">Moderate</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
-                            <label class="form-check-label" for="inlineRadio3">Energetic</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <label className="form-check-label" htmlFor="inlineRadio3">Energetic</label>
                         </div>
                     </div>
                     <h5>Any behaviour issues?</h5>
                     <div className="custom-control custom-radio custom-control-inline">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.behaviourNervousSelected} />
-                            <label class="form-check-label" for="inlineRadio1">Nervous</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.behaviourNervousSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">Nervous</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onChange={this.behaviourLeadPullingSelected} />
-                            <label class="form-check-label" for="inlineRadio2">Barking</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onChange={this.behaviourLeadPullingSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio2">Barking</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onChange={this.behaviourBarkingSelected} />
-                            <label class="form-check-label" for="inlineRadio3">Lead Pulling</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onChange={this.behaviourBarkingSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio3">Lead Pulling</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onChange={this.behaviourReactiveSelected} />
-                            <label class="form-check-label" for="inlineRadio3">Reactive</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onChange={this.behaviourReactiveSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio3">Reactive</label>
                         </div>
                     </div>
                     <div>

@@ -10,10 +10,6 @@ class DogsAvailable extends Component {
                 <div className="row">
 
                     <div className="col">
-                        {this.props.id}
-                    </div>
-
-                    <div className="col">
                         {this.props.dogName}
                     </div>
 
@@ -30,7 +26,7 @@ class DogsAvailable extends Component {
                     </div>
 
                     <div className="col">
-                        {this.props.children}
+                        {this.props.withChildren}
                     </div>
 
                     <div className="col">

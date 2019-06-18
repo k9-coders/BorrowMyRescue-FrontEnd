@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import uuid from "uuid/v4";
 import Header from "./Components/Header";
 import UserSelection from "./Components/UserSelection";
 import BorrowersForm from "./Components/BorrowersForm";
@@ -13,16 +12,7 @@ class App extends Component {
 
   state = {
     dogs: [
-      { dogName: "Toby", otherDogs: "Yes", adultMales: "Yes", adultFemales: "Yes", children: "Yes", fromAge: 10, dogSize: "Medium", dogPace: "Moderate", behaviourIssue: "None", completed: false, },
-      { dogName: "Luca", otherDogs: "Yes", adultMales: "Yes", adultFemales: "Yes", children: "Yes", fromAge: 10, dogSize: "Medium", dogPace: "Moderate", behaviourIssue: "None", completed: false, },
-      { dogName: "Tilly", otherDogs: "No", adultMales: "No", adultFemales: "Yes", children: "No", fromAge: 18, dogSize: "Small", dogPace: "Slow", behaviourIssue: "Reactive", completed: false, },
-      { dogName: "Freddie", otherDogs: "No", adultMales: "Yes", adultFemales: "Yes", children: "No", fromAge: 18, dogSize: "Large", dogPace: "Energetic", behaviourIssue: "Nervous", completed: false, },
-      { dogName: "Murphy", otherDogs: "Yes", adultMales: "Yes", adultFemales: "Yes", children: "Yes", fromAge: 10, dogSize: "Medium", dogPace: "Moderate", behaviourIssue: "Lead Pulling", completed: false, },
-      { dogName: "Oscar", otherDogs: "No", adultMales: "Yes", adultFemales: "Yes", children: "No", fromAge: 18, dogSize: "Large", dogPace: "Energetic", behaviourIssue: "Barking", completed: false, },
-      { dogName: "Huxley", otherDogs: "Yes", adultMales: "Yes", adultFemales: "Yes", children: "Yes", fromAge: 10, dogSize: "Small", dogPace: "Moderate", behaviourIssue: "None", completed: false, },
-      { dogName: "Rosie", otherDogs: "No", adultMales: "No", adultFemales: "Yes", children: "No", fromAge: 18, dogSize: "Medium", dogPace: "Moderate", behaviourIssue: "Reactive", completed: false, },
-      { dogName: "Fen", otherDogs: "Yes", adultMales: "Yes", adultFemales: "Yes", children: "Yes", fromAge: 14, dogSize: "Large", dogPace: "Energetic", behaviourIssue: "Lead Pulling", completed: false, },
-      { dogName: "Frankie", otherDogs: "Yes", adultMales: "Yes", adultFemales: "Yes", children: "Yes", fromAge: 14, dogSize: "Medium", dogPace: "Energetic", behaviourIssue: "Nervous", completed: false, }
+      { dogName: "Frankie", otherDogs: true, adultMales: true, adultFemales: true, withChildren: true, withChildren05: false, withChildren612: false, withChildren1317: true, dogSize: "Medium", dogPace: "Energetic", behaviourNervous: false, behaviourBarking: false, behaviourLeadPulling: true, behaviourReactive: false, }
     ]
   }
 
@@ -57,8 +47,8 @@ class App extends Component {
         </div>
 
         <div className="row-12">
-          <DogForm />
-          addDogFunction={this.addDog}
+          <DogForm
+          addDogFunction={this.addDogs} />
         </div>
 
         <div className="row-12">
@@ -71,7 +61,7 @@ class App extends Component {
                 otherDogs={item.otherDogs}
                 adultMales={item.adultMales}
                 adultFemales={item.adultFemales}
-                children={item.children}
+                withChildren={item.withChildren}
                 fromAge={item.fromAge}
                 dogSize={item.dogSize}
                 dogPace={item.dogPace}

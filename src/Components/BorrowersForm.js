@@ -173,6 +173,32 @@ class BorrowersForm extends Component {
         });
     }
 
+    addBorrowerClicked = e => {
+        e.preventDefault();
+        const newfirstName = this.state.borrowerFirstName
+        const newsurname = this.state.borrowerSurname
+        const newemail = this.state.borrowerEmail
+        const newmobile = this.state.borrowerMobile
+        const newaddress1 = this.state.borrowerAddress1
+        const newaddress2 = this.state.borrowerAddress2
+        const newaddress3 = this.state.borrowerAddress3
+        const newtownCity = this.state.borrowerTownCity
+        const newpostcode = this.state.borrowerPostcode
+        const newdayMon = this.state.borrowerDayMon
+        const newdayTues = this.state.borrowerDayTues
+        const newdayWed = this.state.borrowerDayWed
+        const newdayThurs = this.state.borrowerDayThurs
+        const newdayFri = this.state.borrowerDayFri
+        const newdaySat = this.state.borrowerDaySat
+        const newdaySun = this.state.borrowerDaySun
+        const newadultMales = this.state.borrowerAdultMales
+        const newadultFemales = this.state.borrowerAdultFemales
+        const newchildAgeBand05 = this.state.borrowerChildAgeBand05
+        const newchildAgeBand612 = this.state.borrowerChildAgeBand612
+        const newchildAgeBand1317 = this.state.borrowerChildAgeBand1317
+        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317); 
+    }
+
     render() {
 
         return (

@@ -13,13 +13,25 @@ class App extends Component {
   state = {
     dogs: [
       { dogName: "Frankie", otherDogs: true, adultMales: true, adultFemales: true, withChildren: true, withChildren05: false, withChildren612: false, withChildren1317: true, dogSize: "Medium", dogPace: "Energetic", behaviourNervous: false, behaviourBarking: false, behaviourLeadPulling: true, behaviourReactive: false, }
+    ],
+    borrowers: [
+      { firstName: "Gill", surname: "Openshaw", }
     ]
+  }
+
+  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWed, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1317) => {
+    const currentBorrowers = this.state.borrowers;
+    const newBorrowerObject = { firstName: borrowerFirstName, surname: borrowerSurname, email: borrowerEmail, mobile: borrowerMobile, address1: borrowerAddress1, address2: borrowerAddress2, address3: borrowerAddress3, townCity: borrowerTownCity, postcode: borrowerPostcode, dayMon: borrowerDayMon, dayTues: borrowerDayTues, dayWed: borrowerDayWed, dayThurs: borrowerDayThurs, dayFri: borrowerDayFri, daySat: borrowerDaySat, daySun: borrowerDaySun, adultMales: borrowerAdultMales, adultFemales: borrowerAdultFemales, childAgeBand05: borrowerChildAgeBand05, childAgeBand612: borrowerChildAgeBand612, childAgeBand1317: borrowerChildAgeBand1317 }
+    currentBorrowers.push(newBorrowerObject);
+    this.setState({
+      borrowers: currentBorrowers
+    })
   }
 
   addDogs = (dogDogName, dogOtherDogs, dogAdultMales, dogAdultFemales, dogWithChildren, dogWithChildren05, dogWithChildren612, dogWithChildren1317, dogDogSize, dogDogPace, dogBehaviourNervous, dogBehaviourLeadPulling, dogBehaviourBarking, dogBehaviourReactive) => {
     const currentDogs = this.state.dogs;
-    const newObject = { dogName: dogDogName, otherDogs: dogOtherDogs, adultMales: dogAdultMales, adultFemales: dogAdultFemales, withChildren: dogWithChildren, withChildren05: dogWithChildren05, withChildren612: dogWithChildren612, withChildren1317: dogWithChildren1317, dogSize: dogDogSize, dogPace: dogDogPace, behaviourNervous: dogBehaviourNervous, behaviourLeadPulling: dogBehaviourLeadPulling, behaviourBarking: dogBehaviourBarking, behaviourReactive: dogBehaviourReactive }
-    currentDogs.push(newObject);
+    const newDogObject = { dogName: dogDogName, otherDogs: dogOtherDogs, adultMales: dogAdultMales, adultFemales: dogAdultFemales, withChildren: dogWithChildren, withChildren05: dogWithChildren05, withChildren612: dogWithChildren612, withChildren1317: dogWithChildren1317, dogSize: dogDogSize, dogPace: dogDogPace, behaviourNervous: dogBehaviourNervous, behaviourLeadPulling: dogBehaviourLeadPulling, behaviourBarking: dogBehaviourBarking, behaviourReactive: dogBehaviourReactive }
+    currentDogs.push(newDogObject);
     this.setState({
       dogs: currentDogs
     })
@@ -48,7 +60,7 @@ class App extends Component {
 
         <div className="row-12">
           <DogForm
-          addDogFunction={this.addDogs} />
+            addDogFunction={this.addDogs} />
         </div>
 
         <div className="row-12">

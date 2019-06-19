@@ -21,6 +21,7 @@ class BorrowersForm extends Component {
         daySun: "",
         adultMales: "",
         adultFemales: "",
+        childAgeBandNone: "",
         childAgeBand05: "",
         childAgeBand612: "",
         childAgeBand1317: ""
@@ -152,6 +153,12 @@ class BorrowersForm extends Component {
         });
     }
 
+    childAgeBandNoneData = (event) => {
+        const childAgeBandNone = event.target.value;
+        this.setState({
+            childAgeBandNone: childAgeBandNone
+        });
+    }
     childAgeBand05Data = (event) => {
         const childAgeBand05 = event.target.value;
         this.setState({
@@ -193,10 +200,11 @@ class BorrowersForm extends Component {
         const newdaySun = this.state.borrowerDaySun
         const newadultMales = this.state.borrowerAdultMales
         const newadultFemales = this.state.borrowerAdultFemales
+        const newchildAgeBandNone = this.state.borrowerChildAgeBandNone
         const newchildAgeBand05 = this.state.borrowerChildAgeBand05
         const newchildAgeBand612 = this.state.borrowerChildAgeBand612
         const newchildAgeBand1317 = this.state.borrowerChildAgeBand1317
-        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317); 
+        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBandNone, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317);
     }
 
     render() {
@@ -297,7 +305,7 @@ class BorrowersForm extends Component {
                     </div>
                 </form >
 
-                <h5>Enter the details of all people and other dogs in your group on the day out here (if not applicable, please enter zero):</h5>
+                <h5>Enter the details of all people and other dogs in your group on the day out (if not applicable, please enter zero):</h5>
                 <form>
                     <div className="form-row">
 
@@ -312,15 +320,19 @@ class BorrowersForm extends Component {
                         </div>
                     </div>
                     <div className="form-row">
-                        <div className="form-group col-md-4">
+                        <div className="form-group col-md-3">
+                            <label htmlFor="childAgeBandNone">No Children</label>
+                            <input type="number" className="form-control" id="childAgeBand05" onChange={this.childAgeBandNoneData} ></input>
+                        </div>
+                        <div className="form-group col-md-3">
                             <label htmlFor="childAgeBand05">Number of children aged 0-5</label>
                             <input type="number" className="form-control" id="childAgeBand05" onChange={this.childAgeBand05Data} ></input>
                         </div>
-                        <div className="form-group col-md-4">
+                        <div className="form-group col-md-3">
                             <label htmlFor="childAgeBand612">Number of children aged 6-12</label>
                             <input type="number" className="form-control" id="childAgeBand612" onChange={this.childAgeBand612Data} ></input>
                         </div>
-                        <div className="form-group col-md-4">
+                        <div className="form-group col-md-3">
                             <label htmlFor="childAgeBand1317">Number of children aged 13-17</label>
                             <input type="number" className="form-control" id="childAgeBand1317" onChange={this.childAgeBand1317Data} ></input>
                         </div>
@@ -331,7 +343,7 @@ class BorrowersForm extends Component {
                         <div className="custom-control custom-radio custom-control-inline">
 
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.otherDogYesSelected}/>
+                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.otherDogYesSelected} />
                                 <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
                             </div>
                             <div className="form-check form-check-inline">

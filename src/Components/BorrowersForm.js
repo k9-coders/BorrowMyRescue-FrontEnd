@@ -3,180 +3,196 @@ import React, { Component } from "react";
 class BorrowersForm extends Component {
 
     state = {
-        firstName: "",
-        surname: "",
-        email: "",
-        mobile: "",
-        address1: "",
-        address2: "",
-        address3: "",
-        townCity: "",
-        postcode: "",
-        dayMon: "",
-        dayTues: "",
-        dayWed: "",
-        dayThurs: "",
-        dayFri: "",
-        daySat: "",
-        daySun: "",
-        adultMales: "",
-        adultFemales: "",
-        childAgeBandNone: "",
-        childAgeBand05: "",
-        childAgeBand612: "",
-        childAgeBand1317: ""
+        borrowerfirstName: "",
+        borrowersurname: "",
+        borroweremail: "",
+        borrowermobile: "",
+        borroweraddress1: "",
+        borroweraddress2: "",
+        borroweraddress3: "",
+        borrowertownCity: "",
+        borrowerpostcode: "",
+        borrowerdayMon: "",
+        borrowerdayTues: "",
+        borrowerdayWed: "",
+        borrowerdayThurs: "",
+        borrowerdayFri: "",
+        borrowerdaySat: "",
+        borrowerdaySun: "",
+        borroweradultMales: "",
+        borroweradultFemales: "",
+        borrowerchildAgeBandNone: "",
+        borrowerchildAgeBand05: "",
+        borrowerchildAgeBand612: "",
+        borrowerchildAgeBand1317: "",
+        borrowerotherDog: true,
+        borrowerownDogType: ""
     }
 
     firstNameData = (event) => {
-        const firstName = event.target.value;
+        const borrowerfirstName = event.target.value;
         this.setState({
-            firstName: firstName
+            borrowerfirstName: borrowerfirstName
         });
     }
 
     surnameData = (event) => {
-        const surname = event.target.value;
+        const borrowersurname = event.target.value;
         this.setState({
-            surname: surname
+            borrowersurname: borrowersurname
         });
     }
 
     emailData = (event) => {
-        const email = event.target.value;
+        const borroweremail = event.target.value;
         this.setState({
-            email: email
+            borroweremail: borroweremail
         });
     }
 
     mobileData = (event) => {
-        const mobile = event.target.value;
+        const borrowermobile = event.target.value;
         this.setState({
-            mobile: mobile
+            borrowermobile: borrowermobile
         });
     }
 
     address1Data = (event) => {
-        const address1 = event.target.value;
+        const borroweraddress1 = event.target.value;
         this.setState({
-            address1: address1
+            borroweraddress1: borroweraddress1
         });
     }
 
     address2Data = (event) => {
-        const address2 = event.target.value;
+        const borroweraddress2 = event.target.value;
         this.setState({
-            address2: address2
+            borroweraddress2: borroweraddress2
         });
     }
 
     address3Data = (event) => {
-        const address3 = event.target.value;
+        const borroweraddress3 = event.target.value;
         this.setState({
-            address3: address3
+            borroweraddress3: borroweraddress3
         });
     }
 
     townCityData = (event) => {
-        const townCity = event.target.value;
+        const borrowertownCity = event.target.value;
         this.setState({
-            townCity: townCity
+            borrowertownCity: borrowertownCity
         });
     }
 
     postcodeData = (event) => {
-        const postcode = event.target.value;
+        const borrowerpostcode = event.target.value;
         this.setState({
-            postcode: postcode
+            borrowerpostcode: borrowerpostcode
         });
     }
 
     dayMonSelected = (event) => {
-        const dayMon = event.target.value;
+        const borrowerdayMon = event.target.value;
         this.setState({
-            dayMon: dayMon
+            borrowerdayMon: borrowerdayMon
         });
     }
 
     dayTuesSelected = (event) => {
-        const dayTues = event.target.value;
+        const borrowerdayTues = event.target.value;
         this.setState({
-            dayTues: dayTues
+            borrowerdayTues: borrowerdayTues
         });
     }
 
     dayWedSelected = (event) => {
-        const dayWed = event.target.value;
+        const borrowerdayWed = event.target.value;
         this.setState({
-            dayWed: dayWed
+            borrowerdayWed: borrowerdayWed
         });
     }
 
     dayThursSelected = (event) => {
-        const dayThurs = event.target.value;
+        const borrowerdayThurs = event.target.value;
         this.setState({
-            dayThurs: dayThurs
+            borrowerdayThurs: borrowerdayThurs
         });
     }
 
     dayFriSelected = (event) => {
-        const dayFri = event.target.value;
+        const borrowerdayFri = event.target.value;
         this.setState({
-            dayFri: dayFri
+            borrowerdayFri: borrowerdayFri
         });
     }
 
     daySatSelected = (event) => {
-        const daySat = event.target.value;
+        const borrowerdaySat = event.target.value;
         this.setState({
-            daySat: daySat
+            borrowerdaySat: borrowerdaySat
         });
     }
 
     daySunSelected = (event) => {
-        const daySun = event.target.value;
+        const borrowerdaySun = event.target.value;
         this.setState({
-            daySun: daySun
+            borrowerdaySun: borrowerdaySun
         });
     }
 
     adultMalesData = (event) => {
-        const adultMales = event.target.value;
+        const borroweradultMales = event.target.value;
         this.setState({
-            adultMales: adultMales
+            borroweradultMales: borroweradultMales
         });
     }
 
     adultFemalesData = (event) => {
-        const adultFemales = event.target.value;
+        const borroweradultFemales = event.target.value;
         this.setState({
-            adultFemales: adultFemales
+            borroweradultFemales: borroweradultFemales
         });
     }
 
     childAgeBandNoneData = (event) => {
-        const childAgeBandNone = event.target.value;
+        const borrowerchildAgeBandNone = event.target.value;
         this.setState({
-            childAgeBandNone: childAgeBandNone
+            borrowerchildAgeBandNone: borrowerchildAgeBandNone
         });
     }
     childAgeBand05Data = (event) => {
-        const childAgeBand05 = event.target.value;
+        const borrowerchildAgeBand05 = event.target.value;
         this.setState({
-            childAgeBand05: childAgeBand05
+            borrowerchildAgeBand05: borrowerchildAgeBand05
         });
     }
 
     childAgeBand612Data = (event) => {
-        const childAgeBand612 = event.target.value;
+        const borrowerchildAgeBand612 = event.target.value;
         this.setState({
-            childAgeBand612: childAgeBand612
+            borrowerchildAgeBand612: borrowerchildAgeBand612
         });
     }
 
     childAgeBand1317Data = (event) => {
-        const childAgeBand1317 = event.target.value;
+        const borrowerchildAgeBand1317 = event.target.value;
         this.setState({
-            childAgeBand1317: childAgeBand1317
+            borrowerchildAgeBand1317: borrowerchildAgeBand1317
+        });
+    }
+
+    otherDogSelected = (event) => {
+        const borrowerotherDog = event.target.value==="Yes";
+        this.setState({
+            borrowerotherDog: borrowerotherDog
+        });
+    }
+
+    ownDogTypeSelected = (event) => {
+        const borrowerownDogType = event.target.value;
+        this.setState({
+            borrowerownDogType: borrowerownDogType
         });
     }
 
@@ -204,7 +220,10 @@ class BorrowersForm extends Component {
         const newchildAgeBand05 = this.state.borrowerChildAgeBand05
         const newchildAgeBand612 = this.state.borrowerChildAgeBand612
         const newchildAgeBand1317 = this.state.borrowerChildAgeBand1317
-        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBandNone, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317);
+        const newotherDog = this.state.borrowerOtherDog
+        const newownDogType = this.setState.borrowerOwnDogType
+
+        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBandNone, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317, newotherDog, newownDogType);
     }
 
     render() {
@@ -343,11 +362,11 @@ class BorrowersForm extends Component {
                         <div className="custom-control custom-radio custom-control-inline">
 
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.otherDogYesSelected} />
+                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Yes" onChange={this.otherDogSelected} checked={this.state.dogOtherDog} />
                                 <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
                             </div>
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="No" onChange={this.otherDogSelected} checked={this.state.dogOtherDog===false} />
                                 <label className="form-check-label" htmlFor="inlineRadio2">No</label>
                             </div>
                         </div>
@@ -356,7 +375,7 @@ class BorrowersForm extends Component {
                     <div className="form-row">
                         <div className="col-6">
                             <label htmlFor="ownDogType">Your own dog type (if applicable):</label>
-                            <input type="text" className="form-control" id="ownDogType"></input>
+                            <input type="text" className="form-control" id="ownDogType" value={this.state.borrowerOwnDogType} onChange={this.borrowerOwnDogType} ></input>
                         </div>
                         <div className="col-6">
                             <label htmlFor="ownDogDetails">Any issues (if applicable):</label>

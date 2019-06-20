@@ -5,8 +5,8 @@ class DogForm extends Component {
     state = {
         dogDogName: "",
         dogOtherDogs: true,
-        dogAdultMales: true,
-        dogAdultFemales: true,
+        dogAdultMales: false,
+        dogAdultFemales: false,
         dogWithChildren: "All",
         dogDogSize: "",
         dogDogPace: "",
@@ -146,11 +146,11 @@ class DogForm extends Component {
 
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Male" onChange={this.adultMalesSelected} checked={this.state.dogAdultMales === true} />
-                        <label className="form-check-label" for="inlineCheckbox1">Male</label>
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Male</label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="Female" onChange={this.adultFemalesSelected} checked={this.state.dogAdultFemales === true} />
-                        <label className="form-check-label" for="inlineCheckbox2">Female</label>
+                        <label className="form-check-label" htmlFor="inlineCheckbox2">Female</label>
                     </div>
 
                     {/* children form */}
@@ -165,7 +165,7 @@ class DogForm extends Component {
                         </div>
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="05" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "6"} />
+                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="05" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "05"} />
                             <label className="form-check-label" htmlFor="inlineRadio1">aged 0 to 5</label>
                         </div>
                         <div className="form-check form-check-inline">
@@ -222,37 +222,30 @@ class DogForm extends Component {
 
                     <h5>Any behaviour issues? (Select the box for all that apply): </h5>
 
-                    {/* <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Male" 
-                        onChange={this.adultMalesSelected} 
-                        checked={this.state.dogAdultMales === true} />
-                        <label className="form-check-label" for="inlineCheckbox1">Male</label>
-                    </div> */}
-
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Nervous" 
                         onChange={this.behaviourNervousSelected} 
                         checked={this.state.dogBehaviourNervous === true} />
-                        <label className="form-check-label" for="inlineCheckboxBehaviour">Nervous</label>
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviour">Nervous</label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="LeadPulling" 
                         onChange={this.behaviourLeadPullingSelected} 
                         checked={this.state.dogBehaviourLeadPulling === true} />
-                        <label className="form-check-label" for="inlineCheckboxLeadBehaviour">Lead Pulling</label>
+                        <label className="form-check-label" htmlFor="inlineCheckboxLeadBehaviour">Lead Pulling</label>
                     </div>
 
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Barking" 
                         onChange={this.behaviourBarkingSelected} 
                         checked={this.state.dogBehaviourBarking === true} />
-                        <label className="form-check-label" for="inlineCheckboxBehaviour">Barking</label>
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviour">Barking</label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Reactive" 
                         onChange={this.behaviourReactiveSelected} 
                         checked={this.state.dogBehaviourReactive === true} />
-                        <label className="form-check-label" for="inlineCheckboxBehaviour">Reactive</label>
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviour">Reactive</label>
                     </div>
 
                     <div>

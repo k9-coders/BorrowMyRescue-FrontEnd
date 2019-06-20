@@ -13,7 +13,7 @@ class App extends Component {
 
   state = {
     dogs: [
-      { dogName: "Frankie", otherDogs: true, adultMales: true, adultFemales: true, withChildrenAll: true, withChildren05: false, withChildren612: false, withChildrenNone: false, dogSize: "Medium", dogPace: "Energetic", behaviourNervous: false, behaviourBarking: false, behaviourLeadPulling: true, behaviourReactive: false, }
+      { dogName: "Frankie", otherDogs: true, adultMales: true, adultFemales: true, withChildren: false, dogSize: "Medium", dogPace: "Energetic", behaviourNervous: false, behaviourBarking: false, behaviourLeadPulling: true, behaviourReactive: false, }
     ],
     borrowers: [
       { firstName: "Gill", surname: "Openshaw", email: "me.someone@gmail.com", mobile: "07123456789", address1: "1 High Street", address2: "Chorlton", address3: "", townCity: "Manchester",postcode:"M1 1AB", dayMon: true, dayTues: true, dayWed: true, dayThurs: false, dayFri: false, daySat: false, daySun: false, adultMales: 1, adultFemales: 1, childAgeBandNone: true, childAgeBand05: 0, childAgeBand612: 0, childAgeBand1317: 2, otherDog: true}
@@ -53,11 +53,11 @@ class App extends Component {
 
         <div className="row-12">
           <UserSelection />
-        </div>
+        </div> */}
 
         <div className="row-12">
           <BorrowersForm />
-        </div> */}
+        </div>
 
         <div className="row-12">
           <DogForm
@@ -75,11 +75,12 @@ class App extends Component {
                 adultMales={item.adultMales}
                 adultFemales={item.adultFemales}
                 withChildren={item.withChildren}
-                fromAge={item.fromAge}
                 dogSize={item.dogSize}
                 dogPace={item.dogPace}
-                behaviourIssue={item.behaviourIssue}
-                itemDone={item.completed}
+                behaviourNervous={item.behaviourNervous}
+                behaviourBarking={item.behaviourBarking}
+                behaviourLeadPulling={item.behaviourLeadPulling}
+                behaviourReactive={item.behaviourReactive}
                 addDog={this.addDog}
               />
             })

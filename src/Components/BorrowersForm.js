@@ -183,7 +183,7 @@ class BorrowersForm extends Component {
     }
 
     otherDogSelected = (event) => {
-        const borrowerotherDog = event.target.value==="Yes";
+        const borrowerotherDog = event.target.value === "Yes";
         this.setState({
             borrowerotherDog: borrowerotherDog
         });
@@ -198,7 +198,7 @@ class BorrowersForm extends Component {
 
     addBorrowerClicked = e => {
         e.preventDefault();
-        const newfirstName = this.state.borrowerFirstName
+        const newfirstName = this.state.borrowerfirstName
         const newsurname = this.state.borrowerSurname
         const newemail = this.state.borrowerEmail
         const newmobile = this.state.borrowerMobile
@@ -291,8 +291,9 @@ class BorrowersForm extends Component {
                         </div>
 
                     </div>
+
                     <h5>Please select all the days you are available to borow a dog (select all that apply)</h5>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <div className="custom-control custom-radio custom-control-inline">
                             <input type="radio" id="dayMoncustomRadioInline1" name="dayMoncustomRadioInline1" className="custom-control-input" onChange={this.dayMonSelected} ></input>
                             <label className="custom-control-label" htmlFor="dayMoncustomRadioInline1">Monday</label>
@@ -321,12 +322,12 @@ class BorrowersForm extends Component {
                             <input type="radio" id="daySuncustomRadioInline1" name="daySuncustomRadioInline1" className="custom-control-input" onChange={this.daySunSelected} ></input>
                             <label className="custom-control-label" htmlFor="daySuncustomRadioInline1">Sunday</label>
                         </div>
-                    </div>
+                    </div> */}
                 </form >
 
                 <h5>Enter the details of all people and other dogs in your group on the day out (if not applicable, please enter zero):</h5>
                 <form>
-                    <div className="form-row">
+                    {/* <div className="form-row">
 
                         <div className="form-group col-md-6">
                             <label htmlFor="borrowerMales">Number of Adult Males</label>
@@ -337,8 +338,9 @@ class BorrowersForm extends Component {
                             <label htmlFor="borrowerFemales">Number of Adult Females</label>
                             <input type="number" className="form-control" id="borrowerFemales" onChange={this.borrowerFemalesData} ></input>
                         </div>
-                    </div>
-                    <div className="form-row">
+                    </div> */}
+
+                    {/* <div className="form-row">
                         <div className="form-group col-md-3">
                             <label htmlFor="childAgeBandNone">No Children</label>
                             <input type="number" className="form-control" id="childAgeBand05" onChange={this.childAgeBandNoneData} ></input>
@@ -355,10 +357,11 @@ class BorrowersForm extends Component {
                             <label htmlFor="childAgeBand1317">Number of children aged 13-17</label>
                             <input type="number" className="form-control" id="childAgeBand1317" onChange={this.childAgeBand1317Data} ></input>
                         </div>
-                    </div>
+                    </div> */}
+
                     <h6>Other Dogs?:</h6>
 
-                    <div className="form-row">
+                    {/* <div className="form-row">
                         <div className="custom-control custom-radio custom-control-inline">
 
                             <div className="form-check form-check-inline">
@@ -370,9 +373,10 @@ class BorrowersForm extends Component {
                                 <label className="form-check-label" htmlFor="inlineRadio2">No</label>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
+
                     <h5>If yes, please enter your type of dog and brief details of any issues e.g. nervous, reactive behaviour</h5>
-                    <div className="form-row">
+                    {/* <div className="form-row">
                         <div className="col-6">
                             <label htmlFor="ownDogType">Your own dog type (if applicable):</label>
                             <input type="text" className="form-control" id="ownDogType" value={this.state.borrowerOwnDogType} onChange={this.borrowerOwnDogType} ></input>
@@ -381,13 +385,14 @@ class BorrowersForm extends Component {
                             <label htmlFor="ownDogDetails">Any issues (if applicable):</label>
                             <input type="text" className="form-control" id="ownDogDetails"></input>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div>
-                        <h5>So we can match you with the best dog for your needs please complete the following:
+
+                    <h5>So we can match you with the best dog for your needs please complete the following:
                         </h5>
+                    <div>
                         <h6>The pace of dog for your day out: (Click all that apply)</h6>
-                        <div className="custom-control custom-radio custom-control-inline">
+                        {/* <div className="custom-control custom-radio custom-control-inline">
                             <div className="form-check form-check-inline">
                                 <input className="form-check-input" type="radio" name="slowInlineRadioOptions" id="SlowInlineRadio1" value="option1" />
                                 <label className="form-check-label" htmlFor="slowInlineRadio1">Slow</label>
@@ -400,10 +405,10 @@ class BorrowersForm extends Component {
                                 <input className="form-check-input" type="radio" name="energeticInlineRadioOptions" id="energeticInlineRadio3" value="option3" />
                                 <label className="form-check-label" htmlFor="energeticInlineRadio3">Energetic</label>
                             </div>
-                        </div>
+                        </div> */}
 
                         <h6>The size of dog for your day out: (Click all that apply)</h6>
-                        <div className="custom-control custom-radio custom-control-inline"></div>
+                        {/* <div className="custom-control custom-radio custom-control-inline"></div>
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio" name="smallInlineRadioOptions" id="smallInlineRadio1" value="option1" />
                             <label className="form-check-label" htmlFor="smallInlineRadio1">Small, e.g. Jack Russell</label>
@@ -415,12 +420,12 @@ class BorrowersForm extends Component {
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio" name="largeInlineRadioOptions" id="largeInlineRadio3" value="option3" />
                             <label className="form-check-label" htmlFor="largeInlineRadio3">Large, e.g. Labrador</label>
-                        </div>
+                        </div> */}
                     </div>
 
                     <h6>Some of our dogs need a little bit more dog handling experience. If you have of any experience of the following please select: (Click all that apply, if no experience of these issues leave blank)</h6>
 
-                    <div className="custom-control custom-radio custom-control-inline">
+                    {/* <div className="custom-control custom-radio custom-control-inline">
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio" name="nervousInlineRadioOptions" id="nervousInlineRadio1" value="option1" />
                             <label className="form-check-label" htmlFor="nervousInlineRadio1">Nervous</label>
@@ -437,7 +442,7 @@ class BorrowersForm extends Component {
                             <input className="form-check-input" type="radio" name="reactiveInlineRadioOptions" id="reactiveInlineRadio3" value="option3" />
                             <label className="form-check-label" htmlFor="reactiveInlineRadio3">Reactive</label>
                         </div>
-                    </div>
+                    </div> */}
                     <div>
                         <button className="btn btn-primary btn-am m-2" onClick={this.addborrowerClicked} > Submit</button>
                     </div>

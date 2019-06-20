@@ -12,19 +12,18 @@ class BorrowersForm extends Component {
         borroweraddress3: "",
         borrowertownCity: "",
         borrowerpostcode: "",
-        borrowerdayMon: "",
-        borrowerdayTues: "",
-        borrowerdayWed: "",
-        borrowerdayThurs: "",
-        borrowerdayFri: "",
-        borrowerdaySat: "",
-        borrowerdaySun: "",
-        borroweradultMales: "",
-        borroweradultFemales: "",
-        borrowerchildAgeBandNone: "",
-        borrowerchildAgeBand05: "",
-        borrowerchildAgeBand612: "",
-        borrowerchildAgeBand1317: "",
+        borrowerdayMon: false,
+        borrowerdayTues: false,
+        borrowerdayWed: false,
+        borrowerdayThurs: false,
+        borrowerdayFri: false,
+        borrowerdaySat: false,
+        borrowerdaySun: false,
+        borroweradultMales: false,
+        borroweradultFemales: false,
+        borrowerchildAgeBand05: false,
+        borrowerchildAgeBand612: false,
+        borrowerchildAgeBand1317: false,
         borrowerotherDog: true,
         borrowerownDogType: ""
     }
@@ -93,90 +92,84 @@ class BorrowersForm extends Component {
     }
 
     dayMonSelected = (event) => {
-        const borrowerdayMon = event.target.value;
+        const borrowerdayMon = event.target.checked;
         this.setState({
             borrowerdayMon: borrowerdayMon
         });
     }
 
     dayTuesSelected = (event) => {
-        const borrowerdayTues = event.target.value;
+        const borrowerdayTues = event.target.checked;
         this.setState({
             borrowerdayTues: borrowerdayTues
         });
     }
 
     dayWedSelected = (event) => {
-        const borrowerdayWed = event.target.value;
+        const borrowerdayWed = event.target.checked;
         this.setState({
             borrowerdayWed: borrowerdayWed
         });
     }
 
     dayThursSelected = (event) => {
-        const borrowerdayThurs = event.target.value;
+        const borrowerdayThurs = event.target.checked;
         this.setState({
             borrowerdayThurs: borrowerdayThurs
         });
     }
 
     dayFriSelected = (event) => {
-        const borrowerdayFri = event.target.value;
+        const borrowerdayFri = event.target.checked;
         this.setState({
             borrowerdayFri: borrowerdayFri
         });
     }
 
     daySatSelected = (event) => {
-        const borrowerdaySat = event.target.value;
+        const borrowerdaySat = event.target.checked;
         this.setState({
             borrowerdaySat: borrowerdaySat
         });
     }
 
     daySunSelected = (event) => {
-        const borrowerdaySun = event.target.value;
+        const borrowerdaySun = event.target.checked;
         this.setState({
             borrowerdaySun: borrowerdaySun
         });
     }
 
-    adultMalesData = (event) => {
-        const borroweradultMales = event.target.value;
+    adultMalesSelected = (event) => {
+        const borroweradultMales = event.target.checked;
         this.setState({
             borroweradultMales: borroweradultMales
         });
     }
 
-    adultFemalesData = (event) => {
-        const borroweradultFemales = event.target.value;
+    adultFemalesSelected = (event) => {
+        const borroweradultFemales = event.target.checked;
         this.setState({
             borroweradultFemales: borroweradultFemales
         });
     }
 
-    childAgeBandNoneData = (event) => {
-        const borrowerchildAgeBandNone = event.target.value;
-        this.setState({
-            borrowerchildAgeBandNone: borrowerchildAgeBandNone
-        });
-    }
-    childAgeBand05Data = (event) => {
-        const borrowerchildAgeBand05 = event.target.value;
+    childAgeBand05Selected = (event) => {
+        const borrowerchildAgeBand05 = event.target.checked;
         this.setState({
             borrowerchildAgeBand05: borrowerchildAgeBand05
         });
     }
 
-    childAgeBand612Data = (event) => {
-        const borrowerchildAgeBand612 = event.target.value;
+    childAgeBand612Selected = (event) => {
+        const borrowerchildAgeBand612 = event.target.checked;
         this.setState({
             borrowerchildAgeBand612: borrowerchildAgeBand612
         });
     }
 
-    childAgeBand1317Data = (event) => {
-        const borrowerchildAgeBand1317 = event.target.value;
+    childAgeBand1317Selected = (event) => {
+        const borrowerchildAgeBand1317 = event.target.checked;
         this.setState({
             borrowerchildAgeBand1317: borrowerchildAgeBand1317
         });
@@ -214,8 +207,8 @@ class BorrowersForm extends Component {
         const newdayFri = this.state.borrowerDayFri
         const newdaySat = this.state.borrowerDaySat
         const newdaySun = this.state.borrowerDaySun
-        const newadultMales = this.state.borrowerAdultMales
-        const newadultFemales = this.state.borrowerAdultFemales
+        const newadultMales = this.state.borroweradultMales
+        const newadultFemales = this.state.borroweradultFemales
         const newchildAgeBandNone = this.state.borrowerChildAgeBandNone
         const newchildAgeBand05 = this.state.borrowerChildAgeBand05
         const newchildAgeBand612 = this.state.borrowerChildAgeBand612
@@ -293,54 +286,64 @@ class BorrowersForm extends Component {
                     </div>
 
                     <h5>Please select all the days you are available to borow a dog (select all that apply)</h5>
-                    {/* <div className="form-group">
-                        <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayMoncustomRadioInline1" name="dayMoncustomRadioInline1" className="custom-control-input" onChange={this.dayMonSelected} ></input>
-                            <label className="custom-control-label" htmlFor="dayMoncustomRadioInline1">Monday</label>
-                        </div>
-                        <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayTuescustomRadioInline1" name="dayTuescustomRadioInline1" className="custom-control-input" onChange={this.dayTuesSelected} ></input>
-                            <label className="custom-control-label" htmlFor="dayTuescustomRadioInline1">Tuesday</label>
-                        </div>
-                        <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayWedcustomRadioInline1" name="dayWedcustomRadioInline1" className="custom-control-input" onChange={this.dayWedSelected} ></input>
-                            <label className="custom-control-label" htmlFor="dayWedcustomRadioInline1">Wednesday</label>
-                        </div>
-                        <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayThurscustomRadioInline1" name="dayThurscustomRadioInline1" className="custom-control-input" onChange={this.dayThursSelected} ></input>
-                            <label className="custom-control-label" htmlFor="dayThurscustomRadioInline1">Thursday</label>
-                        </div>
-                        <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="dayFricustomRadioInline1" name="dayFricustomRadioInline1" className="custom-control-input" onChange={this.dayFriSelected} ></input>
-                            <label className="custom-control-label" htmlFor="dayFricustomRadioInline1">Friday</label>
-                        </div>
-                        <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="daySatcustomRadioInline1" name="daySatcustomRadioInline1" className="custom-control-input" onChange={this.daySatSelected} ></input>
-                            <label className="custom-control-label" htmlFor="daySatcustomRadioInline1">Saturday</label>
-                        </div>
-                        <div className="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="daySuncustomRadioInline1" name="daySuncustomRadioInline1" className="custom-control-input" onChange={this.daySunSelected} ></input>
-                            <label className="custom-control-label" htmlFor="daySuncustomRadioInline1">Sunday</label>
-                        </div>
-                    </div> */}
+
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Monday" onChange={this.dayMonSelected} checked={this.state.borrowerdayMon === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Monday</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Tuesday" onChange={this.dayTuesSelected} checked={this.state.borrowerdayTues === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Tuesday</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Wednesday" onChange={this.dayWedSelected} checked={this.state.borrowerdayWed === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Wednesday</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Thursday" onChange={this.dayThursSelected} checked={this.state.borrowerdayThurs === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Thursday</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Friday" onChange={this.dayFriSelected} checked={this.state.borrowerdayFri === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Friday</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Saturday" onChange={this.daySatSelected} checked={this.state.borrowerdaySat === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Saturday</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Sunday" onChange={this.daySunSelected} checked={this.state.borrowerdaySun === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Sunday</label>
+                    </div>
+
                 </form >
 
-                <h5>Enter the details of all people and other dogs in your group on the day out (if not applicable, please enter zero):</h5>
+                <h5>Check if any of the following people will be in your group on your day out (if not applicable, please leave blank):</h5>
                 <form>
-                    {/* <div className="form-row">
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="AdultMales" onChange={this.adultMalesSelected} checked={this.state.borroweradultMales === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Adult Males</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="AdultFemales" onChange={this.adultFemalesSelected} checked={this.state.borroweradultFemales === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Adult Females</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="withChildren05" onChange={this.childAgeBand05Selected} checked={this.state.borrowerchildAgeBand05 === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 0-5</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="withChildren612" onChange={this.childAgeBand612Selected} checked={this.state.borrowerchildAgeBand612 === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 6-12</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="withChildren13-17" onChange={this.childAgeBand1317Selected} checked={this.state.borrowerchildAgeBand1317 === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 13-17</label>
+                    </div>
+                    
+                    {/* 
 
-                        <div className="form-group col-md-6">
-                            <label htmlFor="borrowerMales">Number of Adult Males</label>
-                            <input type="number" className="form-control" id="borrowerMales" onChange={this.borrowerMalesData} ></input>
-                        </div>
-
-                        <div className="form-group col-md-6">
-                            <label htmlFor="borrowerFemales">Number of Adult Females</label>
-                            <input type="number" className="form-control" id="borrowerFemales" onChange={this.borrowerFemalesData} ></input>
-                        </div>
-                    </div> */}
-
-                    {/* <div className="form-row">
+                    <div className="form-row">
                         <div className="form-group col-md-3">
                             <label htmlFor="childAgeBandNone">No Children</label>
                             <input type="number" className="form-control" id="childAgeBand05" onChange={this.childAgeBandNoneData} ></input>
@@ -356,8 +359,8 @@ class BorrowersForm extends Component {
                         <div className="form-group col-md-3">
                             <label htmlFor="childAgeBand1317">Number of children aged 13-17</label>
                             <input type="number" className="form-control" id="childAgeBand1317" onChange={this.childAgeBand1317Data} ></input>
-                        </div>
-                    </div> */}
+                        </div> */}
+
 
                     <h6>Other Dogs?:</h6>
 
@@ -447,7 +450,7 @@ class BorrowersForm extends Component {
                         <button className="btn btn-primary btn-am m-2" onClick={this.addborrowerClicked} > Submit</button>
                     </div>
                 </form>
-            </div>
+            </div >
         );
     }
 }

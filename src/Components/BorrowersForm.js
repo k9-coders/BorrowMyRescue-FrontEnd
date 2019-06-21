@@ -24,8 +24,9 @@ class BorrowersForm extends Component {
         borrowerchildAgeBand05: false,
         borrowerchildAgeBand612: false,
         borrowerchildAgeBand1317: false,
-        borrowerotherDog: true,
-        borrowerownDogType: ""
+        borrowerotherDog: "",
+        borrowerownDogType: "",
+        borrowerownDetails: ""
     }
 
     firstNameData = (event) => {
@@ -182,10 +183,17 @@ class BorrowersForm extends Component {
         });
     }
 
-    ownDogTypeSelected = (event) => {
+    ownDogTypeData = (event) => {
         const borrowerownDogType = event.target.value;
         this.setState({
             borrowerownDogType: borrowerownDogType
+        });
+    }
+
+    ownDogDetailsData = (event) => {
+        const borrowerownDogDetails = event.target.value;
+        this.setState({
+            borrowerownDogDetails: borrowerownDogDetails
         });
     }
 
@@ -214,9 +222,10 @@ class BorrowersForm extends Component {
         const newchildAgeBand612 = this.state.borrowerChildAgeBand612
         const newchildAgeBand1317 = this.state.borrowerChildAgeBand1317
         const newotherDog = this.state.borrowerOtherDog
-        const newownDogType = this.setState.borrowerOwnDogType
+        const newownDogType = this.setState.borrowerownDogType
+        const newownDogDetails = this.setState.borrowerownDogDetails
 
-        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBandNone, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317, newotherDog, newownDogType);
+        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBandNone, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317, newotherDog, newownDogType, newownDogDetails );
     }
 
     render() {
@@ -340,55 +349,40 @@ class BorrowersForm extends Component {
                         <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="withChildren13-17" onChange={this.childAgeBand1317Selected} checked={this.state.borrowerchildAgeBand1317 === true} />
                         <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 13-17</label>
                     </div>
-                    
-                    {/* 
+
+                    <h6>Will there be any other dogs in your group on your day out?:</h6>
 
                     <div className="form-row">
-                        <div className="form-group col-md-3">
-                            <label htmlFor="childAgeBandNone">No Children</label>
-                            <input type="number" className="form-control" id="childAgeBand05" onChange={this.childAgeBandNoneData} ></input>
-                        </div>
-                        <div className="form-group col-md-3">
-                            <label htmlFor="childAgeBand05">Number of children aged 0-5</label>
-                            <input type="number" className="form-control" id="childAgeBand05" onChange={this.childAgeBand05Data} ></input>
-                        </div>
-                        <div className="form-group col-md-3">
-                            <label htmlFor="childAgeBand612">Number of children aged 6-12</label>
-                            <input type="number" className="form-control" id="childAgeBand612" onChange={this.childAgeBand612Data} ></input>
-                        </div>
-                        <div className="form-group col-md-3">
-                            <label htmlFor="childAgeBand1317">Number of children aged 13-17</label>
-                            <input type="number" className="form-control" id="childAgeBand1317" onChange={this.childAgeBand1317Data} ></input>
-                        </div> */}
-
-
-                    <h6>Other Dogs?:</h6>
-
-                    {/* <div className="form-row">
                         <div className="custom-control custom-radio custom-control-inline">
 
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Yes" onChange={this.otherDogSelected} checked={this.state.dogOtherDog} />
+                                <input className="form-check-input" type="radio" name="otherDog" id="inlineRadio1" value="Yes" onChange={this.otherDogSelected} checked={this.state.borrowerotherDog === true} />
                                 <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
                             </div>
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="No" onChange={this.otherDogSelected} checked={this.state.dogOtherDog===false} />
+                                <input className="form-check-input" type="radio" name="otherDog" id="inlineRadio2" value="No" onChange={this.otherDogSelected} checked={this.state.borrowerotherDog === false} />
                                 <label className="form-check-label" htmlFor="inlineRadio2">No</label>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
 
                     <h5>If yes, please enter your type of dog and brief details of any issues e.g. nervous, reactive behaviour</h5>
-                    {/* <div className="form-row">
-                        <div className="col-6">
+
+                    {/* <div className="form-group col-md-6">
+                            <label htmlFor="firstName">First name</label>
+                            <input type="text" className="form-control" id="firstName" placeholder="First name" onChange={this.firstNameData}></input>
+                        </div> */}
+
+                    
+                        <div className="form-group col-md-6">
                             <label htmlFor="ownDogType">Your own dog type (if applicable):</label>
-                            <input type="text" className="form-control" id="ownDogType" value={this.state.borrowerOwnDogType} onChange={this.borrowerOwnDogType} ></input>
+                            <input type="text" className="form-control" id="ownDogType" onChange={this.ownDogTypeData}  ></input>
                         </div>
-                        <div className="col-6">
+                        <div className="form-group col-md-6">
                             <label htmlFor="ownDogDetails">Any issues (if applicable):</label>
-                            <input type="text" className="form-control" id="ownDogDetails"></input>
+                            <input type="text" className="form-control" id="ownDogDetails" onChange={this.ownDogDetailsData} ></input>
                         </div>
-                    </div> */}
+                   
 
 
                     <h5>So we can match you with the best dog for your needs please complete the following:

@@ -7,7 +7,10 @@ class DogForm extends Component {
         dogOtherDogs: true,
         dogAdultMales: false,
         dogAdultFemales: false,
-        dogWithChildren: "All",
+        dogWithChildren: false,
+        dogWithChildren05: false,
+        dogWithChildren612: false,
+        dogWithChildren1318: false,
         dogDogSize: "",
         dogDogPace: "",
         dogBehaviourNervous: false,
@@ -15,6 +18,20 @@ class DogForm extends Component {
         dogBehaviourBarking: false,
         dogBehaviourReactive: false
     }
+
+    // used to set focus on dog name input box
+    constructor(props) {
+        // always need super(props)
+        // as first line in a constructor
+        super(props);
+        // create a ref to store the dogNameInput DOM element
+        this.dogNameInput = React.createRef();
+        // create a ref to store the dateInput DOM element
+        //this.dateInput = React.createRef();
+        // constructor to bind add new task button click
+        // to task input form textInput
+        this.addDogClicked = this.addDogClicked.bind(this);
+      }
 
     dogNameData = (event) => {
         const dogDogName = event.target.value;
@@ -45,13 +62,32 @@ class DogForm extends Component {
     }
 
     withChildrenSelected = (event) => {
-        const dogWithChildren = event.target.value;
+        const dogWithChildren = event.target.value === "Yes";
         this.setState({
             dogWithChildren: dogWithChildren
         });
     }
 
+    childAge05Selected = (event) => {
+        const dogWithChildren05 = event.target.checked;
+        this.setState({
+            dogWithChildren05: dogWithChildren05
+        });
+    }
 
+    childAge612Selected = (event) => {
+        const dogWithChildren612 = event.target.checked;
+        this.setState({
+            dogWithChildren612: dogWithChildren612
+        });
+    }
+
+    childAge1318Selected = (event) => {
+        const dogWithChildren1318 = event.target.checked;
+        this.setState({
+            dogWithChildren1318: dogWithChildren1318
+        });
+    }
 
     dogSizeSelected = (event) => {
         const dogDogSize = event.target.value;
@@ -101,18 +137,60 @@ class DogForm extends Component {
         const newotherDogs = this.state.dogOtherDogs
         const newadultMales = this.state.dogAdultMales
         const newadultFemales = this.state.dogAdultFemales
-        const newwithChildrenAll = this.state.dogWithChildrenAll
-        const newwithChildrenNone = this.state.dogWithChildrenNone
+        const newwithChildren = this.state.dogWithChildren
         const newwithChildren05 = this.state.dogWithChildren05
-        const newwithChildren012 = this.state.dogWithChildren012
+        const newwithChildren612 = this.state.dogWithChildren612
+        const newwithChildren1318 = this.state.dogWithChildren1318
         const newdogSize = this.state.dogDogSize
         const newdogPace = this.state.dogDogPace
         const newbehaviourNervous = this.state.dogBehaviourNervous
         const newbehaviourLeadPulling = this.state.dogBehaviourLeadPulling
         const newbehaviourBarking = this.state.dogBehaviourBarking
         const newbehaviourReactive = this.state.dogBehaviourReactive
-        this.props.addDogFunction(newdogName, newotherDogs, newadultMales, newadultFemales, newwithChildrenAll, newwithChildrenNone, newwithChildren05, newwithChildren012, newdogSize, newdogPace, newbehaviourNervous, newbehaviourLeadPulling, newbehaviourBarking, newbehaviourReactive);
-    }
+
+        // only add dog to database if a dog name is specified
+        if (newdogName.length > 0) {
+            this.props.addDogFunction(newdogName, newotherDogs, newadultMales, 
+                newadultFemales, newwithChildren, newwithChildren05, newwithChildren612, 
+                newwithChildren1318, newdogSize, newdogPace, newbehaviourNervous, 
+                newbehaviourLeadPulling, newbehaviourBarking, newbehaviourReactive);
+        
+            // reset form options to defaults
+            this.setState({
+                dogDogName: "",
+                dogOtherDogs: true,
+                dogAdultMales: false,
+                dogAdultFemales: false,
+                dogWithChildren: false,
+                dogWithChildren05: false,
+                dogWithChildren612: false,
+                dogWithChildren1318: false,
+                dogDogSize: "",
+                dogDogPace: "",
+                dogBehaviourNervous: false,
+                dogBehaviourLeadPulling: false,
+                dogBehaviourBarking: false,
+                dogBehaviourReactive: false,
+                dogNameInvalid: false,
+            })
+        } else {
+
+            //could add code here to display error message if dog name not specified
+            
+                this.setState({
+                    dogNameInvalid: true
+            })
+        }
+        // set focus back to the dog name text box - 
+        // in case further dogs need to be added
+        // Explicitly focus the dog name input using the raw DOM API
+        // Note: we're accessing "current" to get the DOM node
+        this.dogNameInput.current.focus();
+    };
+        
+         
+
+            
 
     render() {
 
@@ -125,7 +203,13 @@ class DogForm extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-6">
                             <label htmlFor="dogName">Dog's name:</label>
-                            <input type="text" className="form-control" id="dogName" placeholder="Dog's name" value={this.state.dogDogName} onChange={this.dogNameData} ></input>
+                                <span className = "invalidDate">
+                                        {this.state.dogNameInvalid &&
+                                        " Please enter the dog's name"
+                                        }
+                                </span>
+                            <input type="text" className="form-control" id="dogName" placeholder="Enter dog's name" 
+                                value={this.state.dogDogName} ref={this.dogNameInput} onChange={this.dogNameData} ></input>
                         </div>
                     </div>
 
@@ -153,46 +237,69 @@ class DogForm extends Component {
                         <label className="form-check-label" htmlFor="inlineCheckbox2">Female</label>
                     </div>
 
-                    {/* children form */}
+                    {/* suitable with children form */}
 
-                    <h5>Suitable with children? (Select the box for all that apply): </h5>
+                    <h5>Suitable with children?: </h5>
 
                     <div className="custom-control custom-radio custom-control-inline">
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="All" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "All"} />
-                            <label className="form-check-label" htmlFor="inlineRadio1">All</label>
+                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="Yes" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
                         </div>
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="05" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "05"} />
-                            <label className="form-check-label" htmlFor="inlineRadio1">aged 0 to 5</label>
+                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="No" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === false} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">No</label>
+                        </div>
+                    </div>
+                    {/* child age ranges form 
+                    (enable the checkboxes for the age ranges when withChildren = yes 
+                    selected in the section above) */}
+
+                    <h5>Child age range (Select all that apply): </h5>
+
+                    <div className="custom-control custom-radio custom-control-inline">
+                        <div className="form-check form-check-inline">
+                            {(this.state.dogWithChildren)?
+                                <input className="form-check-input" type="checkbox" name="childAges" id="inlineCheckbox1" value="05" onChange={this.childAge05Selected} checked={this.state.dogWithChildren05 === true} />
+                                :
+                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAges" id="inlineCheckbox1" value="05" onChange={this.childAgeBand05} checked={this.state.dogWithChildren05 === true} />
+                            }
+                            <label className="form-check-label" htmlFor="inlineCheckbox1">aged 0 to 5</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio2" value="012" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "012"} />
-                            <label className="form-check-label" htmlFor="inlineRadio2">aged 0 to 12</label>
+                            {(this.state.dogWithChildren)?
+                                <input className="form-check-input" type="checkbox" name="childAges" id="inlineCheckbox2" value="612" onChange={this.childAge612Selected} checked={this.state.dogWithChildren612 === true} />
+                                :
+                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAges" id="inlineCheckbox2" value="612" onChange={this.childAgeBand612} checked={this.state.dogWithChildren612 === true} />
+                            }    
+                            <label className="form-check-label" htmlFor="inlineCheckbox2">aged 6 to 12</label>
                         </div>
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="None" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "None"} />
-                            <label className="form-check-label" htmlFor="inlineRadio1">None</label>
+                            {(this.state.dogWithChildren)?
+                                <input className="form-check-input" type="checkbox" name="childAges" id="inlineCheckbox3" value="1318" onChange={this.childAge1318Selected} checked={this.state.dogWithChildren1318 === true} />
+                                :
+                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAges" id="inlineCheckbox3" value="1318" onChange={this.childAgeBand1318} checked={this.state.dogWithChildren1318 === true} />
+                            }    
+                            <label className="form-check-label" htmlFor="inlineCheckbox3">aged 13 to 18</label>
                         </div>
-
                     </div>
 
                     <h5>Dog's Size (Select the appropriate box):</h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="dogSize" id="inlineRadio1" value="Small" onChange={this.dogSizeSelected} checked={this.state.dogDogSize === "Small"} />
+                            <input className="form-check-input" type="radio" name="dogSize" id="inlineRadio1" value="S" onChange={this.dogSizeSelected} checked={this.state.dogDogSize === "S"} />
                             <label className="form-check-label" htmlFor="inlineRadio1">Small</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="dogSize" id="inlineRadio2" value="Medium" onChange={this.dogSizeSelected} checked={this.state.dogDogSize === "Medium"} />
+                            <input className="form-check-input" type="radio" name="dogSize" id="inlineRadio2" value="M" onChange={this.dogSizeSelected} checked={this.state.dogDogSize === "M"} />
                             <label className="form-check-label" htmlFor="inlineRadio2">Medium</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="dogSize" id="inlineRadio3" value="Large" onChange={this.dogSizeSelected} checked={this.state.dogDogSize === "Large"} />
+                            <input className="form-check-input" type="radio" name="dogSize" id="inlineRadio3" value="L" onChange={this.dogSizeSelected} checked={this.state.dogDogSize === "L"} />
                             <label className="form-check-label" htmlFor="inlineRadio3">Large</label>
                         </div>
                     </div>
@@ -218,7 +325,7 @@ class DogForm extends Component {
                     </div>
 
 
-                    <h5>Any behaviour issues? (Select the box for all that apply): </h5>
+                    <h5>Any behaviour issues? (Select all that apply): </h5>
 
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Nervous" 

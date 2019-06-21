@@ -6,7 +6,6 @@ class DogsAvailable extends Component {
 
         return (
             <div className="col">
-
                 <div className="row">
 
                     <div className="col">
@@ -14,21 +13,29 @@ class DogsAvailable extends Component {
                     </div>
 
                     <div className="col">
-                        {this.props.otherDogs}
+                        {(this.props.otherDogs)? "Y":"N"}
                     </div>
 
                     <div className="col">
-                        {this.props.adultMales}
+                        {(this.props.adultMales)? "Y":"N"}
                     </div>
 
                     <div className="col">
-                        {this.props.adultFemales}
+                        {(this.props.adultFemales)? "Y":"N"}
                     </div>
 
                     <div className="col">
-                        {this.props.withChildren}
+                        {(this.props.withChildren)? "Y":"N"}
                     </div>
-
+                    <div className="col">
+                        {(this.props.withChildren05)? "Y":"N"}
+                    </div>
+                    <div className="col">
+                        {(this.props.withChildren612)? "Y":"N"}
+                    </div>
+                    <div className="col">
+                        {(this.props.withChildren1318)? "Y":"N"}
+                    </div>
                     <div className="col">
                         {this.props.dogSize}
                     </div>
@@ -38,19 +45,19 @@ class DogsAvailable extends Component {
                     </div>
 
                     <div className="col">
-                        {this.props.behaviourNervous}
+                        {(this.props.behaviourNervous)? "Y":"N"}
                     </div>
 
                     <div className="col">
-                        {this.props.behaviourBarking}
+                        {(this.props.behaviourBarking)? "Y":"N"}
                     </div>
 
                     <div className="col">
-                        {this.props.behaviourLeadPulling}
+                        {(this.props.behaviourLeadPulling)? "Y":"N"}
                     </div>
 
                     <div className="col">
-                        {this.props.behaviourReactive}
+                        {(this.props.behaviourReactive)? "Y":"N"}
                     </div>
 
                 </div>

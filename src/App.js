@@ -24,7 +24,7 @@ class App extends Component {
   //}
   state = {
     dogs: [ 
-      
+
     ],
     borrowers: [
       { firstName: "Gill", surname: "Openshaw", email: "me.someone@gmail.com", mobile: "07123456789", address1: "1 High Street", address2: "Chorlton", address3: "", townCity: "Manchester",postcode:"M1 1AB", dayMon: true, dayTues: true, dayWed: true, dayThurs: false, dayFri: false, daySat: false, daySun: false, adultMales: 1, adultFemales: 1, childAgeBandNone: true, childAgeBand05: 0, childAgeBand612: 0, childAgeBand1317: 2, otherDog: true, ownDogType: "Springer Spaniel", ownDogDetails: "Lead Pulling", dogPaceSlow: true, dogPaceModerate: true, dogPaceEnergetic: true, dogSizeSmall: true, dogSizeMedium: true, dogSizeLarge: false, dogBehaviourNervous: true, dogBehaviourBarking: true, dogBehaviourLeadPulling: true, dogBehaviourReactive: false}
@@ -89,8 +89,55 @@ class App extends Component {
         </div>
 
         <div className="row-12">
-          <h5>Dogs available to borrow</h5>
-          <h6>Dog's Name  Other Dog's?  Adult Males?  Adult Females? Children?  From Age? Dog Size  Dog Pace  Behaviour Issues</h6>
+          <h5>Dogs available to borrow</h5> 
+          <div className="col">
+              <div className="row"></div>
+                <div className="row">
+                  <div className="col">
+                    <h6> Dog's Name</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Other Dogs</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Adult Males</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Adult Females</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Children</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Age 0-5</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Age 6-12</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Age 13-18</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Dog Size</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Dog Pace</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Nervous</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Barking</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Lead Pulling</h6>
+                  </div>
+                  <div className="col">
+                    <h6>Reactive</h6>
+                  </div>
+                </div>
+              </div>
+
           {
             this.state.dogs.map((item, index) => {
               return <DogsAvailable
@@ -99,6 +146,9 @@ class App extends Component {
                 adultMales={item.adultMales}
                 adultFemales={item.adultFemales}
                 withChildren={item.withChildren}
+                withChildren05={item.withChildren05}
+                withChildren612={item.withChildren612}
+                withChildren1318={item.withChildren1318}
                 dogSize={item.dogSize}
                 dogPace={item.dogPace}
                 behaviourNervous={item.behaviourNervous}

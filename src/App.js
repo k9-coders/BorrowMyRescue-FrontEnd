@@ -36,8 +36,10 @@ class App extends Component {
     .then(response => {
       // test log to console to ensure dogs list is loaded
       console.log("dogs list ", response.data.dogs);
+      // get completed set state to list of dogs from database
       this.setState({dogs: response.data.dogs});
     })
+    // error handling if the get fails to retrieve data
     .catch(error => {
       console.log(error);
     });
@@ -52,13 +54,32 @@ class App extends Component {
     })
   }
 
-  addDogs = (dogDogName, dogOtherDogs, dogAdultMales, dogAdultFemales, dogWithChildrenAll, dogWithChildrenNone,  dogWithChildren05, dogWithChildren012, dogDogSize, dogDogPace, dogBehaviourNervous, dogBehaviourLeadPulling, dogBehaviourBarking, dogBehaviourReactive) => {
+  addDogs = (dogDogName, dogOtherDogs, dogAdultMales, dogAdultFemales, dogWithChildren, dogWithChildren05, dogWithChildren612, dogWithChildren1318, dogDogSize, dogDogPace, dogBehaviourNervous, dogBehaviourLeadPulling, dogBehaviourBarking, dogBehaviourReactive) => {
     const currentDogs = this.state.dogs;
-    const newDogObject = { dogName: dogDogName, otherDogs: dogOtherDogs, adultMales: dogAdultMales, adultFemales: dogAdultFemales, withChildrenAll: dogWithChildrenAll, withChildrenNone: dogWithChildrenNone, withChildren05: dogWithChildren05, withChildren012: dogWithChildren012, dogSize: dogDogSize, dogPace: dogDogPace, behaviourNervous: dogBehaviourNervous, behaviourLeadPulling: dogBehaviourLeadPulling, behaviourBarking: dogBehaviourBarking, behaviourReactive: dogBehaviourReactive }
-    currentDogs.push(newDogObject);
-    this.setState({
-      dogs: currentDogs
-    })
+    const newDogObject = 
+    { dogName: dogDogName, otherDogs: dogOtherDogs, 
+      adultMales: dogAdultMales, adultFemales: dogAdultFemales, 
+      withChildren: dogWithChildren, withChildren05: dogWithChildren05, 
+      withChildren612: dogWithChildren612, withChildren1318: 
+      dogWithChildren1318, dogSize: dogDogSize, dogPace: dogDogPace, 
+      behaviourNervous: dogBehaviourNervous, 
+      behaviourLeadPulling: dogBehaviourLeadPulling, 
+      behaviourBarking: dogBehaviourBarking, behaviourReactive: dogBehaviourReactive }
+    axios.post('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/dogs', 
+      newDogObject)
+      .then(result => {
+        const dogId = result.data.dogId;
+        newDogObject.dogId = dogId;
+        currentDogs.push(newDogObject);
+        // Always use setState to update any part of the state which needs to change
+        this.setState({
+          dogs: currentDogs
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    
   }
 
   render() {

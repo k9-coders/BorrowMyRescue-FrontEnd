@@ -201,8 +201,6 @@ class DogForm extends Component {
                     <h5>Dog's Pace (Select the appropriate box):</h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
-
-
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio" name="dogPace" id="inlineRadio1" value="Slow" checked={this.state.dogDogPace === "Slow"} onChange={this.dogPaceSelected} />
                             <label className="form-check-label" htmlFor="inlineRadio1">Slow</label>

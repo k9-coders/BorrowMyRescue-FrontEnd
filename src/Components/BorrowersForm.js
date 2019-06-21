@@ -26,7 +26,10 @@ class BorrowersForm extends Component {
         borrowerchildAgeBand1317: false,
         borrowerotherDog: "",
         borrowerownDogType: "",
-        borrowerownDetails: ""
+        borrowerownDetails: "",
+        borrowerdogPaceSlow: false,
+        borrowerdogPaceModerate: false,
+        borrowerdogPaceEnergetic: false
     }
 
     firstNameData = (event) => {
@@ -197,6 +200,27 @@ class BorrowersForm extends Component {
         });
     }
 
+    dogPaceSelectedSlow = (event) => {
+        const borrowerdogPaceSlowYes = event.target.checked;
+        this.setState({
+            borrowerdogPaceSlow: borrowerdogPaceSlowYes
+        });
+    }
+
+    dogPaceSelectedModerate = (event) => {
+        const borrowerdogPaceModerateYes = event.target.checked;
+        this.setState({
+            borrowerdogPaceModerate: borrowerdogPaceModerateYes
+        });
+    }
+
+    dogPaceSelectedEnergetic = (event) => {
+        const borrowerdogPaceEnergeticYes = event.target.checked;
+        this.setState({
+            borrowerdogPaceEnergetic: borrowerdogPaceEnergeticYes
+        });
+    }
+
     addBorrowerClicked = e => {
         e.preventDefault();
         const newfirstName = this.state.borrowerfirstName
@@ -224,8 +248,11 @@ class BorrowersForm extends Component {
         const newotherDog = this.state.borrowerOtherDog
         const newownDogType = this.setState.borrowerownDogType
         const newownDogDetails = this.setState.borrowerownDogDetails
+        const newdogPaceSlow = this.state.borrowerdogPaceSlow
+        const newdogPaceModerate = this.state.borrowerdogPaceModerate
+        const newdogPaceEnergetic = this.state.borrowerdogPaceEnergetic
 
-        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBandNone, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317, newotherDog, newownDogType, newownDogDetails );
+        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBandNone, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317, newotherDog, newownDogType, newownDogDetails, newdogPaceSlow, newdogPaceModerate, newdogPaceEnergetic);
     }
 
     render() {
@@ -327,7 +354,7 @@ class BorrowersForm extends Component {
 
                 </form >
 
-                <h5>Check if any of the following people will be in your group on your day out (if not applicable, please leave blank):</h5>
+                <h5>Check all of the following people who will be in your group on your day out (if not applicable, please leave blank):</h5>
                 <form>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="AdultMales" onChange={this.adultMalesSelected} checked={this.state.borroweradultMales === true} />
@@ -368,41 +395,40 @@ class BorrowersForm extends Component {
 
                     <h5>If yes, please enter your type of dog and brief details of any issues e.g. nervous, reactive behaviour</h5>
 
-                    {/* <div className="form-group col-md-6">
-                            <label htmlFor="firstName">First name</label>
-                            <input type="text" className="form-control" id="firstName" placeholder="First name" onChange={this.firstNameData}></input>
-                        </div> */}
+                    <div className="form-group col-md-6">
+                        <label htmlFor="ownDogType">Your own dog type (if applicable):</label>
+                        <input type="text" className="form-control" id="ownDogType" onChange={this.ownDogTypeData}  ></input>
+                    </div>
+                    <div className="form-group col-md-6">
+                        <label htmlFor="ownDogDetails">Any issues (if applicable):</label>
+                        <input type="text" className="form-control" id="ownDogDetails" onChange={this.ownDogDetailsData} ></input>
+                    </div>
 
-                    
-                        <div className="form-group col-md-6">
-                            <label htmlFor="ownDogType">Your own dog type (if applicable):</label>
-                            <input type="text" className="form-control" id="ownDogType" onChange={this.ownDogTypeData}  ></input>
-                        </div>
-                        <div className="form-group col-md-6">
-                            <label htmlFor="ownDogDetails">Any issues (if applicable):</label>
-                            <input type="text" className="form-control" id="ownDogDetails" onChange={this.ownDogDetailsData} ></input>
-                        </div>
-                   
 
 
                     <h5>So we can match you with the best dog for your needs please complete the following:
                         </h5>
                     <div>
                         <h6>The pace of dog for your day out: (Click all that apply)</h6>
-                        {/* <div className="custom-control custom-radio custom-control-inline">
-                            <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="slowInlineRadioOptions" id="SlowInlineRadio1" value="option1" />
-                                <label className="form-check-label" htmlFor="slowInlineRadio1">Slow</label>
-                            </div>
-                            <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="moderateInlineRadioOptions" id="moderateInlineRadio2" value="option2" />
-                                <label className="form-check-label" htmlFor="moderateInlineRadio2">Moderate</label>
-                            </div>
-                            <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="energeticInlineRadioOptions" id="energeticInlineRadio3" value="option3" />
-                                <label className="form-check-label" htmlFor="energeticInlineRadio3">Energetic</label>
-                            </div>
-                        </div> */}
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckboxPaceSlow" value="Slow" onChange={this.dogPaceSelectedSlow} checked={this.state.borrowerdogPaceSlow === true} />
+                            <label class="form-check-label" htmlFor="inlineCheckboxPaceSlow">Slow</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckboxPaceModerate" value="Moderate" onChange={this.dogPaceSelectedModerate} checked={this.state.borrowerdogPaceModerate === true}/>
+                            <label class="form-check-label" htmlFor="inlineCheckboxPaceModerate">Moderate</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckboxPaceEnergetic" value="Moderate" onChange={this.dogPaceSelectedEnergetic} checked={this.state.borrowerdogPaceEnergetic === true}/>
+                            <label class="form-check-label" htmlFor="inlineCheckboxPaceEnergetic">Energetic</label>
+                        </div>
+
+
+                        
+
+
+                        
 
                         <h6>The size of dog for your day out: (Click all that apply)</h6>
                         {/* <div className="custom-control custom-radio custom-control-inline"></div>

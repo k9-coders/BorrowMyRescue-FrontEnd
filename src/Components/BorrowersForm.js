@@ -474,55 +474,55 @@ class BorrowersForm extends Component {
                     <div>
                         <h6>The pace of dog for your day out: (Click all that apply)</h6>
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckboxPaceSlow" value="Slow" onChange={this.dogPaceSelectedSlow} checked={this.state.borrowerdogPaceSlow === true} />
-                            <label class="form-check-label" htmlFor="inlineCheckboxPaceSlow">Slow</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceSlow" value="Slow" onChange={this.dogPaceSelectedSlow} checked={this.state.borrowerdogPaceSlow === true} />
+                            <label className="form-check-label" htmlFor="inlineCheckboxPaceSlow">Slow</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckboxPaceModerate" value="Moderate" onChange={this.dogPaceSelectedModerate} checked={this.state.borrowerdogPaceModerate === true} />
-                            <label class="form-check-label" htmlFor="inlineCheckboxPaceModerate">Moderate</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceModerate" value="Moderate" onChange={this.dogPaceSelectedModerate} checked={this.state.borrowerdogPaceModerate === true} />
+                            <label className="form-check-label" htmlFor="inlineCheckboxPaceModerate">Moderate</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckboxPaceEnergetic" value="Moderate" onChange={this.dogPaceSelectedEnergetic} checked={this.state.borrowerdogPaceEnergetic === true} />
-                            <label class="form-check-label" htmlFor="inlineCheckboxPaceEnergetic">Energetic</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceEnergetic" value="Moderate" onChange={this.dogPaceSelectedEnergetic} checked={this.state.borrowerdogPaceEnergetic === true} />
+                            <label className="form-check-label" htmlFor="inlineCheckboxPaceEnergetic">Energetic</label>
                         </div>
 
                         <h6>The size of dog for your day out: (Click all that apply)</h6>
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckboxdogSmall" value="Small" onChange={this.dogSizeSelectedSmall} checked={this.state.borrowerdogSizeSmall === true} />
-                            <label class="form-check-label" htmlFor="inlineCheckboxDogSmall">Small</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxdogSmall" value="Small" onChange={this.dogSizeSelectedSmall} checked={this.state.borrowerdogSizeSmall === true} />
+                            <label className="form-check-label" htmlFor="inlineCheckboxDogSmall">Small</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckboxMedium" value="Medium" onChange={this.dogSizeSelectedMedium} checked={this.state.borrowerdogSizeMedium === true} />
-                            <label class="form-check-label" htmlFor="inlineCheckboxMedium">Medium</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxMedium" value="Medium" onChange={this.dogSizeSelectedMedium} checked={this.state.borrowerdogSizeMedium === true} />
+                            <label className="form-check-label" htmlFor="inlineCheckboxMedium">Medium</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckboxLarge" value="Large" onChange={this.dogSizeSelectedLarge} checked={this.state.borrowerdogSizeLarge === true} />
-                            <label class="form-check-label" for="inlineCheckboxLarge">Large</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxLarge" value="Large" onChange={this.dogSizeSelectedLarge} checked={this.state.borrowerdogSizeLarge === true} />
+                            <label className="form-check-label" htmlFor="inlineCheckboxLarge">Large</label>
                         </div>
 
                     </div>
 
                     <h6>Some of our dogs need a little bit more dog handling experience. If you have of any experience of the following please select: (Click all that apply, if no experience of these issues leave unchecked)</h6>
 
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckboxBehaviourNervous" value="Nervous" onChange={this.dogBehaviourNervous} checked={this.state.borrowerdogBehaviourNervous === true} />
-                        <label class="form-check-label" htmlFor="inlineCheckboxBehaviourNervous">Nervous</label>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviourNervous" value="Nervous" onChange={this.dogBehaviourNervous} checked={this.state.borrowerdogBehaviourNervous === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviourNervous">Nervous</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckboxBehaviourBarking" value="Barking" onChange={this.dogBehaviourBarking} checked={this.state.borrowerdogBehaviourBarking === true} />
-                        <label class="form-check-label" htmlFor="inlineCheckboxBehaviourBarking">Barking</label>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviourBarking" value="Barking" onChange={this.dogBehaviourBarking} checked={this.state.borrowerdogBehaviourBarking === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviourBarking">Barking</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckboxBehaviourLeadPulling" value="LeadPulling" onChange={this.dogBehaviourLeadPulling} checked={this.state.borrowerdogBehaviourLeadPulling === true} />
-                        <label class="form-check-label" htmlFor="inlineCheckboxBehaviourLeadPulling">LeadPulling</label>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviourLeadPulling" value="LeadPulling" onChange={this.dogBehaviourLeadPulling} checked={this.state.borrowerdogBehaviourLeadPulling === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviourLeadPulling">LeadPulling</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckboxBehaviourReactive" value="Reactive" onChange={this.dogBehaviourReactive} checked={this.state.borrowerdogBehaviourReactive === true} />
-                        <label class="form-check-label" htmlFor="inlineCheckboxBehaviourReactive">Reactive</label>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviourReactive" value="Reactive" onChange={this.dogBehaviourReactive} checked={this.state.borrowerdogBehaviourReactive === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviourReactive">Reactive</label>
                     </div>
-                    
+
                     <div>
                         <button className="btn btn-primary btn-am m-2" onClick={this.addborrowerClicked} > Submit</button>
                     </div>

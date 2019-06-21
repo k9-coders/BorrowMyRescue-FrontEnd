@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// add axios to allow access to borrowMyRescueDB database
+import axios from "axios";
 import Header from "./Components/Header";
 import UserSelection from "./Components/UserSelection";
 import BorrowersForm from "./Components/BorrowersForm";
@@ -11,15 +13,36 @@ import './App.css';
 
 class App extends Component {
 
+  // hard coded list of dogs/borrowers for reference
+  //state = {
+  //  dogs: [
+  //   { dogName: "Frankie", otherDogs: true, adultMales: true, adultFemales: true, withChildren: false, dogSize: "Medium", dogPace: "Energetic", behaviourNervous: false, behaviourBarking: false, behaviourLeadPulling: true, behaviourReactive: false,}
+  // ],
+  // borrowers: [
+  //   { firstName: "Gill", surname: "Openshaw", email: "me.someone@gmail.com", mobile: "07123456789", address1: "1 High Street", address2: "Chorlton", address3: "", townCity: "Manchester",postcode:"M1 1AB", dayMon: true, dayTues: true, dayWed: true, dayThurs: false, dayFri: false, daySat: false, daySun: false, adultMales: 1, adultFemales: 1, childAgeBandNone: true, childAgeBand05: 0, childAgeBand612: 0, childAgeBand1317: 2, otherDog: true, ownDogType: "Springer Spaniel", ownDogDetails: "Lead Pulling", dogPaceSlow: true, dogPaceModerate: true, dogPaceEnergetic: true, dogSizeSmall: true, dogSizeMedium: true, dogSizeLarge: false, dogBehaviourNervous: true, dogBehaviourBarking: true, dogBehaviourLeadPulling: true, dogBehaviourReactive: false}
+  //  ]
+  //}
   state = {
-    dogs: [
-      { dogName: "Frankie", otherDogs: true, adultMales: true, adultFemales: true, withChildren: false, dogSize: "Medium", dogPace: "Energetic", behaviourNervous: false, behaviourBarking: false, behaviourLeadPulling: true, behaviourReactive: false,}
+    dogs: [ 
+      
     ],
     borrowers: [
       { firstName: "Gill", surname: "Openshaw", email: "me.someone@gmail.com", mobile: "07123456789", address1: "1 High Street", address2: "Chorlton", address3: "", townCity: "Manchester",postcode:"M1 1AB", dayMon: true, dayTues: true, dayWed: true, dayThurs: false, dayFri: false, daySat: false, daySun: false, adultMales: 1, adultFemales: 1, childAgeBandNone: true, childAgeBand05: 0, childAgeBand612: 0, childAgeBand1317: 2, otherDog: true, ownDogType: "Springer Spaniel", ownDogDetails: "Lead Pulling", dogPaceSlow: true, dogPaceModerate: true, dogPaceEnergetic: true, dogSizeSmall: true, dogSizeMedium: true, dogSizeLarge: false, dogBehaviourNervous: true, dogBehaviourBarking: true, dogBehaviourLeadPulling: true, dogBehaviourReactive: false}
     ]
   }
-
+  // load list of dogs when the App.js component is launched
+  componentWillMount() {
+    axios.get('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/dogs')
+    .then(response => {
+      // test log to console to ensure dogs list is loaded
+      console.log("dogs list ", response.data.dogs);
+      this.setState({dogs: response.data.dogs});
+    })
+    .catch(error => {
+      console.log(error);
+    });
+     
+    }
   addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWed, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildAgeBandNone, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1317, borrowerOtherDog, borrowerownDogType, borrowerownDogDetails, borrowerdogPaceSlow, borrowerdogPaceModerate, borrowerdogPaceEnergetic, borrowerDogSizeSmall, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
     const currentBorrowers = this.state.borrowers;
     const newBorrowerObject = { firstName: borrowerFirstName, surname: borrowerSurname, email: borrowerEmail, mobile: borrowerMobile, address1: borrowerAddress1, address2: borrowerAddress2, address3: borrowerAddress3, townCity: borrowerTownCity, postcode: borrowerPostcode, dayMon: borrowerDayMon, dayTues: borrowerDayTues, dayWed: borrowerDayWed, dayThurs: borrowerDayThurs, dayFri: borrowerDayFri, daySat: borrowerDaySat, daySun: borrowerDaySun, adultMales: borrowerAdultMales, adultFemales: borrowerAdultFemales, childAgeBandNone: borrowerChildAgeBandNone, childAgeBand05: borrowerChildAgeBand05, childAgeBand612: borrowerChildAgeBand612, childAgeBand1317: borrowerChildAgeBand1317, otherDog:borrowerOtherDog,  ownDogType:borrowerownDogType, ownDogDetails:borrowerownDogDetails, dogPaceSlow:borrowerdogPaceSlow, dogPaceModerate:borrowerdogPaceModerate, dogPaceEnergetic:borrowerdogPaceEnergetic, dogSizeSmall: borrowerDogSizeSmall, dogBehaviourNervous: borrowerdogBehaviourNervous, dogBehaviourBarking:borrowerdogBehaviourBarking, dogBehaviourLeadPulling:borrowerdogBehaviourLeadPulling, dogBehaviourReactive:borrowerdogBehaviourReactive }

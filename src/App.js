@@ -8,18 +8,31 @@ import FundRaising from "./Components/FundRaising";
 
 import './App.css';
 
+
 class App extends Component {
 
   state = {
     dogs: [
-      { dogName: "Frankie", otherDogs: true, adultMales: true, adultFemales: true, withChildren: true, withChildren05: false, withChildren612: false, withChildren1317: true, dogSize: "Medium", dogPace: "Energetic", behaviourNervous: false, behaviourBarking: false, behaviourLeadPulling: true, behaviourReactive: false, }
+      { dogName: "Frankie", otherDogs: true, adultMales: true, adultFemales: true, withChildren: false, dogSize: "Medium", dogPace: "Energetic", behaviourNervous: false, behaviourBarking: false, behaviourLeadPulling: true, behaviourReactive: false,}
+    ],
+    borrowers: [
+      { firstName: "Gill", surname: "Openshaw", email: "me.someone@gmail.com", mobile: "07123456789", address1: "1 High Street", address2: "Chorlton", address3: "", townCity: "Manchester",postcode:"M1 1AB", dayMon: true, dayTues: true, dayWed: true, dayThurs: false, dayFri: false, daySat: false, daySun: false, adultMales: 1, adultFemales: 1, childAgeBandNone: true, childAgeBand05: 0, childAgeBand612: 0, childAgeBand1317: 2, otherDog: true, ownDogType: "Springer Spaniel", ownDogDetails: "Lead Pulling", dogPaceSlow: true, dogPaceModerate: true, dogPaceEnergetic: true, dogSizeSmall: true, dogSizeMedium: true, dogSizeLarge: false, dogBehaviourNervous: true, dogBehaviourBarking: true, dogBehaviourLeadPulling: true, dogBehaviourReactive: false}
     ]
   }
 
-  addDogs = (dogDogName, dogOtherDogs, dogAdultMales, dogAdultFemales, dogWithChildren, dogWithChildren05, dogWithChildren612, dogWithChildren1317, dogDogSize, dogDogPace, dogBehaviourNervous, dogBehaviourLeadPulling, dogBehaviourBarking, dogBehaviourReactive) => {
+  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWed, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildAgeBandNone, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1317, borrowerOtherDog, borrowerownDogType, borrowerownDogDetails, borrowerdogPaceSlow, borrowerdogPaceModerate, borrowerdogPaceEnergetic, borrowerDogSizeSmall, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
+    const currentBorrowers = this.state.borrowers;
+    const newBorrowerObject = { firstName: borrowerFirstName, surname: borrowerSurname, email: borrowerEmail, mobile: borrowerMobile, address1: borrowerAddress1, address2: borrowerAddress2, address3: borrowerAddress3, townCity: borrowerTownCity, postcode: borrowerPostcode, dayMon: borrowerDayMon, dayTues: borrowerDayTues, dayWed: borrowerDayWed, dayThurs: borrowerDayThurs, dayFri: borrowerDayFri, daySat: borrowerDaySat, daySun: borrowerDaySun, adultMales: borrowerAdultMales, adultFemales: borrowerAdultFemales, childAgeBandNone: borrowerChildAgeBandNone, childAgeBand05: borrowerChildAgeBand05, childAgeBand612: borrowerChildAgeBand612, childAgeBand1317: borrowerChildAgeBand1317, otherDog:borrowerOtherDog,  ownDogType:borrowerownDogType, ownDogDetails:borrowerownDogDetails, dogPaceSlow:borrowerdogPaceSlow, dogPaceModerate:borrowerdogPaceModerate, dogPaceEnergetic:borrowerdogPaceEnergetic, dogSizeSmall: borrowerDogSizeSmall, dogBehaviourNervous: borrowerdogBehaviourNervous, dogBehaviourBarking:borrowerdogBehaviourBarking, dogBehaviourLeadPulling:borrowerdogBehaviourLeadPulling, dogBehaviourReactive:borrowerdogBehaviourReactive }
+    currentBorrowers.push(newBorrowerObject);
+    this.setState({
+      borrowers: currentBorrowers
+    })
+  }
+
+  addDogs = (dogDogName, dogOtherDogs, dogAdultMales, dogAdultFemales, dogWithChildrenAll, dogWithChildrenNone,  dogWithChildren05, dogWithChildren012, dogDogSize, dogDogPace, dogBehaviourNervous, dogBehaviourLeadPulling, dogBehaviourBarking, dogBehaviourReactive) => {
     const currentDogs = this.state.dogs;
-    const newObject = { dogName: dogDogName, otherDogs: dogOtherDogs, adultMales: dogAdultMales, adultFemales: dogAdultFemales, withChildren: dogWithChildren, withChildren05: dogWithChildren05, withChildren612: dogWithChildren612, withChildren1317: dogWithChildren1317, dogSize: dogDogSize, dogPace: dogDogPace, behaviourNervous: dogBehaviourNervous, behaviourLeadPulling: dogBehaviourLeadPulling, behaviourBarking: dogBehaviourBarking, behaviourReactive: dogBehaviourReactive }
-    currentDogs.push(newObject);
+    const newDogObject = { dogName: dogDogName, otherDogs: dogOtherDogs, adultMales: dogAdultMales, adultFemales: dogAdultFemales, withChildrenAll: dogWithChildrenAll, withChildrenNone: dogWithChildrenNone, withChildren05: dogWithChildren05, withChildren012: dogWithChildren012, dogSize: dogDogSize, dogPace: dogDogPace, behaviourNervous: dogBehaviourNervous, behaviourLeadPulling: dogBehaviourLeadPulling, behaviourBarking: dogBehaviourBarking, behaviourReactive: dogBehaviourReactive }
+    currentDogs.push(newDogObject);
     this.setState({
       dogs: currentDogs
     })
@@ -30,7 +43,7 @@ class App extends Component {
     return (
       <div className="container">
 
-        <div className="row-12">
+        {/* <div className="row-12">
           <Header />
         </div>
 
@@ -40,7 +53,7 @@ class App extends Component {
 
         <div className="row-12">
           <UserSelection />
-        </div>
+        </div> */}
 
         <div className="row-12">
           <BorrowersForm />
@@ -48,7 +61,7 @@ class App extends Component {
 
         <div className="row-12">
           <DogForm
-          addDogFunction={this.addDogs} />
+            addDogFunction={this.addDogs} />
         </div>
 
         <div className="row-12">
@@ -62,11 +75,12 @@ class App extends Component {
                 adultMales={item.adultMales}
                 adultFemales={item.adultFemales}
                 withChildren={item.withChildren}
-                fromAge={item.fromAge}
                 dogSize={item.dogSize}
                 dogPace={item.dogPace}
-                behaviourIssue={item.behaviourIssue}
-                itemDone={item.completed}
+                behaviourNervous={item.behaviourNervous}
+                behaviourBarking={item.behaviourBarking}
+                behaviourLeadPulling={item.behaviourLeadPulling}
+                behaviourReactive={item.behaviourReactive}
                 addDog={this.addDog}
               />
             })

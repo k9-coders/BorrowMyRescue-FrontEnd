@@ -30,10 +30,6 @@ class DogsAvailable extends Component {
                     </div>
 
                     <div className="col">
-                        {this.props.fromAge}
-                    </div>
-
-                    <div className="col">
                         {this.props.dogSize}
                     </div>
 
@@ -42,12 +38,19 @@ class DogsAvailable extends Component {
                     </div>
 
                     <div className="col">
-                        {this.props.behaviourIssue}
+                        {this.props.behaviourNervous}
                     </div>
 
                     <div className="col">
-                        {this.props.completed}
-                        
+                        {this.props.behaviourBarking}
+                    </div>
+
+                    <div className="col">
+                        {this.props.behaviourLeadPulling}
+                    </div>
+
+                    <div className="col">
+                        {this.props.behaviourReactive}
                     </div>
 
                 </div>

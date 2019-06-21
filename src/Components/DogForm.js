@@ -4,19 +4,16 @@ class DogForm extends Component {
 
     state = {
         dogDogName: "",
-        dogOtherDogs: "",
-        dogAdultMales: "",
-        dogAdultFemales: "",
-        dogWithChildren: "",
-        dogWithChildren05: "",
-        dogWithChildren612: "",
-        dogWithChildren1317: "",
+        dogOtherDogs: true,
+        dogAdultMales: false,
+        dogAdultFemales: false,
+        dogWithChildren: "All",
         dogDogSize: "",
         dogDogPace: "",
-        dogBehaviourNervous: "",
-        dogBehaviourLeadPulling: "",
-        dogBehaviourBarking: "",
-        dogBehaviourReactive: ""
+        dogBehaviourNervous: false,
+        dogBehaviourLeadPulling: false,
+        dogBehaviourBarking: false,
+        dogBehaviourReactive: false
     }
 
     dogNameData = (event) => {
@@ -27,23 +24,23 @@ class DogForm extends Component {
     }
 
     otherDogsData = (event) => {
-        const dogOtherDogs = event.target.value;
+        const dogOtherDogs = event.target.value === "Yes";
         this.setState({
             dogOtherDogs: dogOtherDogs
         });
     }
 
     adultMalesSelected = (event) => {
-        const dogAdultMales = event.target.value;
+        const dogIsOkWithAdultMales = event.target.checked;
         this.setState({
-            dogAdultMales: dogAdultMales
+            dogAdultMales: dogIsOkWithAdultMales
         });
     }
 
     adultFemalesSelected = (event) => {
-        const dogAdultFemales = event.target.value;
+        const dogIsOkWithAdultFemales = event.target.checked;
         this.setState({
-            dogAdultFemales: dogAdultFemales
+            dogAdultFemales: dogIsOkWithAdultFemales
         });
     }
 
@@ -54,26 +51,7 @@ class DogForm extends Component {
         });
     }
 
-    withChildren05Selected = (event) => {
-        const dogWithChildren05 = event.target.value;
-        this.setState({
-            dogWithChildren05: dogWithChildren05
-        });
-    }
 
-    withChildren612Selected = (event) => {
-        const dogWithChildren612 = event.target.value;
-        this.setState({
-            dogWithChildren612: dogWithChildren612
-        });
-    }
-
-    withChildren1317Selected = (event) => {
-        const dogWithChildren1317 = event.target.value;
-        this.setState({
-            dogWithChildren1317: dogWithChildren1317
-        });
-    }
 
     dogSizeSelected = (event) => {
         const dogDogSize = event.target.value;
@@ -90,50 +68,50 @@ class DogForm extends Component {
     }
 
     behaviourNervousSelected = (event) => {
-        const dogBehaviourNervous = event.target.value;
+        const dogBehaviourNervousYes = event.target.checked;
         this.setState({
-            dogBehaviourNervous: dogBehaviourNervous
+            dogBehaviourNervous: dogBehaviourNervousYes
         });
     }
 
-    behaviourLeadPulling = (event) => {
-        const dogBehaviourLeadPulling = event.target.value;
+    behaviourLeadPullingSelected = (event) => {
+        const dogBehaviourLeadPullingYes = event.target.checked;
         this.setState({
-            dogBehaviourLeadPulling: dogBehaviourLeadPulling
+            dogBehaviourLeadPulling: dogBehaviourLeadPullingYes
         });
     }
 
-    behaviourBarking = (event) => {
-        const dogBehaviourBarking = event.target.value;
+    behaviourBarkingSelected = (event) => {
+        const dogBehaviourBarkingYes = event.target.checked;
         this.setState({
-            dogBehaviourBarking: dogBehaviourBarking
+            dogBehaviourBarking: dogBehaviourBarkingYes
         });
     }
 
-    behaviourReactive = (event) => {
-        const dogBehaviourReactive = event.target.value;
+    behaviourReactiveSelected = (event) => {
+        const dogBehaviourReactiveYes = event.target.checked;
         this.setState({
-            dogBehaviourReactive: dogBehaviourReactive
+            dogBehaviourReactive: dogBehaviourReactiveYes
         });
     }
 
     addDogClicked = e => {
         e.preventDefault();
         const newdogName = this.state.dogDogName
-        const newotherDogs= this.state.dogOtherDogs 
-        const newadultMales= this.state.dogAdultMales
-        const newadultFemales= this.state.dogAdultFemales
-        const newwithChildren= this.state.dogWithChildren
-        const newwithChildren05= this.state.dogWithChildren05
-        const newwithChildren612= this.state.dogWithChildren612
-        const newwithChildren1317= this.state.dogWithChildren1317
-        const newdogSize= this.state.dogDogSize
-        const newdogPace= this.state.dogDogPace
-        const newbehaviourNervous= this.state.dogBehaviourNervous
-        const newbehaviourLeadPulling= this.state.dogBehaviourLeadPulling
-        const newbehaviourBarking= this.state.dogBehaviourBarking
-        const newbehaviourReactive= this.state.dogBehaviourReactive
-        this.props.addDogFunction(newdogName, newotherDogs, newadultMales, newadultFemales, newwithChildren, newwithChildren05, newwithChildren612, newwithChildren1317, newdogSize, newdogPace, newbehaviourNervous, newbehaviourLeadPulling, newbehaviourBarking, newbehaviourReactive);
+        const newotherDogs = this.state.dogOtherDogs
+        const newadultMales = this.state.dogAdultMales
+        const newadultFemales = this.state.dogAdultFemales
+        const newwithChildrenAll = this.state.dogWithChildrenAll
+        const newwithChildrenNone = this.state.dogWithChildrenNone
+        const newwithChildren05 = this.state.dogWithChildren05
+        const newwithChildren012 = this.state.dogWithChildren012
+        const newdogSize = this.state.dogDogSize
+        const newdogPace = this.state.dogDogPace
+        const newbehaviourNervous = this.state.dogBehaviourNervous
+        const newbehaviourLeadPulling = this.state.dogBehaviourLeadPulling
+        const newbehaviourBarking = this.state.dogBehaviourBarking
+        const newbehaviourReactive = this.state.dogBehaviourReactive
+        this.props.addDogFunction(newdogName, newotherDogs, newadultMales, newadultFemales, newwithChildrenAll, newwithChildrenNone, newwithChildren05, newwithChildren012, newdogSize, newdogPace, newbehaviourNervous, newbehaviourLeadPulling, newbehaviourBarking, newbehaviourReactive);
     }
 
     render() {
@@ -147,7 +125,7 @@ class DogForm extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-6">
                             <label htmlFor="dogName">Dog's name:</label>
-                            <input type="text" className="form-control" id="dogName" placeholder="Dog's name" onChange={this.dogNameData} ></input>
+                            <input type="text" className="form-control" id="dogName" placeholder="Dog's name" value={this.state.dogDogName} onChange={this.dogNameData} ></input>
                         </div>
                     </div>
 
@@ -155,101 +133,119 @@ class DogForm extends Component {
                     <div className="custom-control custom-radio custom-control-inline">
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.otherDogsData} />
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Yes" onChange={this.otherDogsData} checked={this.state.dogOtherDogs} />
                             <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="No" onChange={this.otherDogsData} checked={this.state.dogOtherDogs === false} />
                             <label className="form-check-label" htmlFor="inlineRadio2">No</label>
                         </div>
                     </div>
 
-                    <h5>Suitable with males / females?: </h5>
-                    <div className="custom-control custom-radio custom-control-inline">
+                    <h5>Suitable with males / females? (Select all that apply): </h5>
 
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.adultMalesSelected} />
-                            <label className="form-check-label" htmlFor="inlineRadio1">Males</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onChange={this.adultFemalesSelected} />
-                            <label className="form-check-label" htmlFor="inlineRadio2">Females</label>
-                        </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Male" onChange={this.adultMalesSelected} checked={this.state.dogAdultMales === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Male</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="Female" onChange={this.adultFemalesSelected} checked={this.state.dogAdultFemales === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox2">Female</label>
                     </div>
 
-                    <h5>Suitable with children?</h5>
+                    {/* children form */}
+
+                    <h5>Suitable with children? (Select the box for all that apply): </h5>
 
                     <div className="custom-control custom-radio custom-control-inline">
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.withChildrenSelected} />
-                            <label className="form-check-label" htmlFor="inlineRadio1">None</label>
+                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="All" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "All"} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">All</label>
                         </div>
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.withChildren05Selected} />
+                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="05" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "05"} />
                             <label className="form-check-label" htmlFor="inlineRadio1">aged 0 to 5</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onChange={this.withChildren612Selected} />
-                            <label className="form-check-label" htmlFor="inlineRadio2">aged 6 to 12</label>
+                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio2" value="012" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "012"} />
+                            <label className="form-check-label" htmlFor="inlineRadio2">aged 0 to 12</label>
                         </div>
+
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onChange={this.withChildren1317Selected} />
-                            <label className="form-check-label" htmlFor="inlineRadio3">aged 13 to 17</label>
+                            <input className="form-check-input" type="radio" name="withChildren" id="inlineRadio1" value="None" onChange={this.withChildrenSelected} checked={this.state.dogWithChildren === "None"} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">None</label>
                         </div>
+
                     </div>
-                    <h5>Dog's Size</h5>
+
+                    <h5>Dog's Size (Select the appropriate box):</h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.dogSizeSelected} />
+                            <input className="form-check-input" type="radio" name="dogSize" id="inlineRadio1" value="Small" onChange={this.dogSizeSelected} checked={this.state.dogDogSize === "Small"} />
                             <label className="form-check-label" htmlFor="inlineRadio1">Small</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <input className="form-check-input" type="radio" name="dogSize" id="inlineRadio2" value="Medium" onChange={this.dogSizeSelected} checked={this.state.dogDogSize === "Medium"} />
                             <label className="form-check-label" htmlFor="inlineRadio2">Medium</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <input className="form-check-input" type="radio" name="dogSize" id="inlineRadio3" value="Large" onChange={this.dogSizeSelected} checked={this.state.dogDogSize === "Large"} />
                             <label className="form-check-label" htmlFor="inlineRadio3">Large</label>
                         </div>
                     </div>
-                    <h5>Dog's Pace</h5>
+
+
+                    <h5>Dog's Pace (Select the appropriate box):</h5>
                     <div className="custom-control custom-radio custom-control-inline">
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.dogPaceSelected} />
+                            <input className="form-check-input" type="radio" name="dogPace" id="inlineRadio1" value="Slow" checked={this.state.dogDogPace === "Slow"} onChange={this.dogPaceSelected} />
                             <label className="form-check-label" htmlFor="inlineRadio1">Slow</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <input className="form-check-input" type="radio"
+                                onChange={this.dogPaceSelected} name="dogPace" id="inlineRadio2" value="Moderate" checked={this.state.dogDogPace === "Moderate"} />
                             <label className="form-check-label" htmlFor="inlineRadio2">Moderate</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <input className="form-check-input" type="radio"
+                                onChange={this.dogPaceSelected} name="dogPace" id="inlineRadio3" value="Energetic" checked={this.state.dogDogPace === "Energetic"} />
                             <label className="form-check-label" htmlFor="inlineRadio3">Energetic</label>
                         </div>
                     </div>
-                    <h5>Any behaviour issues?</h5>
-                    <div className="custom-control custom-radio custom-control-inline">
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onChange={this.behaviourNervousSelected} />
-                            <label className="form-check-label" htmlFor="inlineRadio1">Nervous</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onChange={this.behaviourLeadPullingSelected} />
-                            <label className="form-check-label" htmlFor="inlineRadio2">Barking</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onChange={this.behaviourBarkingSelected} />
-                            <label className="form-check-label" htmlFor="inlineRadio3">Lead Pulling</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onChange={this.behaviourReactiveSelected} />
-                            <label className="form-check-label" htmlFor="inlineRadio3">Reactive</label>
-                        </div>
+
+
+                    <h5>Any behaviour issues? (Select the box for all that apply): </h5>
+
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Nervous" 
+                        onChange={this.behaviourNervousSelected} 
+                        checked={this.state.dogBehaviourNervous === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviour">Nervous</label>
                     </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="LeadPulling" 
+                        onChange={this.behaviourLeadPullingSelected} 
+                        checked={this.state.dogBehaviourLeadPulling === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckboxLeadBehaviour">Lead Pulling</label>
+                    </div>
+
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Barking" 
+                        onChange={this.behaviourBarkingSelected} 
+                        checked={this.state.dogBehaviourBarking === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviour">Barking</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Reactive" 
+                        onChange={this.behaviourReactiveSelected} 
+                        checked={this.state.dogBehaviourReactive === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckboxBehaviour">Reactive</label>
+                    </div>
+
                     <div>
                         <button className="btn btn-primary btn-am m-2" onClick={this.addDogClicked} > Submit</button>
                     </div>

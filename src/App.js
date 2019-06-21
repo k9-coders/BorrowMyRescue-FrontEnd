@@ -56,7 +56,8 @@ class App extends Component {
         </div> */}
 
         <div className="row-12">
-          <BorrowersForm />
+          <BorrowersForm 
+          addBorrowerFunction={this.addBorrowers} />
         </div>
 
         <div className="row-12">

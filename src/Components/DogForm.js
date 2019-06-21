@@ -175,7 +175,9 @@ class DogForm extends Component {
             })
         } else {
 
-            //could add code here to display error message if dog name not specified
+            //if the dogNameInvalid state is set
+            // an error message will display to show that the dog name 
+            // has not not specified
             
                 this.setState({
                     dogNameInvalid: true

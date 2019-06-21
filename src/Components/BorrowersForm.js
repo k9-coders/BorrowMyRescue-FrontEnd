@@ -21,18 +21,15 @@ class BorrowersForm extends Component {
         borrowerdaySun: false,
         borroweradultMales: false,
         borroweradultFemales: false,
+        borrowerChildren: false,
         borrowerchildAgeBand05: false,
         borrowerchildAgeBand612: false,
         borrowerchildAgeBand1317: false,
         borrowerotherDog: "",
         borrowerownDogType: "",
         borrowerownDetails: "",
-        borrowerdogPaceSlow: false,
-        borrowerdogPaceModerate: false,
-        borrowerdogPaceEnergetic: false,
-        borrowerdogSizeSmall: false,
-        borrowerdogSizeMedium: false,
-        borrowerdogSizeLarge: false,
+        borrowerdogPace: "",
+        borrowerdogSize: "",
         borrowerdogBehaviourNervous: false,
         borrowerdogBehaviourBarking: false,
         borrowerdogBehaviourLeadPulling: false,
@@ -162,6 +159,13 @@ class BorrowersForm extends Component {
         const borroweradultFemales = event.target.checked;
         this.setState({
             borroweradultFemales: borroweradultFemales
+        });
+    }
+    // store whether borrower has any children
+    borrowerChildrenSelected = (event) => {
+        const borrowerChildren = event.target.checked;
+        this.setState({
+            borrowerChildren: borrowerChildren
         });
     }
 
@@ -297,7 +301,7 @@ class BorrowersForm extends Component {
         const newdaySun = this.state.borrowerDaySun
         const newadultMales = this.state.borroweradultMales
         const newadultFemales = this.state.borroweradultFemales
-        const newchildAgeBandNone = this.state.borrowerChildAgeBandNone
+        const newborrowerChildren = this.state.borrowerChildren
         const newchildAgeBand05 = this.state.borrowerChildAgeBand05
         const newchildAgeBand612 = this.state.borrowerChildAgeBand612
         const newchildAgeBand1317 = this.state.borrowerChildAgeBand1317
@@ -307,15 +311,16 @@ class BorrowersForm extends Component {
         const newdogPaceSlow = this.state.borrowerdogPaceSlow
         const newdogPaceModerate = this.state.borrowerdogPaceModerate
         const newdogPaceEnergetic = this.state.borrowerdogPaceEnergetic
-        const newdogSizeSmall = this.state.borrowerdogSizeSmall
-        const newdogSizeMedium = this.state.borrowerdogSizeMedium
-        const newdogSizeLarge = this.state.borrowerdogSizeLarge
+        const newdogSize = this.state.borrowerdogSize
         const newborrowerdogBehaviourNervous = this.state.borrowerdogBehaviourNervous
         const newborrowerdogBehaviourBarking = this.state.borrowerdogBehaviourBarking
         const newborrowerdogBehaviourLeadPulling = this.state.borrowerdogBehaviourLeadPulling
         const newborrowerdogBehaviourReactive = this.state.borrowerdogBehaviourReactive
 
-        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newchildAgeBandNone, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317, newotherDog, newownDogType, newownDogDetails, newdogPaceSlow, newdogPaceModerate, newdogPaceEnergetic, newdogSizeSmall, newdogSizeMedium, newdogSizeLarge, newborrowerdogBehaviourNervous, newborrowerdogBehaviourBarking, newborrowerdogBehaviourLeadPulling, newborrowerdogBehaviourReactive);
+        // only add borrower to database if firstname, surname and email address supplied
+        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newborrowerChildren, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317, newotherDog, newownDogType, newownDogDetails, newdogPaceSlow, newdogPaceModerate, newdogPaceEnergetic, newdogSize, newborrowerdogBehaviourNervous, newborrowerdogBehaviourBarking, newborrowerdogBehaviourLeadPulling, newborrowerdogBehaviourReactive);
+        // set the borrower form back to the default values
+        // set the focus onto the borrower first name textbox
     }
 
     render() {

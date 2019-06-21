@@ -27,7 +27,7 @@ class App extends Component {
 
     ],
     borrowers: [
-      { firstName: "Gill", surname: "Openshaw", email: "me.someone@gmail.com", mobile: "07123456789", address1: "1 High Street", address2: "Chorlton", address3: "", townCity: "Manchester",postcode:"M1 1AB", dayMon: true, dayTues: true, dayWed: true, dayThurs: false, dayFri: false, daySat: false, daySun: false, adultMales: 1, adultFemales: 1, childAgeBandNone: true, childAgeBand05: 0, childAgeBand612: 0, childAgeBand1317: 2, otherDog: true, ownDogType: "Springer Spaniel", ownDogDetails: "Lead Pulling", dogPaceSlow: true, dogPaceModerate: true, dogPaceEnergetic: true, dogSizeSmall: true, dogSizeMedium: true, dogSizeLarge: false, dogBehaviourNervous: true, dogBehaviourBarking: true, dogBehaviourLeadPulling: true, dogBehaviourReactive: false}
+      
     ]
   }
   // load list of dogs when the App.js component is launched
@@ -45,13 +45,43 @@ class App extends Component {
     });
      
     }
-  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWed, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildAgeBandNone, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1317, borrowerOtherDog, borrowerownDogType, borrowerownDogDetails, borrowerdogPaceSlow, borrowerdogPaceModerate, borrowerdogPaceEnergetic, borrowerDogSizeSmall, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
+  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWed, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildAgeBandNone, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1317, borrowerOtherDog, borrowerownDogType, borrowerownDogDetails, borrowerdogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
     const currentBorrowers = this.state.borrowers;
-    const newBorrowerObject = { firstName: borrowerFirstName, surname: borrowerSurname, email: borrowerEmail, mobile: borrowerMobile, address1: borrowerAddress1, address2: borrowerAddress2, address3: borrowerAddress3, townCity: borrowerTownCity, postcode: borrowerPostcode, dayMon: borrowerDayMon, dayTues: borrowerDayTues, dayWed: borrowerDayWed, dayThurs: borrowerDayThurs, dayFri: borrowerDayFri, daySat: borrowerDaySat, daySun: borrowerDaySun, adultMales: borrowerAdultMales, adultFemales: borrowerAdultFemales, childAgeBandNone: borrowerChildAgeBandNone, childAgeBand05: borrowerChildAgeBand05, childAgeBand612: borrowerChildAgeBand612, childAgeBand1317: borrowerChildAgeBand1317, otherDog:borrowerOtherDog,  ownDogType:borrowerownDogType, ownDogDetails:borrowerownDogDetails, dogPaceSlow:borrowerdogPaceSlow, dogPaceModerate:borrowerdogPaceModerate, dogPaceEnergetic:borrowerdogPaceEnergetic, dogSizeSmall: borrowerDogSizeSmall, dogBehaviourNervous: borrowerdogBehaviourNervous, dogBehaviourBarking:borrowerdogBehaviourBarking, dogBehaviourLeadPulling:borrowerdogBehaviourLeadPulling, dogBehaviourReactive:borrowerdogBehaviourReactive }
-    currentBorrowers.push(newBorrowerObject);
-    this.setState({
-      borrowers: currentBorrowers
-    })
+    const newBorrowerObject = { firstName: borrowerFirstName, surname: borrowerSurname, 
+      email: borrowerEmail, mobile: borrowerMobile, 
+      address1: borrowerAddress1, address2: borrowerAddress2, 
+      address3: borrowerAddress3, townCity: borrowerTownCity, 
+      postcode: borrowerPostcode, dayMon: borrowerDayMon, 
+      dayTues: borrowerDayTues, dayWed: borrowerDayWed, 
+      dayThurs: borrowerDayThurs, dayFri: borrowerDayFri, 
+      daySat: borrowerDaySat, daySun: borrowerDaySun, 
+      adultMales: borrowerAdultMales, adultFemales: borrowerAdultFemales, 
+      childAgeBandNone: borrowerChildAgeBandNone, 
+      childAgeBand05: borrowerChildAgeBand05, 
+      childAgeBand612: borrowerChildAgeBand612, 
+      childAgeBand1317: borrowerChildAgeBand1317, 
+      otherDog:borrowerOtherDog, ownDogType:borrowerownDogType, 
+      ownDogDetails:borrowerownDogDetails, 
+      dogPace:borrowerdogPace, dogSize: borrowerDogSize, 
+      dogBehaviourNervous: borrowerdogBehaviourNervous, 
+      dogBehaviourBarking:borrowerdogBehaviourBarking, 
+      dogBehaviourLeadPulling:borrowerdogBehaviourLeadPulling, 
+      dogBehaviourReactive:borrowerdogBehaviourReactive }
+    
+    axios.post('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/dogs', 
+      newBorrowerObject)
+      .then(result => {
+        const borrowerId = result.data.borrowerId;
+        newBorrowerObject.borrowerId = borrowerId;
+        currentBorrowers.push(newBorrowerObject);
+        // Always use setState to update any part of the state which needs to change
+        this.setState({
+          borrowers: currentBorrowers
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   addDogs = (dogDogName, dogOtherDogs, dogAdultMales, dogAdultFemales, dogWithChildren, dogWithChildren05, dogWithChildren612, dogWithChildren1318, dogDogSize, dogDogPace, dogBehaviourNervous, dogBehaviourLeadPulling, dogBehaviourBarking, dogBehaviourReactive) => {

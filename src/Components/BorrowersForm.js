@@ -226,14 +226,14 @@ class BorrowersForm extends Component {
     }
 
     borrowerPaceSelected = (event) => {
-        const borrowerdogPace = event.target.checked;
+        const borrowerdogPace = event.target.value;
         this.setState({
-            borrowerDogPace: borrowerdogPace
+            borrowerdogPace: borrowerdogPace
         });
     }
 
     borrowerDogSizeSelected = (event) => {
-        const borrowerdogSize = event.target.checked;
+        const borrowerdogSize = event.target.value;
         this.setState({
             borrowerdogSize: borrowerdogSize
         });
@@ -300,7 +300,6 @@ class BorrowersForm extends Component {
         const newborrowerdogBehaviourBarking = this.state.borrowerdogBehaviourBarking
         const newborrowerdogBehaviourLeadPulling = this.state.borrowerdogBehaviourLeadPulling
         const newborrowerdogBehaviourReactive = this.state.borrowerdogBehaviourReactive
-        const newborrowerRating = null
 
         
         
@@ -317,7 +316,7 @@ class BorrowersForm extends Component {
                 newchildAgeBand05, newchildAgeBand612, newchildAgeBand1318, 
                 newownDog, newownDogType, newownDogDetails, newdogPace, newdogSize, 
                 newborrowerdogBehaviourNervous, newborrowerdogBehaviourBarking, 
-                newborrowerdogBehaviourLeadPulling, newborrowerdogBehaviourReactive, newborrowerRating);
+                newborrowerdogBehaviourLeadPulling, newborrowerdogBehaviourReactive);
         
             // reset form options to defaults
             this.setState({
@@ -543,11 +542,22 @@ class BorrowersForm extends Component {
 
                     <div className="form-group col-md-6">
                         <label htmlFor="ownDogType">Your own dog type (if applicable):</label>
-                        <input type="text" className="form-control" id="ownDogType" onChange={this.ownDogTypeData}  ></input>
+                        {(this.state.borrowerownDog)?
+                            <input type="text" className="form-control" id="ownDogType" onChange={this.ownDogTypeData}  ></input>
+                            :
+                            <input type="text" className="form-control" disabled = "disabled" id="ownDogType" onChange={this.ownDogTypeData}  ></input>
+                        }
                     </div>
+
+                    
                     <div className="form-group col-md-6">
                         <label htmlFor="ownDogDetails">Any issues (if applicable):</label>
-                        <input type="text" className="form-control" id="ownDogDetails" onChange={this.ownDogDetailsData} ></input>
+                        {(this.state.borrowerownDog)?
+                            <input type="text" className="form-control" id="ownDogDetails" onChange={this.ownDogDetailsData} ></input>
+                            :
+                            <input type="text" className="form-control" disabled="disabled" id="ownDogDetails" onChange={this.ownDogDetailsData} ></input>
+                        }
+                        
                     </div>
 
 
@@ -555,33 +565,33 @@ class BorrowersForm extends Component {
                     <h5>So we can match you with the best dog for your needs please complete the following:
                         </h5>
                     <div>
-                        <h6>The pace of dog for your day out: (Click all that apply)</h6>
+                        <h6>The pace of dog for your day out:</h6>
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceSlow" value="Slow" onChange={this.borrowerPaceSelected} checked={this.state.borrowerdogPace === "S"} />
-                            <label className="form-check-label" htmlFor="inlineCheckboxPaceSlow">Slow</label>
+                            <input className="form-check-input" type="radio" name="borrowerPace" id="inlineRadio1" value="S" checked={this.state.borrowerdogPace === "S"} onChange={this.borrowerPaceSelected} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">Slow</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceModerate" value="Moderate" onChange={this.borrowerPaceSelected} checked={this.state.borrowerdogPace === "M"} />
-                            <label className="form-check-label" htmlFor="inlineCheckboxPaceModerate">Moderate</label>
+                            <input className="form-check-input" type="radio" id="inlineRadioPaceModerate" value="M" onChange={this.borrowerPaceSelected} checked={this.state.borrowerdogPace === "M"} />
+                            <label className="form-check-label" htmlFor="inlineRadioPaceModerate">Moderate</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceEnergetic" value="Energetic" onChange={this.borrowerPaceSelected} checked={this.state.borrowerdogPace === "E"} />
-                            <label className="form-check-label" htmlFor="inlineCheckboxPaceEnergetic">Energetic</label>
+                            <input className="form-check-input" type="radio" id="inlineRadioPaceEnergetic" value="E" onChange={this.borrowerPaceSelected} checked={this.state.borrowerdogPace === "E"} />
+                            <label className="form-check-label" htmlFor="inlineRadioPaceEnergetic">Energetic</label>
                         </div>
 
-                        <h6>The size of dog for your day out: (Click all that apply)</h6>
+                        <h6>The size of dog for your day out:</h6>
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxdogSmall" value="Small" onChange={this.borrowerDogSizeSelected} checked={this.state.borrowerdogSize === "S"} />
+                            <input className="form-check-input" type="radio" id="inlineCheckboxdogSmall" value="S" onChange={this.borrowerDogSizeSelected} checked={this.state.borrowerdogSize === "S"} />
                             <label className="form-check-label" htmlFor="inlineCheckboxDogSmall">Small</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxMedium" value="Medium" onChange={this.borrowerDogSizeSelected} checked={this.state.borrowerdogSize === "M"} />
+                            <input className="form-check-input" type="radio" id="inlineCheckboxMedium" value="M" onChange={this.borrowerDogSizeSelected} checked={this.state.borrowerdogSize === "M"} />
                             <label className="form-check-label" htmlFor="inlineCheckboxMedium">Medium</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxLarge" value="Large" onChange={this.borrowerDogSizeSelected} checked={this.state.borrowerdogSize === "L"} />
+                            <input className="form-check-input" type="radio" id="inlineCheckboxLarge" value="L" onChange={this.borrowerDogSizeSelected} checked={this.state.borrowerdogSize === "L"} />
                             <label className="form-check-label" htmlFor="inlineCheckboxLarge">Large</label>
                         </div>
 

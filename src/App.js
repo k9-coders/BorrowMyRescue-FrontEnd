@@ -59,16 +59,7 @@ class App extends Component {
     });
     }
 
-  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, 
-    borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, 
-    borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, 
-    borrowerDayWed, borrowerDayThurs, borrowerDayFri, borrowerDaySat, 
-    borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, 
-    borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, 
-    borrowerChildAgeBand1318, borrowerOtherDog, borrowerownDogType, 
-    borrowerownDogDetails, borrowerDogPace, borrowerDogSize, 
-    borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, 
-    borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
+  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWed, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1318, borrowerownDog, borrowerownDogType, borrowerownDogDetails, borrowerDogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
 
     const currentBorrowers = this.state.borrowers;
 
@@ -85,7 +76,7 @@ class App extends Component {
       childAgeBand05: borrowerChildAgeBand05, 
       childAgeBand612: borrowerChildAgeBand612, 
       childAgeBand1318: borrowerChildAgeBand1318, 
-      ownDog:borrowerOtherDog, ownDogType:borrowerownDogType, 
+      ownDog:borrowerownDog, ownDogType:borrowerownDogType, 
       ownDogDetails:borrowerownDogDetails, 
       borrowerDogPace:borrowerDogPace, dogSize: borrowerDogSize, 
       dogBehaviourNervous: borrowerdogBehaviourNervous, 
@@ -96,7 +87,7 @@ class App extends Component {
 
     console.log("new borrower ",newBorrowerObject)
 
-    axios.post('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/dogs', 
+    axios.post('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/borrowers', 
       newBorrowerObject)
       .then(result => {
         const borrowerId = result.data.borrowerId;

@@ -49,7 +49,7 @@ class App extends Component {
     axios.get('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/borrowers')
     .then(response => {
       // test log to console to ensure dogs list is loaded
-      //console.log("dogs list ", response.data.dogs);
+      console.log("borrowers list ", response.data.borrowers);
       // get completed set state to list of dogs from database
       this.setState({borrowers: response.data.borrowers});
     })
@@ -59,16 +59,17 @@ class App extends Component {
     });
     }
 
-  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWed, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1318, borrowerownDog, borrowerownDogType, borrowerownDogDetails, borrowerDogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
+  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWeds, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1318, borrowerownDog, borrowerownDogType, borrowerownDogDetails, borrowerDogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
 
     const currentBorrowers = this.state.borrowers;
 
     const newBorrowerObject = { firstName: borrowerFirstName, surname: borrowerSurname, 
       email: borrowerEmail, mobile: borrowerMobile, 
+      postcode: borrowerPostcode, 
       address1: borrowerAddress1, address2: borrowerAddress2, 
       address3: borrowerAddress3, townCity: borrowerTownCity, 
-      postcode: borrowerPostcode, dayMon: borrowerDayMon, 
-      dayTues: borrowerDayTues, dayWed: borrowerDayWed, 
+      dayMon: borrowerDayMon, 
+      dayTues: borrowerDayTues, dayWeds: borrowerDayWeds, 
       dayThurs: borrowerDayThurs, dayFri: borrowerDayFri, 
       daySat: borrowerDaySat, daySun: borrowerDaySun, 
       borrowerMales: borrowerAdultMales, borrowerFemales: borrowerAdultFemales, 
@@ -78,11 +79,11 @@ class App extends Component {
       childAgeBand1318: borrowerChildAgeBand1318, 
       ownDog:borrowerownDog, ownDogType:borrowerownDogType, 
       ownDogDetails:borrowerownDogDetails, 
-      borrowerDogPace:borrowerDogPace, dogSize: borrowerDogSize, 
-      dogBehaviourNervous: borrowerdogBehaviourNervous, 
-      dogBehaviourBarking:borrowerdogBehaviourBarking, 
-      dogBehaviourLeadPulling:borrowerdogBehaviourLeadPulling, 
-      dogBehaviourReactive:borrowerdogBehaviourReactive
+      borrowerDogPace:borrowerDogPace, borrowerdogSize: borrowerDogSize, 
+      expNervous: borrowerdogBehaviourNervous, 
+      expBarking:borrowerdogBehaviourBarking, 
+      expLeadPulling:borrowerdogBehaviourLeadPulling, 
+      expReactive:borrowerdogBehaviourReactive
        }
 
     console.log("new borrower ",newBorrowerObject)
@@ -114,6 +115,7 @@ class App extends Component {
       behaviourNervous: dogBehaviourNervous, 
       behaviourLeadPulling: dogBehaviourLeadPulling, 
       behaviourBarking: dogBehaviourBarking, behaviourReactive: dogBehaviourReactive }
+     
     axios.post('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/dogs', 
       newDogObject)
       .then(result => {

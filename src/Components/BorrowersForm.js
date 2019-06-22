@@ -11,10 +11,10 @@ class BorrowersForm extends Component {
         borroweraddress2: "",
         borroweraddress3: "",
         borrowertownCity: "",
-        borrowerpostcode: "",
+        borrowerPostCode: "",
         borrowerdayMon: false,
         borrowerdayTues: false,
-        borrowerdayWed: false,
+        borrowerdayWeds: false,
         borrowerdayThurs: false,
         borrowerdayFri: false,
         borrowerdaySat: false,
@@ -25,7 +25,7 @@ class BorrowersForm extends Component {
         borrowerchildAgeBand05: false,
         borrowerchildAgeBand612: false,
         borrowerchildAgeBand1318: false,
-        borrowerotherDog: "",
+        borrowerownDog: "",
         borrowerownDogType: "",
         borrowerownDetails: "",
         borrowerdogPace: "",
@@ -109,7 +109,7 @@ class BorrowersForm extends Component {
     postcodeData = (event) => {
         const borrowerpostcode = event.target.value;
         this.setState({
-            borrowerpostcode: borrowerpostcode
+            borrowerPostCode: borrowerpostcode
         });
     }
 
@@ -128,9 +128,9 @@ class BorrowersForm extends Component {
     }
 
     dayWedSelected = (event) => {
-        const borrowerdayWed = event.target.checked;
+        const borrowerdayWeds = event.target.checked;
         this.setState({
-            borrowerdayWed: borrowerdayWed
+            borrowerdayWeds: borrowerdayWeds
         });
     }
 
@@ -270,30 +270,30 @@ class BorrowersForm extends Component {
     addBorrowerClicked = e => {
         e.preventDefault();
         const newfirstName = this.state.borrowerfirstName
-        const newsurname = this.state.borrowerSurname
-        const newemail = this.state.borrowerEmail
-        const newmobile = this.state.borrowerMobile
-        const newaddress1 = this.state.borrowerAddress1
-        const newaddress2 = this.state.borrowerAddress2
-        const newaddress3 = this.state.borrowerAddress3
-        const newtownCity = this.state.borrowerTownCity
-        const newpostcode = this.state.borrowerPostcode
-        const newdayMon = this.state.borrowerDayMon
-        const newdayTues = this.state.borrowerDayTues
-        const newdayWed = this.state.borrowerDayWed
-        const newdayThurs = this.state.borrowerDayThurs
-        const newdayFri = this.state.borrowerDayFri
-        const newdaySat = this.state.borrowerDaySat
-        const newdaySun = this.state.borrowerDaySun
+        const newsurname = this.state.borrowersurname
+        const newemail = this.state.borroweremail
+        const newmobile = this.state.borrowermobile
+        const newaddress1 = this.state.borroweraddress1
+        const newaddress2 = this.state.borroweraddress2
+        const newaddress3 = this.state.borroweraddress3
+        const newtownCity = this.state.borrowertownCity
+        const newpostcode = this.state.borrowerPostCode
+        const newdayMon = this.state.borrowerdayMon
+        const newdayTues = this.state.borrowerdayTues
+        const newdayWeds = this.state.borrowerdayWeds
+        const newdayThurs = this.state.borrowerdayThurs
+        const newdayFri = this.state.borrowerdayFri
+        const newdaySat = this.state.borrowerdaySat
+        const newdaySun = this.state.borrowerdaySun
         const newadultMales = this.state.borroweradultMales
         const newadultFemales = this.state.borroweradultFemales
         const newborrowerChildren = this.state.borrowerChildren
         const newchildAgeBand05 = this.state.borrowerChildAgeBand05
-        const newchildAgeBand612 = this.state.borrowerChildAgeBand612
-        const newchildAgeBand1318 = this.state.borrowerChildAgeBand1318
+        const newchildAgeBand612 = this.state.borrowerchildAgeBand612
+        const newchildAgeBand1318 = this.state.borrowerchildAgeBand1318
         const newownDog = this.state.borrowerownDog
         const newownDogType = this.setState.borrowerownDogType
-        const newownDogDetails = this.setState.borrowerownDogDetails
+        const newownDogDetails = this.setState.borrowerownDetails
         const newdogPace = this.state.borrowerdogPace
         const newdogSize = this.state.borrowerdogSize
         const newborrowerdogBehaviourNervous = this.state.borrowerdogBehaviourNervous
@@ -301,7 +301,8 @@ class BorrowersForm extends Component {
         const newborrowerdogBehaviourLeadPulling = this.state.borrowerdogBehaviourLeadPulling
         const newborrowerdogBehaviourReactive = this.state.borrowerdogBehaviourReactive
 
-        
+        console.log(newfirstName
+            )
         
         // set the borrower form back to the default values
         // set the focus onto the borrower first name textbox
@@ -311,7 +312,7 @@ class BorrowersForm extends Component {
         if (newfirstName.length > 0 && newsurname.length > 0 && newemail.length > 0 && newmobile.length > 0) {
             this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, 
                 newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, 
-                newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, 
+                newdayMon, newdayTues, newdayWeds, newdayThurs, newdayFri, newdaySat, newdaySun, 
                 newadultMales, newadultFemales, newborrowerChildren, 
                 newchildAgeBand05, newchildAgeBand612, newchildAgeBand1318, 
                 newownDog, newownDogType, newownDogDetails, newdogPace, newdogSize, 
@@ -328,10 +329,10 @@ class BorrowersForm extends Component {
                 borroweraddress2: "",
                 borroweraddress3: "",
                 borrowertownCity: "",
-                borrowerpostcode: "",
+                borrowerPostCode: "",
                 borrowerdayMon: false,
                 borrowerdayTues: false,
-                borrowerdayWed: false,
+                borrowerdayWeds: false,
                 borrowerdayThurs: false,
                 borrowerdayFri: false,
                 borrowerdaySat: false,
@@ -342,7 +343,7 @@ class BorrowersForm extends Component {
                 borrowerchildAgeBand05: false,
                 borrowerchildAgeBand612: false,
                 borrowerchildAgeBand1318: false,
-                borrowerotherDog: "",
+                borrowerownDog: "",
                 borrowerownDogType: "",
                 borrowerownDetails: "",
                 borrowerdogPace: "",

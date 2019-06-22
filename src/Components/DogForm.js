@@ -28,8 +28,8 @@ class DogForm extends Component {
         this.dogNameInput = React.createRef();
         // create a ref to store the dateInput DOM element
         //this.dateInput = React.createRef();
-        // constructor to bind add new task button click
-        // to task input form textInput
+        // constructor to bind add new dog button click
+        // to dog input form textbox, dogNameInput
         this.addDogClicked = this.addDogClicked.bind(this);
       }
 
@@ -205,7 +205,7 @@ class DogForm extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-6">
                             <label htmlFor="dogName">Dog's name:</label>
-                                <span className = "invalidDate">
+                                <span className = "invalidDogName">
                                         {this.state.dogNameInvalid &&
                                         " Please enter the dog's name"
                                         }
@@ -311,17 +311,17 @@ class DogForm extends Component {
                     <div className="custom-control custom-radio custom-control-inline">
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="dogPace" id="inlineRadio1" value="Slow" checked={this.state.dogDogPace === "Slow"} onChange={this.dogPaceSelected} />
+                            <input className="form-check-input" type="radio" name="dogPace" id="inlineRadio1" value="Slow" checked={this.state.dogDogPace === "S"} onChange={this.dogPaceSelected} />
                             <label className="form-check-label" htmlFor="inlineRadio1">Slow</label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio"
-                                onChange={this.dogPaceSelected} name="dogPace" id="inlineRadio2" value="Moderate" checked={this.state.dogDogPace === "Moderate"} />
+                                onChange={this.dogPaceSelected} name="dogPace" id="inlineRadio2" value="Moderate" checked={this.state.dogDogPace === "M"} />
                             <label className="form-check-label" htmlFor="inlineRadio2">Moderate</label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio"
-                                onChange={this.dogPaceSelected} name="dogPace" id="inlineRadio3" value="Energetic" checked={this.state.dogDogPace === "Energetic"} />
+                                onChange={this.dogPaceSelected} name="dogPace" id="inlineRadio3" value="Energetic" checked={this.state.dogDogPace === "E"} />
                             <label className="form-check-label" htmlFor="inlineRadio3">Energetic</label>
                         </div>
                     </div>

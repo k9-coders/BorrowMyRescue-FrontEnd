@@ -24,7 +24,7 @@ class BorrowersForm extends Component {
         borrowerChildren: false,
         borrowerchildAgeBand05: false,
         borrowerchildAgeBand612: false,
-        borrowerchildAgeBand1317: false,
+        borrowerchildAgeBand1318: false,
         borrowerotherDog: "",
         borrowerownDogType: "",
         borrowerownDetails: "",
@@ -34,8 +34,22 @@ class BorrowersForm extends Component {
         borrowerdogBehaviourBarking: false,
         borrowerdogBehaviourLeadPulling: false,
         borrowerdogBehaviourReactive: false,
+        borrowDetailsInvalid: false
     }
 
+    // used to set focus on borrower first name input box
+    constructor(props) {
+    // always need super(props)
+    // as first line in a constructor
+    super(props);
+    // create a ref to store the dogNameInput DOM element
+    this.firstNameInput = React.createRef();
+    // create a ref to store the dateInput DOM element
+    //this.dateInput = React.createRef();
+    // constructor to bind add new borrower button click
+    // to borrower input textbox firstNameInput
+    this.addBorrowerClicked = this.addBorrowerClicked.bind(this);
+  }
     firstNameData = (event) => {
         const borrowerfirstName = event.target.value;
         this.setState({
@@ -183,17 +197,17 @@ class BorrowersForm extends Component {
         });
     }
 
-    childAgeBand1317Selected = (event) => {
-        const borrowerchildAgeBand1317 = event.target.checked;
+    childAgeBand1318Selected = (event) => {
+        const borrowerchildAgeBand1318 = event.target.checked;
         this.setState({
-            borrowerchildAgeBand1317: borrowerchildAgeBand1317
+            borrowerchildAgeBand1318: borrowerchildAgeBand1318
         });
     }
 
-    otherDogSelected = (event) => {
-        const borrowerotherDog = event.target.value === "Yes";
+    ownDogSelected = (event) => {
+        const borrowerownDog = event.target.value === "Yes";
         this.setState({
-            borrowerotherDog: borrowerotherDog
+            borrowerownDog: borrowerownDog
         });
     }
 
@@ -211,45 +225,17 @@ class BorrowersForm extends Component {
         });
     }
 
-    dogPaceSelectedSlow = (event) => {
-        const borrowerdogPaceSlowYes = event.target.checked;
+    borrowerPaceSelected = (event) => {
+        const borrowerdogPace = event.target.checked;
         this.setState({
-            borrowerdogPaceSlow: borrowerdogPaceSlowYes
+            borrowerDogPace: borrowerdogPace
         });
     }
 
-    dogPaceSelectedModerate = (event) => {
-        const borrowerdogPaceModerateYes = event.target.checked;
+    borrowerDogSizeSelected = (event) => {
+        const borrowerdogSize = event.target.checked;
         this.setState({
-            borrowerdogPaceModerate: borrowerdogPaceModerateYes
-        });
-    }
-
-    dogPaceSelectedEnergetic = (event) => {
-        const borrowerdogPaceEnergeticYes = event.target.checked;
-        this.setState({
-            borrowerdogPaceEnergetic: borrowerdogPaceEnergeticYes
-        });
-    }
-
-    dogSizeSelectedSmall = (event) => {
-        const borrowerdogSizeSmallYes = event.target.checked;
-        this.setState({
-            borrowerdogSizeSmall: borrowerdogSizeSmallYes
-        });
-    }
-
-    dogSizeSelectedMedium = (event) => {
-        const borrowerdogSizeMediumYes = event.target.checked;
-        this.setState({
-            borrowerdogSizeMedium: borrowerdogSizeMediumYes
-        });
-    }
-
-    dogSizeSelectedLarge = (event) => {
-        const borrowerdogSizeLargeYes = event.target.checked;
-        this.setState({
-            borrowerdogSizeLarge: borrowerdogSizeLargeYes
+            borrowerdogSize: borrowerdogSize
         });
     }
 
@@ -304,23 +290,86 @@ class BorrowersForm extends Component {
         const newborrowerChildren = this.state.borrowerChildren
         const newchildAgeBand05 = this.state.borrowerChildAgeBand05
         const newchildAgeBand612 = this.state.borrowerChildAgeBand612
-        const newchildAgeBand1317 = this.state.borrowerChildAgeBand1317
-        const newotherDog = this.state.borrowerOtherDog
+        const newchildAgeBand1318 = this.state.borrowerChildAgeBand1318
+        const newownDog = this.state.borrowerownDog
         const newownDogType = this.setState.borrowerownDogType
         const newownDogDetails = this.setState.borrowerownDogDetails
-        const newdogPaceSlow = this.state.borrowerdogPaceSlow
-        const newdogPaceModerate = this.state.borrowerdogPaceModerate
-        const newdogPaceEnergetic = this.state.borrowerdogPaceEnergetic
+        const newdogPace = this.state.borrowerdogPace
         const newdogSize = this.state.borrowerdogSize
         const newborrowerdogBehaviourNervous = this.state.borrowerdogBehaviourNervous
         const newborrowerdogBehaviourBarking = this.state.borrowerdogBehaviourBarking
         const newborrowerdogBehaviourLeadPulling = this.state.borrowerdogBehaviourLeadPulling
         const newborrowerdogBehaviourReactive = this.state.borrowerdogBehaviourReactive
+        const newborrowerRating = null
 
-        // only add borrower to database if firstname, surname and email address supplied
-        this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, newadultMales, newadultFemales, newborrowerChildren, newchildAgeBand05, newchildAgeBand612, newchildAgeBand1317, newotherDog, newownDogType, newownDogDetails, newdogPaceSlow, newdogPaceModerate, newdogPaceEnergetic, newdogSize, newborrowerdogBehaviourNervous, newborrowerdogBehaviourBarking, newborrowerdogBehaviourLeadPulling, newborrowerdogBehaviourReactive);
+        
+        
         // set the borrower form back to the default values
         // set the focus onto the borrower first name textbox
+
+        /// only add borrower to database if firstname, surname, mobile and email address supplied
+        // could change the code here to add more validation
+        if (newfirstName.length > 0 && newsurname.length > 0 && newemail.length > 0 && newmobile.length > 0) {
+            this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, 
+                newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, 
+                newdayMon, newdayTues, newdayWed, newdayThurs, newdayFri, newdaySat, newdaySun, 
+                newadultMales, newadultFemales, newborrowerChildren, 
+                newchildAgeBand05, newchildAgeBand612, newchildAgeBand1318, 
+                newownDog, newownDogType, newownDogDetails, newdogPace, newdogSize, 
+                newborrowerdogBehaviourNervous, newborrowerdogBehaviourBarking, 
+                newborrowerdogBehaviourLeadPulling, newborrowerdogBehaviourReactive, newborrowerRating);
+        
+            // reset form options to defaults
+            this.setState({
+                borrowerfirstName: "",
+                borrowersurname: "",
+                borroweremail: "",
+                borrowermobile: "",
+                borroweraddress1: "",
+                borroweraddress2: "",
+                borroweraddress3: "",
+                borrowertownCity: "",
+                borrowerpostcode: "",
+                borrowerdayMon: false,
+                borrowerdayTues: false,
+                borrowerdayWed: false,
+                borrowerdayThurs: false,
+                borrowerdayFri: false,
+                borrowerdaySat: false,
+                borrowerdaySun: false,
+                borroweradultMales: false,
+                borroweradultFemales: false,
+                borrowerChildren: false,
+                borrowerchildAgeBand05: false,
+                borrowerchildAgeBand612: false,
+                borrowerchildAgeBand1318: false,
+                borrowerotherDog: "",
+                borrowerownDogType: "",
+                borrowerownDetails: "",
+                borrowerdogPace: "",
+                borrowerdogSize: "",
+                borrowerdogBehaviourNervous: false,
+                borrowerdogBehaviourBarking: false,
+                borrowerdogBehaviourLeadPulling: false,
+                borrowerdogBehaviourReactive: false,
+                // reset borrow details to valid - validation message not shown
+                borrowDetailsInvalid: false
+            })
+        } else {
+
+            //if the borrowerDetailsInvalid state is set
+            // an error message will display to show that the borrower needs to provide
+            // key details - first name, surname, mobile and email address
+            
+                this.setState({
+                    borrowerDetailsInvalid: true
+            })
+        }
+        // set focus back to the borrower name text box - 
+        // in case further borrowers need to be added
+        // Explicitly focus the borrower name input using the raw DOM API
+        // Note: we're accessing "current" to get the DOM node
+        this.firstNameInput.current.focus();
     }
 
     render() {
@@ -329,13 +378,19 @@ class BorrowersForm extends Component {
             <div className="col">
                 <h2>Borrower Input Form</h2>
                 <h5>Please enter your personal details here:</h5>
+                    <span className = "invalidBorrowerDetails">
+                        {this.state.borrowerDetailsInvalid &&
+                        "Please enter your details - we require a minimum of first name, surname, mobile and email"
+                        }
+                    </span>
                 <form>
 
                     <div className="form-row">
 
                         <div className="form-group col-md-6">
                             <label htmlFor="firstName">First name</label>
-                            <input type="text" className="form-control" id="firstName" placeholder="First name" onChange={this.firstNameData}></input>
+                            <input type="text" className="form-control" id="firstName" placeholder="First name" 
+                                ref={this.firstNameInput} onChange={this.firstNameData}></input>
                         </div>
 
                         <div className="form-group col-md-6">
@@ -389,7 +444,7 @@ class BorrowersForm extends Component {
 
                     </div>
 
-                    <h5>Please select all the days you are available to borow a dog (select all that apply)</h5>
+                    <h5>Please select your availability to borrow a dog (select all that apply)</h5>
 
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Monday" onChange={this.dayMonSelected} checked={this.state.borrowerdayMon === true} />
@@ -422,7 +477,7 @@ class BorrowersForm extends Component {
 
                 </form >
 
-                <h5>Check all of the following people who will be in your group on your day out (if not applicable, please leave blank):</h5>
+                <h5>Please indicate whether the following people will be in your group on your day out (if not applicable, please leave blank):</h5>
                 <form>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="AdultMales" onChange={this.adultMalesSelected} checked={this.state.borroweradultMales === true} />
@@ -433,35 +488,58 @@ class BorrowersForm extends Component {
                         <label className="form-check-label" htmlFor="inlineCheckbox1">Adult Females</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="withChildren05" onChange={this.childAgeBand05Selected} checked={this.state.borrowerchildAgeBand05 === true} />
-                        <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 0-5</label>
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="AdultFemales" onChange={this.borrowerChildrenSelected} checked={this.state.borrowerChildren === true} />
+                        <label className="form-check-label" htmlFor="inlineCheckbox1">Children</label>
                     </div>
-                    <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="withChildren612" onChange={this.childAgeBand612Selected} checked={this.state.borrowerchildAgeBand612 === true} />
-                        <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 6-12</label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="withChildren13-17" onChange={this.childAgeBand1317Selected} checked={this.state.borrowerchildAgeBand1317 === true} />
-                        <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 13-17</label>
+                    <h6> Please select the age range(s) of the children in your group (select all that apply)</h6>
+
+                    <div className="form-row">
+                        <div className="form-check form-check-inline">
+                            {(this.state.borrowerChildren)?
+                                <input className="form-check-input" type="checkbox" name="childAgeRanges" id="inlineCheckbox1" value="withChildren05" onChange={this.childAgeBand05Selected} checked={this.state.borrowerchildAgeBand05 === true} />
+                                :
+                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAgeRanges" id="inlineCheckbox1" value="withChildren05" onChange={this.childAgeBand05Selected} checked={this.state.borrowerchildAgeBand05 === true} />
+                            }
+                            <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 0-5</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            {(this.state.borrowerChildren)?
+                                <input className="form-check-input" type="checkbox" name="childAgeRanges" id="inlineCheckbox1" value="withChildren612" onChange={this.childAgeBand612Selected} checked={this.state.borrowerchildAgeBand612 === true} />
+                                :
+                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAgeRanges" id="inlineCheckbox1" value="withChildren612" onChange={this.childAgeBand612Selected} checked={this.state.borrowerchildAgeBand612 === true} />
+                            }
+                            <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 6-12</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            {(this.state.borrowerChildren)?
+                                <input className="form-check-input" type="checkbox" name="childAgeRanges" id="inlineCheckbox1" value="withChildren1318" onChange={this.childAgeBand1318Selected} checked={this.state.borrowerchildAgeBand1318 === true} />
+                                :
+                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAgeRanges" id="inlineCheckbox1" value="withChildren1318" onChange={this.childAgeBand1318Selected} checked={this.state.borrowerchildAgeBand1318 === true} />
+                            }
+                            <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 13-18</label>
+                        </div>
                     </div>
 
-                    <h6>Will there be any other dogs in your group on your day out?:</h6>
+                    
+
+
+                    <h5>Will there be any other dogs in your group on your day out?:</h5>
 
                     <div className="form-row">
                         <div className="custom-control custom-radio custom-control-inline">
 
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="otherDog" id="inlineRadio1" value="Yes" onChange={this.otherDogSelected} checked={this.state.borrowerotherDog === true} />
+                                <input className="form-check-input" type="radio" name="ownDog" id="inlineRadio1" value="Yes" onChange={this.ownDogSelected} checked={this.state.borrowerownDog === true} />
                                 <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
                             </div>
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="otherDog" id="inlineRadio2" value="No" onChange={this.otherDogSelected} checked={this.state.borrowerotherDog === false} />
+                                <input className="form-check-input" type="radio" name="ownDog" id="inlineRadio2" value="No" onChange={this.ownDogSelected} checked={this.state.borrowerownDog === false} />
                                 <label className="form-check-label" htmlFor="inlineRadio2">No</label>
                             </div>
                         </div>
                     </div>
 
-                    <h5>If yes, please enter your type of dog and brief details of any issues e.g. nervous, reactive behaviour</h5>
+                    <h6>If yes, please enter your type of dog and brief details of any issues e.g. nervous, reactive behaviour</h6>
 
                     <div className="form-group col-md-6">
                         <label htmlFor="ownDogType">Your own dog type (if applicable):</label>
@@ -480,30 +558,30 @@ class BorrowersForm extends Component {
                         <h6>The pace of dog for your day out: (Click all that apply)</h6>
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceSlow" value="Slow" onChange={this.dogPaceSelectedSlow} checked={this.state.borrowerdogPaceSlow === true} />
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceSlow" value="Slow" onChange={this.borrowerPaceSelected} checked={this.state.borrowerdogPace === "S"} />
                             <label className="form-check-label" htmlFor="inlineCheckboxPaceSlow">Slow</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceModerate" value="Moderate" onChange={this.dogPaceSelectedModerate} checked={this.state.borrowerdogPaceModerate === true} />
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceModerate" value="Moderate" onChange={this.borrowerPaceSelected} checked={this.state.borrowerdogPace === "M"} />
                             <label className="form-check-label" htmlFor="inlineCheckboxPaceModerate">Moderate</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceEnergetic" value="Moderate" onChange={this.dogPaceSelectedEnergetic} checked={this.state.borrowerdogPaceEnergetic === true} />
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxPaceEnergetic" value="Energetic" onChange={this.borrowerPaceSelected} checked={this.state.borrowerdogPace === "E"} />
                             <label className="form-check-label" htmlFor="inlineCheckboxPaceEnergetic">Energetic</label>
                         </div>
 
                         <h6>The size of dog for your day out: (Click all that apply)</h6>
 
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxdogSmall" value="Small" onChange={this.dogSizeSelectedSmall} checked={this.state.borrowerdogSizeSmall === true} />
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxdogSmall" value="Small" onChange={this.borrowerDogSizeSelected} checked={this.state.borrowerdogSize === "S"} />
                             <label className="form-check-label" htmlFor="inlineCheckboxDogSmall">Small</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxMedium" value="Medium" onChange={this.dogSizeSelectedMedium} checked={this.state.borrowerdogSizeMedium === true} />
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxMedium" value="Medium" onChange={this.borrowerDogSizeSelected} checked={this.state.borrowerdogSize === "M"} />
                             <label className="form-check-label" htmlFor="inlineCheckboxMedium">Medium</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="checkbox" id="inlineCheckboxLarge" value="Large" onChange={this.dogSizeSelectedLarge} checked={this.state.borrowerdogSizeLarge === true} />
+                            <input className="form-check-input" type="checkbox" id="inlineCheckboxLarge" value="Large" onChange={this.borrowerDogSizeSelected} checked={this.state.borrowerdogSize === "L"} />
                             <label className="form-check-label" htmlFor="inlineCheckboxLarge">Large</label>
                         </div>
 

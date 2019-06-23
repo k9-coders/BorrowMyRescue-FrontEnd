@@ -33,8 +33,7 @@ class BorrowersForm extends Component {
         borrowerdogBehaviourNervous: false,
         borrowerdogBehaviourBarking: false,
         borrowerdogBehaviourLeadPulling: false,
-        borrowerdogBehaviourReactive: false,
-        borrowDetailsInvalid: false
+        borrowerdogBehaviourReactive: false
     }
 
     // used to set focus on borrower first name input box
@@ -49,7 +48,14 @@ class BorrowersForm extends Component {
     // constructor to bind add new borrower button click
     // to borrower input textbox firstNameInput
     this.addBorrowerClicked = this.addBorrowerClicked.bind(this);
-  }
+    }
+
+    // display an alert message 
+    // this is used to inform a borrower that their details have been submitted to our database
+    showAlert() {
+      alert("Thankyou for submitting your details, a member of our team will be in touch with you shortly");
+    } 
+  
     firstNameData = (event) => {
         const borrowerfirstName = event.target.value;
         this.setState({
@@ -127,7 +133,7 @@ class BorrowersForm extends Component {
         });
     }
 
-    dayWedSelected = (event) => {
+    dayWedsSelected = (event) => {
         const borrowerdayWeds = event.target.checked;
         this.setState({
             borrowerdayWeds: borrowerdayWeds
@@ -269,6 +275,7 @@ class BorrowersForm extends Component {
 
     addBorrowerClicked = e => {
         e.preventDefault();
+        
         const newfirstName = this.state.borrowerfirstName
         const newsurname = this.state.borrowersurname
         const newemail = this.state.borroweremail
@@ -301,8 +308,7 @@ class BorrowersForm extends Component {
         const newborrowerdogBehaviourLeadPulling = this.state.borrowerdogBehaviourLeadPulling
         const newborrowerdogBehaviourReactive = this.state.borrowerdogBehaviourReactive
 
-        console.log(newfirstName
-            )
+        
         
         // set the borrower form back to the default values
         // set the focus onto the borrower first name textbox
@@ -318,7 +324,8 @@ class BorrowersForm extends Component {
                 newownDog, newownDogType, newownDogDetails, newdogPace, newdogSize, 
                 newborrowerdogBehaviourNervous, newborrowerdogBehaviourBarking, 
                 newborrowerdogBehaviourLeadPulling, newborrowerdogBehaviourReactive);
-        
+
+            
             // reset form options to defaults
             this.setState({
                 borrowerfirstName: "",
@@ -352,9 +359,12 @@ class BorrowersForm extends Component {
                 borrowerdogBehaviourBarking: false,
                 borrowerdogBehaviourLeadPulling: false,
                 borrowerdogBehaviourReactive: false,
-                // reset borrow details to valid - validation message not shown
                 borrowDetailsInvalid: false
-            })
+            });
+            // display message to borrower to confirm that their details have been entered into the
+            // database
+            this.showAlert();
+                
         } else {
 
             //if the borrowerDetailsInvalid state is set
@@ -390,24 +400,27 @@ class BorrowersForm extends Component {
                         <div className="form-group col-md-6">
                             <label htmlFor="firstName">First name</label>
                             <input type="text" className="form-control" id="firstName" placeholder="First name" 
-                                ref={this.firstNameInput} onChange={this.firstNameData}></input>
+                                value={this.state.borrowerfirstName} ref={this.firstNameInput} onChange={this.firstNameData}></input>
                         </div>
 
                         <div className="form-group col-md-6">
                             <label htmlFor="surname">Surname</label>
-                            <input type="text" className="form-control" id="surname" placeholder="Surname" onChange={this.surnameData} ></input>
+                            <input type="text" className="form-control" id="surname" placeholder="Surname" 
+                            value={this.state.borrowersurname} onChange={this.surnameData} ></input>
                         </div>
                     </div>
 
                     <div className="form-row">
                         <div className="form-group col-md-8">
                             <label htmlFor="inputEmail4">Email</label>
-                            <input type="email" className="form-control" id="inputEmail4" placeholder="Email" onChange={this.emailData} ></input>
+                            <input type="email" className="form-control" id="inputEmail4" placeholder="Email" 
+                            value={this.state.borroweremail} onChange={this.emailData} ></input>
                         </div>
 
                         <div className="form-group col-md-4">
                             <label htmlFor="mobile">Mobile</label>
-                            <input type="text" className="form-control" id="mobile" placeholder="Mobile" onChange={this.mobileData} ></input>
+                            <input type="text" className="form-control" id="mobile" placeholder="Mobile" 
+                            value={this.state.borrowermobile} onChange={this.mobileData} ></input>
                         </div>
                     </div>
 
@@ -415,12 +428,14 @@ class BorrowersForm extends Component {
 
                         <div className="form-group col-md-6">
                             <label htmlFor="address1">Address 1</label>
-                            <input type="text" className="form-control" id="address1" onChange={this.address1Data} ></input>
+                            <input type="text" className="form-control" id="address1" placeholder="1st line of address"
+                            value={this.state.borroweraddress1} onChange={this.address1Data} ></input>
                         </div>
 
                         <div className="form-group col-md-6">
                             <label htmlFor="address2">Address 2</label>
-                            <input type="text" className="form-control" id="address2" onChange={this.address2Data} ></input>
+                            <input type="text" className="form-control" id="address2" placeholder="2nd line of address"
+                            value={this.state.borroweraddress2} onChange={this.address2Data} ></input>
                         </div>
 
                     </div>
@@ -429,17 +444,20 @@ class BorrowersForm extends Component {
 
                         <div className="form-group col-md-6">
                             <label htmlFor="address3">Address 3</label>
-                            <input type="text" className="form-control" id="address3" onChange={this.address3Data} ></input>
+                            <input type="text" className="form-control" id="address3" placeholder="3rd line of address"
+                            value={this.state.borroweraddress3} onChange={this.address3Data} ></input>
                         </div>
 
                         <div className="form-group col-md-4">
                             <label htmlFor="townCity">Town/City</label>
-                            <input type="text" className="form-control" id="townCity" onChange={this.townCityData} ></input>
+                            <input type="text" className="form-control" id="townCity" placeholder="town or city"
+                            value={this.state.borrowertownCity} onChange={this.townCityData} ></input>
                         </div>
 
                         <div className="form-group col-md-2">
                             <label htmlFor="postcode">Post Code</label>
-                            <input type="text" className="form-control" id="postcode" onChange={this.postcodeData} ></input>
+                            <input type="text" className="form-control" id="postcode" 
+                            placeholder="Postcode" value={this.state.borrowerPostCode} onChange={this.postcodeData} ></input>
                         </div>
 
                     </div>
@@ -455,7 +473,7 @@ class BorrowersForm extends Component {
                         <label className="form-check-label" htmlFor="inlineCheckbox1">Tuesday</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Wednesday" onChange={this.dayWedSelected} checked={this.state.borrowerdayWed === true} />
+                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Wednesday" onChange={this.dayWedsSelected} checked={this.state.borrowerdayWeds === true} />
                         <label className="form-check-label" htmlFor="inlineCheckbox1">Wednesday</label>
                     </div>
                     <div className="form-check form-check-inline">
@@ -618,7 +636,7 @@ class BorrowersForm extends Component {
                     </div>
 
                     <div>
-                        <button className="btn btn-primary btn-am m-2" onClick={this.addborrowerClicked} > Submit</button>
+                        <button className="btn btn-primary btn-am m-2" onClick={this.addBorrowerClicked} >Submit</button>
                     </div>
                 </form>
             </div >

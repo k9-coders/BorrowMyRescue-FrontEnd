@@ -48,9 +48,9 @@ class App extends Component {
     // retrieve borrowers 
     axios.get('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/borrowers')
     .then(response => {
-      // test log to console to ensure dogs list is loaded
+      // test log to console to ensure borrowers list is loaded
       console.log("borrowers list ", response.data.borrowers);
-      // get completed set state to list of dogs from database
+      // get completed set state to list of borrowers from database
       this.setState({borrowers: response.data.borrowers});
     })
     // error handling if the get fails to retrieve data
@@ -60,7 +60,7 @@ class App extends Component {
     }
 
   addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWeds, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1318, borrowerownDog, borrowerownDogType, borrowerownDogDetails, borrowerDogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
-
+    console.log("start of add borrowers");
     const currentBorrowers = this.state.borrowers;
 
     const newBorrowerObject = { firstName: borrowerFirstName, surname: borrowerSurname, 
@@ -105,6 +105,7 @@ class App extends Component {
   }
 
   addDogs = (dogDogName, dogOtherDogs, dogAdultMales, dogAdultFemales, dogWithChildren, dogWithChildren05, dogWithChildren612, dogWithChildren1318, dogDogSize, dogDogPace, dogBehaviourNervous, dogBehaviourLeadPulling, dogBehaviourBarking, dogBehaviourReactive) => {
+    console.log("start of add dogs");
     const currentDogs = this.state.dogs;
     const newDogObject = 
     { dogName: dogDogName, otherDogs: dogOtherDogs, 

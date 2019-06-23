@@ -23,15 +23,13 @@ class DogForm extends Component {
     constructor(props) {
         // always need super(props)
         // as first line in a constructor
-        super(props);
+       super(props);
         // create a ref to store the dogNameInput DOM element
         this.dogNameInput = React.createRef();
-        // create a ref to store the dateInput DOM element
-        //this.dateInput = React.createRef();
         // constructor to bind add new dog button click
         // to dog input form textbox, dogNameInput
         this.addDogClicked = this.addDogClicked.bind(this);
-      }
+    }
 
     dogNameData = (event) => {
         const dogDogName = event.target.value;
@@ -356,7 +354,7 @@ class DogForm extends Component {
                     </div>
 
                     <div>
-                        <button className="btn btn-primary btn-am m-2" onClick={this.addDogClicked} > Submit</button>
+                        <button className="btn btn-primary btn-am m-2" onClick={this.addDogClicked} >Submit</button>
                     </div>
                 </form>
             </div>

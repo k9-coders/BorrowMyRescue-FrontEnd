@@ -559,22 +559,25 @@ class BorrowersForm extends Component {
 
                     <h6>If yes, please enter your type of dog and brief details of any issues e.g. nervous, reactive behaviour</h6>
 
+
                     <div className="form-group col-md-6">
                         <label htmlFor="ownDogType">Your own dog type (if applicable):</label>
-                        {(this.state.borrowerownDog)?
-                            <input type="text" className="form-control" id="ownDogType" onChange={this.ownDogTypeData}  ></input>
+                        {(this.state.borrowerownDogType)?
+                            <input type="text" className="form-control" id="ownDogType" placeholder="ownDogType" 
+                            value={this.state.borrowerownDogType} ref={this.ownDogInput} onChange={this.ownDogTypeData}  ></input>
                             :
-                            <input type="text" className="form-control" disabled = "disabled" id="ownDogType" onChange={this.ownDogTypeData}  ></input>
+                            <input type="text" className="form-control" disabled = "disabled" id="ownDogType" value={this.state.borrowerownDogType} ref={this.ownDogInput} onChange={this.ownDogTypeData}  ></input>
                         }
                     </div>
 
                     
                     <div className="form-group col-md-6">
                         <label htmlFor="ownDogDetails">Any issues (if applicable):</label>
-                        {(this.state.borrowerownDog)?
-                            <input type="text" className="form-control" id="ownDogDetails" onChange={this.ownDogDetailsData} ></input>
+                        {(this.state.borrowerownDogDetails)?
+                            <input type="text" className="form-control" id="ownDogDetails" placeholder="ownDogDetails" 
+                            value={this.state.borrowerownDogDetails} ref={this.ownDogDetailsInput} onChange={this.ownDogDetailsData} ></input>
                             :
-                            <input type="text" className="form-control" disabled="disabled" id="ownDogDetails" onChange={this.ownDogDetailsData} ></input>
+                            <input type="text" className="form-control" disabled="disabled" id="ownDogDetails" value={this.state.borrowerownDogDetails} ref={this.ownDogDetailsInput} onChange={this.ownDogDetailsData} ></input>
                         }
                         
                     </div>

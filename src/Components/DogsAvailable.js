@@ -78,7 +78,7 @@ class DogsAvailable extends Component {
                     </div>
 
                     <div>
-                    <button type="button" class="btn btn-outline-primary"
+                    <button type="button" className="btn btn-outline-primary"
                         onClick={this.matchDogClicked}>Primary</button>
                     </div>
 

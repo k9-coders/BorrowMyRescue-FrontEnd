@@ -1,6 +1,23 @@
 import React, { Component } from "react";
 
 class DogsAvailable extends Component {
+    
+
+    matchDogClicked = e => {
+        e.preventDefault();
+        // retrieve  dog id 
+        const matchDogId = this.props.dogId
+        // test that dog Id has been selected
+        console.log("Dog Id for matching " + matchDogId);
+        // retrieve list of matching borrowers
+        // if dogId has been selected
+        if (matchDogId > 0) {
+            this.props.matchDogFunction(matchDogId);
+        } 
+        // remove focus from the match button
+        //document.getElementById("deleteTask").blur();
+        document.activeElement.blur();
+    };
 
     render() {
 
@@ -61,7 +78,8 @@ class DogsAvailable extends Component {
                     </div>
 
                     <div>
-                    <button type="button" class="btn btn-outline-primary">Primary</button>
+                    <button type="button" class="btn btn-outline-primary"
+                        onClick={this.matchDogClicked}>Primary</button>
                     </div>
 
                 </div>

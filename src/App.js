@@ -30,6 +30,9 @@ class App extends Component {
     ],
     borrowers: [
       
+    ],
+    borrowerMatches: [
+
     ]
   }
   // load list of dogs when the App.js component is launched
@@ -136,6 +139,23 @@ class App extends Component {
     
   }
 
+  // retrieve matching borrower list from the database
+  getDogMatch = (idMatchDog) => {
+    // retrieve list of possible borrower matches for dog
+    axios.get(`https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/matching/${idMatchDog}`)
+    .then(response => {
+      // test log to console to ensure matched borrowers list is loaded
+      console.log("matched borrowers list ", response.data.borrowerMatches);
+      // get completed set state to list of dogs from database
+      this.setState({borrowerMatches: response.data.borrowerMatches});
+    })
+    // error handling if the get fails to retrieve data
+    .catch(error => {
+      console.log(error);
+    });
+    
+  }
+
   render() {
 
     return (
@@ -216,6 +236,7 @@ class App extends Component {
           {
             this.state.dogs.map((item, index) => {
               return <DogsAvailable
+                dogId ={item.dogId}
                 dogName={item.dogName} key={index}
                 otherDogs={item.otherDogs}
                 adultMales={item.adultMales}
@@ -230,7 +251,8 @@ class App extends Component {
                 behaviourBarking={item.behaviourBarking}
                 behaviourLeadPulling={item.behaviourLeadPulling}
                 behaviourReactive={item.behaviourReactive}
-                addDog={this.addDog}
+                matchDogFunction={this.getDogMatch}
+                
               />
             })
           }

@@ -1,0 +1,46 @@
+.button {
+    box-align: center;
+}
+.goldpaw {
+   
+    margin-left: auto;
+    margin-right: auto;
+    border-style: groove;
+    border-width: 7px;
+    border-color: coral; 
+    width:100px;
+    height:100px;
+}
+
+.sponsorDog {
+    
+    margin-left: auto;
+    margin-right: auto;
+    border-style: groove;
+    border-width: 7px;
+    border-color: coral; 
+    width:100px;
+    height:100px;
+}
+
+.donate {
+
+    margin-left: auto;
+    margin-right: auto;
+    border-style: groove;
+    border-width: 7px;
+    border-color: coral; 
+    width:100px;
+    height:100px;
+}
+
+.facebook  {
+  
+    margin-left: auto;
+    margin-right: auto;
+    border-style: groove;
+    border-width: 7px;
+    border-color: coral; 
+    width:100px;
+    height:100px;
+}

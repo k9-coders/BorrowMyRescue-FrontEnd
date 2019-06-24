@@ -12,25 +12,25 @@ class FundRaising extends Component {
 
         return (
             <div>
-                <div class="row">
-                    <div class="col">
-                        <h4> <img src={paw} alt='logo' class='goldpaw' /></h4>
-                        <button type='button' class='btn btn-outline-secondary'> Golden Paw Club </button>
+                <div className="row">
+                    <div className="col">
+                        <h4> <img src={paw} alt='logo' className='goldpaw' /></h4>
+                        <button type='button' className='btn btn-outline-secondary'> Golden Paw Club </button>
                     </div>
 
-                    <div class="col">
-                        <h4> <img src={dog} alt='logo' class='sponsorDog' /></h4>
-                        <button type='button' class='btn btn-outline-secondary'> Sponsor A Sanctuary Dog </button>
+                    <div className="col">
+                        <h4> <img src={dog} alt='logo' className='sponsorDog' /></h4>
+                        <button type='button' className='btn btn-outline-secondary'> Sponsor A Sanctuary Dog </button>
                     </div>
 
-                    <div class="col">
-                        <h4> <img src={pawket} alt='logo' class='donate' /></h4>
+                    <div className="col">
+                        <h4> <img src={pawket} alt='logo' className='donate' /></h4>
                         <button type='button' class='btn btn-outline-secondary'> Pawket Money Toys </button>
                     </div>
 
-                    <div class="col">
-                        <h4> <img src={facebook} alt='logo' class='facebook' /></h4>
-                        <button type='button' class='btn btn-outline-secondary'> Facebook Page </button>
+                    <div className="col">
+                        <h4> <img src={facebook} alt='logo' className='facebook' /></h4>
+                        <button type='button' className='btn btn-outline-secondary'> Facebook Page </button>
                     </div>
                 </div>
             </div>

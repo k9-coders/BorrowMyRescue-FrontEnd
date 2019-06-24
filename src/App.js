@@ -59,7 +59,7 @@ class App extends Component {
     });
     }
 
-  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWeds, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1318, borrowerownDog, borrowerownDogType, borrowerownDogDetails, borrowerDogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
+  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWeds, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1318, borrowerownDog, borrowerownDogType, borrowerownDetails, borrowerDogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
     console.log("start of add borrowers");
     const currentBorrowers = this.state.borrowers;
 
@@ -78,7 +78,7 @@ class App extends Component {
       childAgeBand612: borrowerChildAgeBand612, 
       childAgeBand1318: borrowerChildAgeBand1318, 
       ownDog:borrowerownDog, ownDogType:borrowerownDogType, 
-      ownDogDetails:borrowerownDogDetails, 
+      ownDogDetails:borrowerownDetails, 
       borrowerDogPace:borrowerDogPace, borrowerdogSize: borrowerDogSize, 
       expNervous: borrowerdogBehaviourNervous, 
       expBarking:borrowerdogBehaviourBarking, 

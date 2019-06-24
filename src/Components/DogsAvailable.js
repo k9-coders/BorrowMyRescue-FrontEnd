@@ -60,6 +60,10 @@ class DogsAvailable extends Component {
                         {(this.props.behaviourReactive)? "Y":"N"}
                     </div>
 
+                    <div>
+                    <button type="button" class="btn btn-outline-primary">Primary</button>
+                    </div>
+
                 </div>
 
 

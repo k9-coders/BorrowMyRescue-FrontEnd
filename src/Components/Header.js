@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import BorrowMyRescueInfo from "./BorrowMyRescueInfo.jpg"
+import React, { Component } from 'react';
+import logo from './images/BorrowRescueHeader.jpg';
+import './Header.css';
 
 class Header extends Component {
 
     render() {
 
         return (
-            <div className="col-12">
-                <img src={BorrowMyRescueInfo} alt="BorrowMyRescueInfo" />
-            </div>
+
+            <div>
+                <h1> <img src={logo} alt='logo' class='center'/></h1>
+         </div>
         );
-
     }
-
 }
 
 
 
 
-
 export default Header;
+

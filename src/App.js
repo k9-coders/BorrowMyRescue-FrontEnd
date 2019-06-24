@@ -8,6 +8,8 @@ import DogForm from "./Components/DogForm";
 import DogsAvailable from "./Components/DogsAvailable";
 import FundRaising from "./Components/FundRaising";
 
+// import './Components/Fundraising.css';
+
 import './App.css';
 
 
@@ -139,17 +141,17 @@ class App extends Component {
     return (
       <div className="container">
 
-        {/* <div className="row-12">
+        <div className="row-12">
           <Header />
         </div>
 
         <div className="row-12">
           <FundRaising />
         </div>
-
+{/*
         <div className="row-12">
           <UserSelection />
-        </div> */}
+        </div> */}    
 
         <div className="row-12">
           <BorrowersForm 

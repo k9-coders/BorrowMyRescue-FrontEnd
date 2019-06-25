@@ -1,0 +1,11 @@
+.dogImage {
+    border-style: groove;
+    border-width: 7px;
+    border-color: coral;
+    width:650px;
+    height:350px;
+}
+
+.banner {
+    text-align: center; 
+}

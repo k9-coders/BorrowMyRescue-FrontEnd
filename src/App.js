@@ -7,6 +7,7 @@ import BorrowersForm from "./Components/BorrowersForm";
 import DogForm from "./Components/DogForm";
 import DogsAvailable from "./Components/DogsAvailable";
 import FundRaising from "./Components/FundRaising";
+import Carousel from "./Components/Carousel";
 
 import './Components/Fundraising.css';
 
@@ -168,6 +169,8 @@ class App extends Component {
         <div className="row-12">
           <FundRaising />
         </div>
+
+        <Carousel />
 {/*
         <div className="row-12">
           <UserSelection />

@@ -11,7 +11,7 @@ class FundRaising extends Component {
     render() {
 
         return (
-            
+
             <div>
                 <div className="row">
                     <div className="col-3">

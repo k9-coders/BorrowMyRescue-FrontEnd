@@ -12,7 +12,7 @@ class DogsAvailable extends Component {
         // retrieve list of matching borrowers
         // if dogId has been selected
         if (matchDogId > 0) {
-            this.props.matchDogFunction(matchDogId);
+            this.props.getDogMatch(matchDogId);
         } 
         // remove focus from the match button
         //document.getElementById("deleteTask").blur();

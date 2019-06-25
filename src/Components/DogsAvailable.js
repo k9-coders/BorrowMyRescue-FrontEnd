@@ -20,6 +20,66 @@ class DogsAvailable extends Component {
     };
 
     render() {
+        return (
+            <tr>
+                <td className="col">
+                    {this.props.dogName}
+                </td>
+
+                <td className="col">
+                    {(this.props.otherDogs)? "Y":"N"}
+                </td>
+
+                <td className="col">
+                    {(this.props.adultMales)? "Y":"N"}
+                </td>
+
+                <td className="col">
+                    {(this.props.adultFemales)? "Y":"N"}
+                </td>
+
+                <td className="col">
+                    {(this.props.withChildren)? "Y":"N"}
+                </td>
+                <td className="col">
+                    {(this.props.withChildren05)? "Y":"N"}
+                </td>
+                <td className="col">
+                    {(this.props.withChildren612)? "Y":"N"}
+                </td>
+                <td className="col">
+                    {(this.props.withChildren1318)? "Y":"N"}
+                </td>
+                <td className="col">
+                    {this.props.dogSize}
+                </td>
+
+                <td className="col">
+                    {this.props.dogPace}
+                </td>
+
+                <td className="col">
+                    {(this.props.behaviourNervous)? "Y":"N"}
+                </td>
+
+                <td className="col">
+                    {(this.props.behaviourBarking)? "Y":"N"}
+                </td>
+
+                <td className="col">
+                    {(this.props.behaviourLeadPulling)? "Y":"N"}
+                </td>
+
+                <td className="col">
+                    {(this.props.behaviourReactive)? "Y":"N"}
+                </td>
+
+                <td>
+                    <button type="button" className="btn btn-outline-primary"
+                        onClick={this.matchDogClicked}>Primary</button>
+                </td>
+            </tr>
+        )
 
         return (
             <div className="col">

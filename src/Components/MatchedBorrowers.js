@@ -33,7 +33,4 @@ class MatchedBorrowers extends Component {
     }
 }
 
-
-
-
 export default MatchedBorrowers;

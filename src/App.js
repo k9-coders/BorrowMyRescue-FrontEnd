@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // add axios to allow access to borrowMyRescueDB database
 import axios from "axios";
 import Header from "./Components/Header";
-import UserSelection from "./Components/UserSelection";
 import BorrowersForm from "./Components/BorrowersForm";
 import DogForm from "./Components/DogForm";
 import DogsAvailable from "./Components/DogsAvailable";
@@ -159,8 +158,9 @@ class App extends Component {
     // launch the modal form from here???
   }
 
-  render() {
 
+  render() {
+ 
     return (
       <div className="container">
 

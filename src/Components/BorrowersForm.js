@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class BorrowersForm extends Component {
 
+    // state for borrowers values
     state = {
         borrowerfirstName: "",
         borrowersurname: "",
@@ -38,24 +39,25 @@ class BorrowersForm extends Component {
 
     // used to set focus on borrower first name input box
     constructor(props) {
-    // always need super(props)
-    // as first line in a constructor
-    super(props);
-    // create a ref to store the dogNameInput DOM element
-    this.firstNameInput = React.createRef();
-    // create a ref to store the dateInput DOM element
-    //this.dateInput = React.createRef();
-    // constructor to bind add new borrower button click
-    // to borrower input textbox firstNameInput
-    this.addBorrowerClicked = this.addBorrowerClicked.bind(this);
+        // always need super(props)
+        // as first line in a constructor
+        super(props);
+        // create a ref to store the dogNameInput DOM element
+        this.firstNameInput = React.createRef();
+        // create a ref to store the dateInput DOM element
+        //this.dateInput = React.createRef();
+        // constructor to bind add new borrower button click
+        // to borrower input textbox firstNameInput
+        this.addBorrowerClicked = this.addBorrowerClicked.bind(this);
     }
 
     // display an alert message 
     // this is used to inform a borrower that their details have been submitted to our database
     showAlert() {
-      alert("Thankyou for submitting your details, a member of our team will be in touch with you shortly");
-    } 
-  
+        alert("Thankyou for submitting your details, a member of our team will be in touch with you shortly");
+    }
+
+    // store borrower first name
     firstNameData = (event) => {
         const borrowerfirstName = event.target.value;
         this.setState({
@@ -63,6 +65,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store borrower surname
     surnameData = (event) => {
         const borrowersurname = event.target.value;
         this.setState({
@@ -70,6 +73,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store borrower email
     emailData = (event) => {
         const borroweremail = event.target.value;
         this.setState({
@@ -77,6 +81,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store borrower mobile
     mobileData = (event) => {
         const borrowermobile = event.target.value;
         this.setState({
@@ -84,6 +89,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store borrower address1
     address1Data = (event) => {
         const borroweraddress1 = event.target.value;
         this.setState({
@@ -91,6 +97,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store borrower address2
     address2Data = (event) => {
         const borroweraddress2 = event.target.value;
         this.setState({
@@ -98,6 +105,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store borrower address3
     address3Data = (event) => {
         const borroweraddress3 = event.target.value;
         this.setState({
@@ -105,6 +113,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store borrower town/city
     townCityData = (event) => {
         const borrowertownCity = event.target.value;
         this.setState({
@@ -112,6 +121,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store borrower postcode
     postcodeData = (event) => {
         const borrowerpostcode = event.target.value;
         this.setState({
@@ -119,6 +129,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower is available on Monday
     dayMonSelected = (event) => {
         const borrowerdayMon = event.target.checked;
         this.setState({
@@ -126,6 +137,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower is available on Tuesday
     dayTuesSelected = (event) => {
         const borrowerdayTues = event.target.checked;
         this.setState({
@@ -133,6 +145,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower is available on Wednesday
     dayWedsSelected = (event) => {
         const borrowerdayWeds = event.target.checked;
         this.setState({
@@ -140,6 +153,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower is available on Thursday
     dayThursSelected = (event) => {
         const borrowerdayThurs = event.target.checked;
         this.setState({
@@ -147,6 +161,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower is available on Friday
     dayFriSelected = (event) => {
         const borrowerdayFri = event.target.checked;
         this.setState({
@@ -154,6 +169,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower is available on Saturday
     daySatSelected = (event) => {
         const borrowerdaySat = event.target.checked;
         this.setState({
@@ -161,6 +177,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower is available on Sunday
     daySunSelected = (event) => {
         const borrowerdaySun = event.target.checked;
         this.setState({
@@ -168,6 +185,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower is male
     adultMalesSelected = (event) => {
         const borroweradultMales = event.target.checked;
         this.setState({
@@ -175,6 +193,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower is female
     adultFemalesSelected = (event) => {
         const borroweradultFemales = event.target.checked;
         this.setState({
@@ -189,6 +208,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower has any children aged 0 to 5
     childAgeBand05Selected = (event) => {
         const borrowerchildAgeBand05 = event.target.checked;
         this.setState({
@@ -196,6 +216,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower has any children aged 6 to 12
     childAgeBand612Selected = (event) => {
         const borrowerchildAgeBand612 = event.target.checked;
         this.setState({
@@ -203,6 +224,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower has any children aged 13 to 18
     childAgeBand1318Selected = (event) => {
         const borrowerchildAgeBand1318 = event.target.checked;
         this.setState({
@@ -210,6 +232,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store whether borrower has their own dog
     ownDogSelected = (event) => {
         const borrowerownDog = event.target.value === "Yes";
         this.setState({
@@ -217,6 +240,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store if the borrower has their own dog, what type it is
     ownDogTypeData = (event) => {
         const borrowerownDogType = event.target.value;
         this.setState({
@@ -224,6 +248,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store if the borrower has their own dog, any details about the dog
     ownDogDetailsData = (event) => {
         const borrowerownDetails = event.target.value;
         this.setState({
@@ -231,6 +256,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store what pace of dog the borrower would like for their walk
     borrowerPaceSelected = (event) => {
         const borrowerdogPace = event.target.value;
         this.setState({
@@ -238,6 +264,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store what size of dog the borrower would like for their walk
     borrowerDogSizeSelected = (event) => {
         const borrowerdogSize = event.target.value;
         this.setState({
@@ -245,6 +272,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store if the borrower has any experience of nervous dogs
     dogBehaviourNervous = (event) => {
         const borrowerdogBehaviourNervousYes = event.target.checked;
         this.setState({
@@ -252,6 +280,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store if the borrower has any experience of barking dogs
     dogBehaviourBarking = (event) => {
         const borrowerdogBehaviourBarkingYes = event.target.checked;
         this.setState({
@@ -259,6 +288,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store if the borrower has any experience of lead pulling dogs
     dogBehaviourLeadPulling = (event) => {
         const borrowerdogBehaviourLeadPullingYes = event.target.checked;
         this.setState({
@@ -266,6 +296,7 @@ class BorrowersForm extends Component {
         });
     }
 
+    // store if the borrower has any experience of reactive dogs
     dogBehaviourReactive = (event) => {
         const borrowerdogBehaviourReactiveYes = event.target.checked;
         this.setState({
@@ -275,7 +306,7 @@ class BorrowersForm extends Component {
 
     addBorrowerClicked = e => {
         e.preventDefault();
-        
+
         const newfirstName = this.state.borrowerfirstName
         const newsurname = this.state.borrowersurname
         const newemail = this.state.borroweremail
@@ -308,24 +339,24 @@ class BorrowersForm extends Component {
         const newborrowerdogBehaviourLeadPulling = this.state.borrowerdogBehaviourLeadPulling
         const newborrowerdogBehaviourReactive = this.state.borrowerdogBehaviourReactive
 
-        
-        
+
+
         // set the borrower form back to the default values
         // set the focus onto the borrower first name textbox
 
         /// only add borrower to database if firstname, surname, mobile and email address supplied
         // could change the code here to add more validation
         if (newfirstName.length > 0 && newsurname.length > 0 && newemail.length > 0 && newmobile.length > 0) {
-            this.props.addBorrowerFunction(newfirstName, newsurname, newemail, newmobile, 
-                newaddress1, newaddress2, newaddress3, newtownCity, newpostcode, 
-                newdayMon, newdayTues, newdayWeds, newdayThurs, newdayFri, newdaySat, newdaySun, 
-                newadultMales, newadultFemales, newborrowerChildren, 
-                newchildAgeBand05, newchildAgeBand612, newchildAgeBand1318, 
-                newownDog, newownDogType, newownDetails, newdogPace, newdogSize, 
-                newborrowerdogBehaviourNervous, newborrowerdogBehaviourBarking, 
+            this.props.addBorrowers(newfirstName, newsurname, newemail, newmobile,
+                newaddress1, newaddress2, newaddress3, newtownCity, newpostcode,
+                newdayMon, newdayTues, newdayWeds, newdayThurs, newdayFri, newdaySat, newdaySun,
+                newadultMales, newadultFemales, newborrowerChildren,
+                newchildAgeBand05, newchildAgeBand612, newchildAgeBand1318,
+                newownDog, newownDogType, newownDetails, newdogPace, newdogSize,
+                newborrowerdogBehaviourNervous, newborrowerdogBehaviourBarking,
                 newborrowerdogBehaviourLeadPulling, newborrowerdogBehaviourReactive);
 
-            
+
             // reset form options to defaults
             this.setState({
                 borrowerfirstName: "",
@@ -364,15 +395,15 @@ class BorrowersForm extends Component {
             // display message to borrower to confirm that their details have been entered into the
             // database
             this.showAlert();
-                
+
         } else {
 
             //if the borrowerDetailsInvalid state is set
             // an error message will display to show that the borrower needs to provide
             // key details - first name, surname, mobile and email address
-            
-                this.setState({
-                    borrowerDetailsInvalid: true
+
+            this.setState({
+                borrowerDetailsInvalid: true
             })
         }
         // set focus back to the borrower name text box - 
@@ -388,39 +419,39 @@ class BorrowersForm extends Component {
             <div className="col">
                 <h2>Borrower Input Form</h2>
                 <h5>Please enter your personal details here:</h5>
-                    <span className = "invalidBorrowerDetails">
-                        {this.state.borrowerDetailsInvalid &&
+                <span className="invalidBorrowerDetails">
+                    {this.state.borrowerDetailsInvalid &&
                         "Please enter your details - we require a minimum of first name, surname, mobile and email"
-                        }
-                    </span>
+                    }
+                </span>
                 <form>
 
                     <div className="form-row">
 
                         <div className="form-group col-md-6">
                             <label htmlFor="firstName">First name</label>
-                            <input type="text" className="form-control" id="firstName" placeholder="First name" 
+                            <input type="text" className="form-control" id="firstName" placeholder="First name"
                                 value={this.state.borrowerfirstName} ref={this.firstNameInput} onChange={this.firstNameData}></input>
                         </div>
 
                         <div className="form-group col-md-6">
                             <label htmlFor="surname">Surname</label>
-                            <input type="text" className="form-control" id="surname" placeholder="Surname" 
-                            value={this.state.borrowersurname} onChange={this.surnameData} ></input>
+                            <input type="text" className="form-control" id="surname" placeholder="Surname"
+                                value={this.state.borrowersurname} onChange={this.surnameData} ></input>
                         </div>
                     </div>
 
                     <div className="form-row">
                         <div className="form-group col-md-8">
                             <label htmlFor="inputEmail4">Email</label>
-                            <input type="email" className="form-control" id="inputEmail4" placeholder="Email" 
-                            value={this.state.borroweremail} onChange={this.emailData} ></input>
+                            <input type="email" className="form-control" id="inputEmail4" placeholder="Email"
+                                value={this.state.borroweremail} onChange={this.emailData} ></input>
                         </div>
 
                         <div className="form-group col-md-4">
                             <label htmlFor="mobile">Mobile</label>
-                            <input type="text" className="form-control" id="mobile" placeholder="Mobile" 
-                            value={this.state.borrowermobile} onChange={this.mobileData} ></input>
+                            <input type="text" className="form-control" id="mobile" placeholder="Mobile"
+                                value={this.state.borrowermobile} onChange={this.mobileData} ></input>
                         </div>
                     </div>
 
@@ -429,13 +460,13 @@ class BorrowersForm extends Component {
                         <div className="form-group col-md-6">
                             <label htmlFor="address1">Address 1</label>
                             <input type="text" className="form-control" id="address1" placeholder="1st line of address"
-                            value={this.state.borroweraddress1} onChange={this.address1Data} ></input>
+                                value={this.state.borroweraddress1} onChange={this.address1Data} ></input>
                         </div>
 
                         <div className="form-group col-md-6">
                             <label htmlFor="address2">Address 2</label>
                             <input type="text" className="form-control" id="address2" placeholder="2nd line of address"
-                            value={this.state.borroweraddress2} onChange={this.address2Data} ></input>
+                                value={this.state.borroweraddress2} onChange={this.address2Data} ></input>
                         </div>
 
                     </div>
@@ -445,19 +476,19 @@ class BorrowersForm extends Component {
                         <div className="form-group col-md-6">
                             <label htmlFor="address3">Address 3</label>
                             <input type="text" className="form-control" id="address3" placeholder="3rd line of address"
-                            value={this.state.borroweraddress3} onChange={this.address3Data} ></input>
+                                value={this.state.borroweraddress3} onChange={this.address3Data} ></input>
                         </div>
 
                         <div className="form-group col-md-4">
                             <label htmlFor="townCity">Town/City</label>
                             <input type="text" className="form-control" id="townCity" placeholder="town or city"
-                            value={this.state.borrowertownCity} onChange={this.townCityData} ></input>
+                                value={this.state.borrowertownCity} onChange={this.townCityData} ></input>
                         </div>
 
                         <div className="form-group col-md-2">
                             <label htmlFor="postcode">Post Code</label>
-                            <input type="text" className="form-control" id="postcode" 
-                            placeholder="Postcode" value={this.state.borrowerPostCode} onChange={this.postcodeData} ></input>
+                            <input type="text" className="form-control" id="postcode"
+                                placeholder="Postcode" value={this.state.borrowerPostCode} onChange={this.postcodeData} ></input>
                         </div>
 
                     </div>
@@ -513,32 +544,32 @@ class BorrowersForm extends Component {
 
                     <div className="form-row">
                         <div className="form-check form-check-inline">
-                            {(this.state.borrowerChildren)?
+                            {(this.state.borrowerChildren) ?
                                 <input className="form-check-input" type="checkbox" name="childAgeRanges" id="inlineCheckbox1" value="withChildren05" onChange={this.childAgeBand05Selected} checked={this.state.borrowerchildAgeBand05 === true} />
                                 :
-                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAgeRanges" id="inlineCheckbox1" value="withChildren05" onChange={this.childAgeBand05Selected} checked={this.state.borrowerchildAgeBand05 === true} />
+                                <input className="form-check-input" type="checkbox" disabled="disabled" name="childAgeRanges" id="inlineCheckbox1" value="withChildren05" onChange={this.childAgeBand05Selected} checked={this.state.borrowerchildAgeBand05 === true} />
                             }
                             <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 0-5</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            {(this.state.borrowerChildren)?
+                            {(this.state.borrowerChildren) ?
                                 <input className="form-check-input" type="checkbox" name="childAgeRanges" id="inlineCheckbox1" value="withChildren612" onChange={this.childAgeBand612Selected} checked={this.state.borrowerchildAgeBand612 === true} />
                                 :
-                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAgeRanges" id="inlineCheckbox1" value="withChildren612" onChange={this.childAgeBand612Selected} checked={this.state.borrowerchildAgeBand612 === true} />
+                                <input className="form-check-input" type="checkbox" disabled="disabled" name="childAgeRanges" id="inlineCheckbox1" value="withChildren612" onChange={this.childAgeBand612Selected} checked={this.state.borrowerchildAgeBand612 === true} />
                             }
                             <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 6-12</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            {(this.state.borrowerChildren)?
+                            {(this.state.borrowerChildren) ?
                                 <input className="form-check-input" type="checkbox" name="childAgeRanges" id="inlineCheckbox1" value="withChildren1318" onChange={this.childAgeBand1318Selected} checked={this.state.borrowerchildAgeBand1318 === true} />
                                 :
-                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAgeRanges" id="inlineCheckbox1" value="withChildren1318" onChange={this.childAgeBand1318Selected} checked={this.state.borrowerchildAgeBand1318 === true} />
+                                <input className="form-check-input" type="checkbox" disabled="disabled" name="childAgeRanges" id="inlineCheckbox1" value="withChildren1318" onChange={this.childAgeBand1318Selected} checked={this.state.borrowerchildAgeBand1318 === true} />
                             }
                             <label className="form-check-label" htmlFor="inlineCheckbox1">Childen aged 13-18</label>
                         </div>
                     </div>
 
-                    
+
 
 
                     <h5>Will there be any other dogs in your group on your day out?:</h5>
@@ -562,23 +593,23 @@ class BorrowersForm extends Component {
 
                     <div className="form-group col-md-6">
                         <label htmlFor="ownDogType">Your own dog type (if applicable):</label>
-                        {(this.state.borrowerownDog)?
-                            <input type="text" className="form-control" id="ownDogType" placeholder="ownDogType" 
-                            value={this.state.borrowerownDogType} ref={this.ownDogTypeInput} onChange={this.ownDogTypeData}  ></input>
+                        {(this.state.borrowerownDog) ?
+                            <input type="text" className="form-control" id="ownDogType" placeholder="ownDogType"
+                                value={this.state.borrowerownDogType} ref={this.ownDogTypeInput} onChange={this.ownDogTypeData}  ></input>
                             :
-                            <input type="text" className="form-control" disabled = "disabled" id="ownDogType" value={this.state.borrowerownDogType} ref={this.ownDogTypeInput} onChange={this.ownDogTypeData}  ></input>
+                            <input type="text" className="form-control" disabled="disabled" id="ownDogType" value={this.state.borrowerownDogType} ref={this.ownDogTypeInput} onChange={this.ownDogTypeData}  ></input>
                         }
                     </div>
-                  
+
                     <div className="form-group col-md-6">
                         <label htmlFor="ownDogDetails">Any issues (if applicable):</label>
-                        {(this.state.borrowerownDog)?
-                            <input type="text" className="form-control" id="ownDogDetails" placeholder="ownDogDetails" 
-                            value={this.state.borrowerownDogDetails} ref={this.ownDogDetailsInput} onChange={this.ownDogDetailsData} ></input>
+                        {(this.state.borrowerownDog) ?
+                            <input type="text" className="form-control" id="ownDogDetails" placeholder="ownDogDetails"
+                                value={this.state.borrowerownDogDetails} ref={this.ownDogDetailsInput} onChange={this.ownDogDetailsData} ></input>
                             :
                             <input type="text" className="form-control" disabled="disabled" id="ownDogDetails" value={this.state.borrowerownDogDetails} ref={this.ownDogDetailsInput} onChange={this.ownDogDetailsData} ></input>
                         }
-                        
+
                     </div>
 
 

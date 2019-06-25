@@ -7,10 +7,11 @@ class Header extends Component {
     render() {
 
         return (
-
+            
             <div>
-                <h1> <img src={logo} alt='logo' class='center'/></h1>
+                <h1> <img src={logo} alt='logo' className='center'/></h1>
          </div>
+        
         );
     }
 }

@@ -8,7 +8,7 @@ import DogForm from "./Components/DogForm";
 import DogsAvailable from "./Components/DogsAvailable";
 import FundRaising from "./Components/FundRaising";
 
-// import './Components/Fundraising.css';
+import './Components/Fundraising.css';
 
 import './App.css';
 
@@ -30,6 +30,9 @@ class App extends Component {
     ],
     borrowers: [
       
+    ],
+    borrowerMatches: [
+
     ]
   }
   // load list of dogs when the App.js component is launched
@@ -61,7 +64,7 @@ class App extends Component {
     });
     }
 
-  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWeds, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1318, borrowerownDog, borrowerownDogType, borrowerownDogDetails, borrowerDogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
+  addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWeds, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1318, borrowerownDog, borrowerownDogType, borrowerownDetails, borrowerDogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
     console.log("start of add borrowers");
     const currentBorrowers = this.state.borrowers;
 
@@ -80,7 +83,7 @@ class App extends Component {
       childAgeBand612: borrowerChildAgeBand612, 
       childAgeBand1318: borrowerChildAgeBand1318, 
       ownDog:borrowerownDog, ownDogType:borrowerownDogType, 
-      ownDogDetails:borrowerownDogDetails, 
+      ownDogDetails:borrowerownDetails, 
       borrowerDogPace:borrowerDogPace, borrowerdogSize: borrowerDogSize, 
       expNervous: borrowerdogBehaviourNervous, 
       expBarking:borrowerdogBehaviourBarking, 
@@ -134,6 +137,23 @@ class App extends Component {
         console.log(err);
       });
     
+  }
+
+  // retrieve matching borrower list from the database
+  getDogMatch = (idMatchDog) => {
+    // retrieve list of possible borrower matches for dog
+    axios.get(`https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/matching/${idMatchDog}`)
+    .then(response => {
+      // test log to console to ensure matched borrowers list is loaded
+      console.log("matched borrowers list ", response.data.borrowerMatches);
+      // get completed set state to list of dogs from database
+      this.setState({borrowerMatches: response.data.borrowerMatches});
+    })
+    // error handling if the get fails to retrieve data
+    .catch(error => {
+      console.log(error);
+    });
+    // launch the modal form from here???
   }
 
   render() {
@@ -216,6 +236,7 @@ class App extends Component {
           {
             this.state.dogs.map((item, index) => {
               return <DogsAvailable
+                dogId ={item.dogId}
                 dogName={item.dogName} key={index}
                 otherDogs={item.otherDogs}
                 adultMales={item.adultMales}
@@ -230,7 +251,8 @@ class App extends Component {
                 behaviourBarking={item.behaviourBarking}
                 behaviourLeadPulling={item.behaviourLeadPulling}
                 behaviourReactive={item.behaviourReactive}
-                addDog={this.addDog}
+                matchDogFunction={this.getDogMatch}
+                
               />
             })
           }

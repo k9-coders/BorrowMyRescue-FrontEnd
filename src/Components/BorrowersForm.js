@@ -493,7 +493,7 @@ class BorrowersForm extends Component {
 
                     </div>
 
-                    <h5>Please select your availability to borrow a dog (select all that apply)</h5>
+                    <h5>Please select your availability to borrow a dog (select all that apply):</h5>
 
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Monday" onChange={this.dayMonSelected} checked={this.state.borrowerdayMon === true} />

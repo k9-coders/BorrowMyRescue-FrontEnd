@@ -1,5 +1,7 @@
 .container {
   background-color: peachpuff; 
-  border-style: dotted; 
-  border-color: orangered
+  border-style: groove;
+  border-width: 7px;
+  border-color: peru; 
+
 } 

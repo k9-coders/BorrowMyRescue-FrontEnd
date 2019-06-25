@@ -6,12 +6,13 @@ import BorrowersForm from "./Components/BorrowersForm";
 import DogForm from "./Components/DogForm";
 import DogsAvailable from "./Components/DogsAvailable";
 import FundRaising from "./Components/FundRaising";
+import Carousel from "./Components/Carousel";
 import MatchedBorrowers from "./Components/MatchedBorrowers";
 import UserSelection from "./Components/UserSelection";
 import VisitorView from "./Components/VisitorView";
 import AdminView from "./Components/AdminView";
 
-// import './Components/Fundraising.css';
+import './Components/Fundraising.css';
 
 import './App.css';
 
@@ -182,6 +183,9 @@ class App extends Component {
         <div className="row-12">
           <FundRaising />
         </div>
+
+
+        <Carousel />
 
         <div className="row-12">
           <UserSelection updateUserSelected={this.updateUserSelected}

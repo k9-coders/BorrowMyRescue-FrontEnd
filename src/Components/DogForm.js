@@ -148,7 +148,7 @@ class DogForm extends Component {
 
         // only add dog to database if a dog name is specified
         if (newdogName.length > 0) {
-            this.props.addDogFunction(newdogName, newotherDogs, newadultMales, 
+            this.props.addDogs(newdogName, newotherDogs, newadultMales, 
                 newadultFemales, newwithChildren, newwithChildren05, newwithChildren612, 
                 newwithChildren1318, newdogSize, newdogPace, newbehaviourNervous, 
                 newbehaviourLeadPulling, newbehaviourBarking, newbehaviourReactive);

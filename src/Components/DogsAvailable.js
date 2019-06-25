@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './DogsAvailable.css';
 
 class DogsAvailable extends Component {
     
@@ -78,8 +79,8 @@ class DogsAvailable extends Component {
                     </div>
 
                     <div>
-                    <button type="button" className="btn btn-outline-primary"
-                        onClick={this.matchDogClicked}>Primary</button>
+                    <button type='button' className='btn3 btn-outline-light'
+                        onClick={this.matchDogClicked}>Match</button>
                     </div>
 
                 </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import './DogForm.css'
+import './DogForm.css';
+
 
 class DogForm extends Component {
 
@@ -197,7 +198,7 @@ class DogForm extends Component {
 
         return (
             <div className="col">
-                <h2>Dog Input Form</h2>
+                <h2 className="dogFormText">Dog Input Form</h2>
                 <h5>Please enter the dogs available to borrow:</h5>
                 <form>
 
@@ -355,7 +356,7 @@ class DogForm extends Component {
                     </div>
 
                     <div>
-                        <button className="btn btn-primary btn-am m-2" onClick={this.addDogClicked} >Submit</button>
+                        <button type='button' className='btn4 btn-outline-light' onClick={this.addDogClicked} >Submit</button>
                     </div>
                 </form>
             </div>

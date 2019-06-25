@@ -7,6 +7,7 @@ import BorrowersForm from "./Components/BorrowersForm";
 import DogForm from "./Components/DogForm";
 import DogsAvailable from "./Components/DogsAvailable";
 import FundRaising from "./Components/FundRaising";
+import MatchedBorrowers from "./Components/MatchedBorrowers";
 
 // import './Components/Fundraising.css';
 
@@ -25,14 +26,13 @@ class App extends Component {
   //  ]
   //}
   state = {
-    dogs: [ 
+    dogs: [
 
     ],
     borrowers: [
-      
+
     ],
     borrowerMatches: [
-
     ]
   }
   // load list of dogs when the App.js component is launched
@@ -40,60 +40,61 @@ class App extends Component {
   componentWillMount() {
     // retrieve dogs
     axios.get('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/dogs')
-    .then(response => {
-      // test log to console to ensure dogs list is loaded
-      //console.log("dogs list ", response.data.dogs);
-      // get completed set state to list of dogs from database
-      this.setState({dogs: response.data.dogs});
-    })
-    // error handling if the get fails to retrieve data
-    .catch(error => {
-      console.log(error);
-    });
+      .then(response => {
+        // test log to console to ensure dogs list is loaded
+        //console.log("dogs list ", response.data.dogs);
+        // get completed set state to list of dogs from database
+        this.setState({ dogs: response.data.dogs });
+      })
+      // error handling if the get fails to retrieve data
+      .catch(error => {
+        console.log(error);
+      });
     // retrieve borrowers 
     axios.get('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/borrowers')
-    .then(response => {
-      // test log to console to ensure borrowers list is loaded
-      console.log("borrowers list ", response.data.borrowers);
-      // get completed set state to list of borrowers from database
-      this.setState({borrowers: response.data.borrowers});
-    })
-    // error handling if the get fails to retrieve data
-    .catch(error => {
-      console.log(error);
-    });
-    }
+      .then(response => {
+        // test log to console to ensure borrowers list is loaded
+        console.log("borrowers list ", response.data.borrowers);
+        // get completed set state to list of borrowers from database
+        this.setState({ borrowers: response.data.borrowers });
+      })
+      // error handling if the get fails to retrieve data
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   addBorrowers = (borrowerFirstName, borrowerSurname, borrowerEmail, borrowerMobile, borrowerAddress1, borrowerAddress2, borrowerAddress3, borrowerTownCity, borrowerPostcode, borrowerDayMon, borrowerDayTues, borrowerDayWeds, borrowerDayThurs, borrowerDayFri, borrowerDaySat, borrowerDaySun, borrowerAdultMales, borrowerAdultFemales, borrowerChildren, borrowerChildAgeBand05, borrowerChildAgeBand612, borrowerChildAgeBand1318, borrowerownDog, borrowerownDogType, borrowerownDetails, borrowerDogPace, borrowerDogSize, borrowerdogBehaviourNervous, borrowerdogBehaviourBarking, borrowerdogBehaviourLeadPulling, borrowerdogBehaviourReactive) => {
     console.log("start of add borrowers");
     const currentBorrowers = this.state.borrowers;
 
-    const newBorrowerObject = { firstName: borrowerFirstName, surname: borrowerSurname, 
-      email: borrowerEmail, mobile: borrowerMobile, 
-      postcode: borrowerPostcode, 
-      address1: borrowerAddress1, address2: borrowerAddress2, 
-      address3: borrowerAddress3, townCity: borrowerTownCity, 
-      dayMon: borrowerDayMon, 
-      dayTues: borrowerDayTues, dayWeds: borrowerDayWeds, 
-      dayThurs: borrowerDayThurs, dayFri: borrowerDayFri, 
-      daySat: borrowerDaySat, daySun: borrowerDaySun, 
-      borrowerMales: borrowerAdultMales, borrowerFemales: borrowerAdultFemales, 
-      borrowerChildren: borrowerChildren, 
-      childAgeBand05: borrowerChildAgeBand05, 
-      childAgeBand612: borrowerChildAgeBand612, 
-      childAgeBand1318: borrowerChildAgeBand1318, 
-      ownDog:borrowerownDog, ownDogType:borrowerownDogType, 
-      ownDogDetails:borrowerownDetails, 
-      borrowerDogPace:borrowerDogPace, borrowerdogSize: borrowerDogSize, 
-      expNervous: borrowerdogBehaviourNervous, 
-      expBarking:borrowerdogBehaviourBarking, 
-      expLeadPulling:borrowerdogBehaviourLeadPulling, 
-      expReactive:borrowerdogBehaviourReactive
-       }
+    const newBorrowerObject = {
+      firstName: borrowerFirstName, surname: borrowerSurname,
+      email: borrowerEmail, mobile: borrowerMobile,
+      postcode: borrowerPostcode,
+      address1: borrowerAddress1, address2: borrowerAddress2,
+      address3: borrowerAddress3, townCity: borrowerTownCity,
+      dayMon: borrowerDayMon,
+      dayTues: borrowerDayTues, dayWeds: borrowerDayWeds,
+      dayThurs: borrowerDayThurs, dayFri: borrowerDayFri,
+      daySat: borrowerDaySat, daySun: borrowerDaySun,
+      borrowerMales: borrowerAdultMales, borrowerFemales: borrowerAdultFemales,
+      borrowerChildren: borrowerChildren,
+      childAgeBand05: borrowerChildAgeBand05,
+      childAgeBand612: borrowerChildAgeBand612,
+      childAgeBand1318: borrowerChildAgeBand1318,
+      ownDog: borrowerownDog, ownDogType: borrowerownDogType,
+      ownDogDetails: borrowerownDetails,
+      borrowerDogPace: borrowerDogPace, borrowerdogSize: borrowerDogSize,
+      expNervous: borrowerdogBehaviourNervous,
+      expBarking: borrowerdogBehaviourBarking,
+      expLeadPulling: borrowerdogBehaviourLeadPulling,
+      expReactive: borrowerdogBehaviourReactive
+    }
 
-    console.log("new borrower ",newBorrowerObject)
+    console.log("new borrower ", newBorrowerObject)
 
-    axios.post('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/borrowers', 
+    axios.post('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/borrowers',
       newBorrowerObject)
       .then(result => {
         const borrowerId = result.data.borrowerId;
@@ -102,7 +103,7 @@ class App extends Component {
         // Always use setState to update any part of the state which needs to change
         this.setState({
           borrowers: currentBorrowers
-          });
+        });
       })
       .catch(err => {
         console.log(err);
@@ -112,17 +113,19 @@ class App extends Component {
   addDogs = (dogDogName, dogOtherDogs, dogAdultMales, dogAdultFemales, dogWithChildren, dogWithChildren05, dogWithChildren612, dogWithChildren1318, dogDogSize, dogDogPace, dogBehaviourNervous, dogBehaviourLeadPulling, dogBehaviourBarking, dogBehaviourReactive) => {
     console.log("start of add dogs");
     const currentDogs = this.state.dogs;
-    const newDogObject = 
-    { dogName: dogDogName, otherDogs: dogOtherDogs, 
-      adultMales: dogAdultMales, adultFemales: dogAdultFemales, 
-      withChildren: dogWithChildren, withChildren05: dogWithChildren05, 
-      withChildren612: dogWithChildren612, withChildren1318: 
-      dogWithChildren1318, dogSize: dogDogSize, dogPace: dogDogPace, 
-      behaviourNervous: dogBehaviourNervous, 
-      behaviourLeadPulling: dogBehaviourLeadPulling, 
-      behaviourBarking: dogBehaviourBarking, behaviourReactive: dogBehaviourReactive }
-     
-    axios.post('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/dogs', 
+    const newDogObject =
+    {
+      dogName: dogDogName, otherDogs: dogOtherDogs,
+      adultMales: dogAdultMales, adultFemales: dogAdultFemales,
+      withChildren: dogWithChildren, withChildren05: dogWithChildren05,
+      withChildren612: dogWithChildren612, withChildren1318:
+        dogWithChildren1318, dogSize: dogDogSize, dogPace: dogDogPace,
+      behaviourNervous: dogBehaviourNervous,
+      behaviourLeadPulling: dogBehaviourLeadPulling,
+      behaviourBarking: dogBehaviourBarking, behaviourReactive: dogBehaviourReactive
+    }
+
+    axios.post('https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/dogs',
       newDogObject)
       .then(result => {
         const dogId = result.data.dogId;
@@ -131,28 +134,28 @@ class App extends Component {
         // Always use setState to update any part of the state which needs to change
         this.setState({
           dogs: currentDogs
-          });
+        });
       })
       .catch(err => {
         console.log(err);
       });
-    
+
   }
 
   // retrieve matching borrower list from the database
   getDogMatch = (idMatchDog) => {
     // retrieve list of possible borrower matches for dog
     axios.get(`https://83qwfqi218.execute-api.eu-west-2.amazonaws.com/dev/matching/${idMatchDog}`)
-    .then(response => {
-      // test log to console to ensure matched borrowers list is loaded
-      console.log("matched borrowers list ", response.data.borrowerMatches);
-      // get completed set state to list of dogs from database
-      this.setState({borrowerMatches: response.data.borrowerMatches});
-    })
-    // error handling if the get fails to retrieve data
-    .catch(error => {
-      console.log(error);
-    });
+      .then(response => {
+        // test log to console to ensure matched borrowers list is loaded
+        console.log("matched borrowers list ", response.data.borrowerMatches);
+        // get completed set state to list of dogs from database
+        this.setState({ borrowerMatches: response.data.borrowerMatches });
+      })
+      // error handling if the get fails to retrieve data
+      .catch(error => {
+        console.log(error);
+      });
     // launch the modal form from here???
   }
 
@@ -168,15 +171,33 @@ class App extends Component {
         <div className="row-12">
           <FundRaising />
         </div>
-{/*
+        {/*
         <div className="row-12">
           <UserSelection />
-        </div> */}    
+        </div> */}
 
         <div className="row-12">
-          <BorrowersForm 
-          addBorrowerFunction={this.addBorrowers} />
+          <BorrowersForm
+            addBorrowerFunction={this.addBorrowers} />
         </div>
+
+        <div className="row-12">
+          <h5>Matched Borrowers</h5>
+        </div>
+
+        {
+          this.state.borrowerMatches.map((item, index) => {
+
+            return <MatchedBorrowers
+              borrowerId={item.borrowerId} key={index}
+              firstName={item.firstName}
+              surname={item.surname}
+              email={item.email}
+              mobile={item.mobile}
+              matchDogFunction={this.getDogMatch}
+            />
+          })
+        }
 
         <div className="row-12">
           <DogForm
@@ -184,59 +205,59 @@ class App extends Component {
         </div>
 
         <div className="row-12">
-          <h5>Dogs available to borrow</h5> 
+          <h5>Dogs available to borrow</h5>
           <div className="col">
-              <div className="row"></div>
-                <div className="row">
-                  <div className="col">
-                    <h6> Dog's Name</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Other Dogs</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Adult Males</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Adult Females</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Children</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Age 0-5</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Age 6-12</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Age 13-18</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Dog Size</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Dog Pace</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Nervous</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Barking</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Lead Pulling</h6>
-                  </div>
-                  <div className="col">
-                    <h6>Reactive</h6>
-                  </div>
-                </div>
+            <div className="row"></div>
+            <div className="row">
+              <div className="col">
+                <h6> Dog's Name</h6>
               </div>
+              <div className="col">
+                <h6>Other Dogs</h6>
+              </div>
+              <div className="col">
+                <h6>Adult Males</h6>
+              </div>
+              <div className="col">
+                <h6>Adult Females</h6>
+              </div>
+              <div className="col">
+                <h6>Children</h6>
+              </div>
+              <div className="col">
+                <h6>Age 0-5</h6>
+              </div>
+              <div className="col">
+                <h6>Age 6-12</h6>
+              </div>
+              <div className="col">
+                <h6>Age 13-18</h6>
+              </div>
+              <div className="col">
+                <h6>Dog Size</h6>
+              </div>
+              <div className="col">
+                <h6>Dog Pace</h6>
+              </div>
+              <div className="col">
+                <h6>Nervous</h6>
+              </div>
+              <div className="col">
+                <h6>Barking</h6>
+              </div>
+              <div className="col">
+                <h6>Lead Pulling</h6>
+              </div>
+              <div className="col">
+                <h6>Reactive</h6>
+              </div>
+            </div>
+          </div>
 
           {
             this.state.dogs.map((item, index) => {
               return <DogsAvailable
-                dogId ={item.dogId}
+                dogId={item.dogId}
                 dogName={item.dogName} key={index}
                 otherDogs={item.otherDogs}
                 adultMales={item.adultMales}
@@ -252,13 +273,14 @@ class App extends Component {
                 behaviourLeadPulling={item.behaviourLeadPulling}
                 behaviourReactive={item.behaviourReactive}
                 matchDogFunction={this.getDogMatch}
-                
+
               />
             })
           }
         </div>
 
       </div>
+
     );
   }
 

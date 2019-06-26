@@ -11,6 +11,7 @@ import MatchedBorrowers from "./Components/MatchedBorrowers";
 import UserSelection from "./Components/UserSelection";
 import VisitorView from "./Components/VisitorView";
 import AdminView from "./Components/AdminView";
+import WelcomeMessage from "./Components/WelcomeMessage";
 
 import './Components/Fundraising.css';
 
@@ -186,6 +187,8 @@ class App extends Component {
 
 
         <Carousel />
+
+        <WelcomeMessage />
 
         <div className="row-12">
           <UserSelection updateUserSelected={this.updateUserSelected}

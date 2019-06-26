@@ -13,7 +13,7 @@ class WelcomeMessage extends Component {
                 <h5>Perhaps are you interested in long term borrowing? We also welcome anyone who would like to offer one of our longer stayers a foster home.</h5>
                 <h5>If you live in the Greater Manchester, please complete your details below and we will be in touch.</h5>
                 <br></br>
-                <h5>If you can't borrow a dog at the moment, or live outside of Greater Manchester, but would like to support us then why not join our Golden Paw Club, Sponsor one of our Sanctuary Dogs, donate to our Pawket Money Toys Fund or follow us on FaceBook?</h5> 
+                <h5>If you can't borrow a dog at the moment, or live outside of Greater Manchester, but would like to support us then why not join our Golden Paw Club, Sponsor one of our Sanctuary Dogs, donate to our Pawket Money Toys Fund or follow us on FaceBook?</h5>
                 <br></br>
             </div>
 

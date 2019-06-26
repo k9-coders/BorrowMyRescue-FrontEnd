@@ -4,7 +4,7 @@ import MatchedBorrowers from './MatchedBorrowers';
 
 const MatchedBorrowersTable = (props) => {
     return (
-        
+
         <Table striped bordered hover size="sm">
             <thead>
                 <tr>

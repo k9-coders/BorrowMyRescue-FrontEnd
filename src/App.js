@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 // add axios to allow access to borrowMyRescueDB database
 import axios from "axios";
 import Header from "./Components/Header";
-import BorrowersForm from "./Components/BorrowersForm";
-import DogForm from "./Components/DogForm";
-import DogsAvailable from "./Components/DogsAvailable";
 import FundRaising from "./Components/FundRaising";
 import Carousel from "./Components/Carousel";
-import MatchedBorrowers from "./Components/MatchedBorrowers";
 import UserSelection from "./Components/UserSelection";
 import VisitorView from "./Components/VisitorView";
 import AdminView from "./Components/AdminView";

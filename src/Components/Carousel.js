@@ -6,29 +6,29 @@ import dog3 from './images/dog3.jpg';
 import './Carousel.css';
 
 class ControlledCarousel extends React.Component {
-    constructor(props, context) {
-      super(props, context);
-  
-      this.handleSelect = this.handleSelect.bind(this);
-  
-      this.state = {
-        index: 0,
-        direction: null,
-      };
-    }
-  
-    handleSelect(selectedIndex, e) {
-      this.setState({
-        index: selectedIndex,
-        direction: e.direction,
-      });
-    }
-  
-    render() {
-      const { index, direction } = this.state;
-  
-      return (
-        <div className="banner">
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleSelect = this.handleSelect.bind(this);
+
+    this.state = {
+      index: 0,
+      direction: null,
+    };
+  }
+
+  handleSelect(selectedIndex, e) {
+    this.setState({
+      index: selectedIndex,
+      direction: e.direction,
+    });
+  }
+
+  render() {
+    const { index, direction } = this.state;
+
+    return (
+      <div className="banner">
         <Carousel
           activeIndex={index}
           direction={direction}
@@ -50,7 +50,7 @@ class ControlledCarousel extends React.Component {
               className="dogImage"
               src={dog2} alt='logo'
             />
-  
+
             <Carousel.Caption>
               <h3>Oscar</h3>
               <p>Four years old</p>
@@ -62,7 +62,7 @@ class ControlledCarousel extends React.Component {
               className="dogImage"
               src={dog3} alt='logo'
             />
-  
+
             <Carousel.Caption>
               <h3>Alfie</h3>
               <p>Elvis Impersonator Smile</p>
@@ -70,9 +70,9 @@ class ControlledCarousel extends React.Component {
           </Carousel.Item>
 
         </Carousel>
-        </div>
-      );
-    }
+      </div>
+    );
   }
-  
-  export default ControlledCarousel;
+}
+
+export default ControlledCarousel;

@@ -331,8 +331,8 @@ class BorrowersForm extends Component {
         const newchildAgeBand612 = this.state.borrowerchildAgeBand612
         const newchildAgeBand1318 = this.state.borrowerchildAgeBand1318
         const newownDog = this.state.borrowerownDog
-        const newownDogType = this.setState.borrowerownDogType
-        const newownDetails = this.setState.borrowerownDetails
+        const newownDogType = this.state.borrowerownDogType
+        const newownDetails = this.state.borrowerownDetails
         const newdogPace = this.state.borrowerdogPace
         const newdogSize = this.state.borrowerdogSize
         const newborrowerdogBehaviourNervous = this.state.borrowerdogBehaviourNervous

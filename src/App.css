@@ -1,7 +1,9 @@
-.container {
+.container
+ {
+
   background-color: peachpuff; 
   border-style: groove;
   border-width: 7px;
   border-color: peru; 
-
-} 
+  
+  }

@@ -1,0 +1,7 @@
+.welcomeMessage {
+        text-align: justify;
+        text-justify: inter-word;
+        border: dotted;
+        border-color: coral;
+        padding: 1%;
+}

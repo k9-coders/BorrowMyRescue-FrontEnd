@@ -367,8 +367,10 @@ class DogForm extends Component {
                     </div>
 
                     <div>
+                        <br></br>
                         <button type='button' className='btn4 btn-outline-light' onClick={this.addDogClicked} >Submit</button>
                     </div>
+                    <br></br>
                 </form>
             </div>
         );

@@ -418,6 +418,7 @@ class BorrowersForm extends Component {
 
         return (
             <div className="col">
+                <br></br>
                 <h2 className="titleDogForm">Borrower Details</h2>
                 <h5>Please enter your personal details here:</h5>
                 <span className="invalidBorrowerDetails">
@@ -668,10 +669,12 @@ class BorrowersForm extends Component {
                         <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviourReactive" value="Reactive" onChange={this.dogBehaviourReactive} checked={this.state.borrowerdogBehaviourReactive === true} />
                         <label className="form-check-label" htmlFor="inlineCheckboxBehaviourReactive">Reactive</label>
                     </div>
-
+                            
                     <div>
+                    <br></br>
                         <button type='button' className='btn2 btn-outline-light' onClick={this.addBorrowerClicked} > Submit</button>
                     </div>
+                    <br></br>
                 </form>
             </div >
         );

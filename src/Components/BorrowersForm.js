@@ -418,7 +418,7 @@ class BorrowersForm extends Component {
 
         return (
             <div className="col">
-                <h2 className="titleDogForm">Borrower Input Form</h2>
+                <h2 className="titleDogForm">Borrower Details</h2>
                 <h5>Please enter your personal details here:</h5>
                 <span className="invalidBorrowerDetails">
                     {this.state.borrowerDetailsInvalid &&

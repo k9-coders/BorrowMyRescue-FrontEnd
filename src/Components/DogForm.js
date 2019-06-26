@@ -210,7 +210,7 @@ class DogForm extends Component {
         return (
             <div className="col">
                 <h2 className="dogFormText">Dog Input Form</h2>
-                <h5>Please enter the dogs available to borrow:</h5>
+                <h5>Please enter a dog available to borrow:</h5>
                 <form>
 
                     <div className="form-row">

@@ -25,12 +25,18 @@ class DogForm extends Component {
     constructor(props) {
         // always need super(props)
         // as first line in a constructor
-       super(props);
+        super(props);
         // create a ref to store the dogNameInput DOM element
         this.dogNameInput = React.createRef();
         // constructor to bind add new dog button click
         // to dog input form textbox, dogNameInput
         this.addDogClicked = this.addDogClicked.bind(this);
+    }
+
+    // display an alert message 
+    // this is used to inform admin that a dog's details have been submitted to our database
+    showAlert() {
+        alert("Dog details submitted to the database");
     }
 
     dogNameData = (event) => {
@@ -150,11 +156,11 @@ class DogForm extends Component {
 
         // only add dog to database if a dog name is specified
         if (newdogName.length > 0) {
-            this.props.addDogs(newdogName, newotherDogs, newadultMales, 
-                newadultFemales, newwithChildren, newwithChildren05, newwithChildren612, 
-                newwithChildren1318, newdogSize, newdogPace, newbehaviourNervous, 
+            this.props.addDogs(newdogName, newotherDogs, newadultMales,
+                newadultFemales, newwithChildren, newwithChildren05, newwithChildren612,
+                newwithChildren1318, newdogSize, newdogPace, newbehaviourNervous,
                 newbehaviourLeadPulling, newbehaviourBarking, newbehaviourReactive);
-        
+
             // reset form options to defaults
             this.setState({
                 dogDogName: "",
@@ -173,14 +179,19 @@ class DogForm extends Component {
                 dogBehaviourReactive: false,
                 dogNameInvalid: false,
             })
+
+            // display message to admin to confirm that the dog details have been entered into the
+            // database
+            this.showAlert();
+
         } else {
 
             //if the dogNameInvalid state is set
             // an error message will display to show that the dog name 
             // has not not specified
-            
-                this.setState({
-                    dogNameInvalid: true
+
+            this.setState({
+                dogNameInvalid: true
             })
         }
         // set focus back to the dog name text box - 
@@ -189,10 +200,10 @@ class DogForm extends Component {
         // Note: we're accessing "current" to get the DOM node
         this.dogNameInput.current.focus();
     };
-        
-         
 
-            
+
+
+
 
     render() {
 
@@ -205,12 +216,12 @@ class DogForm extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-6">
                             <label htmlFor="dogName">Dog's name:</label>
-                                <span className = "invalidDogName">
-                                        {this.state.dogNameInvalid &&
-                                        " Please enter the dog's name"
-                                        }
-                                </span>
-                            <input type="text" className="form-control" id="dogName" placeholder="Enter dog's name" 
+                            <span className="invalidDogName">
+                                {this.state.dogNameInvalid &&
+                                    " Please enter the dog's name"
+                                }
+                            </span>
+                            <input type="text" className="form-control" id="dogName" placeholder="Enter dog's name"
                                 value={this.state.dogDogName} ref={this.dogNameInput} onChange={this.dogNameData} ></input>
                         </div>
                     </div>
@@ -263,28 +274,28 @@ class DogForm extends Component {
 
                     <div className="custom-control custom-radio custom-control-inline">
                         <div className="form-check form-check-inline">
-                            {(this.state.dogWithChildren)?
+                            {(this.state.dogWithChildren) ?
                                 <input className="form-check-input" type="checkbox" name="childAges" id="inlineCheckbox1" value="05" onChange={this.childAge05Selected} checked={this.state.dogWithChildren05 === true} />
                                 :
-                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAges" id="inlineCheckbox1" value="05" onChange={this.childAgeBand05} checked={this.state.dogWithChildren05 === true} />
+                                <input className="form-check-input" type="checkbox" disabled="disabled" name="childAges" id="inlineCheckbox1" value="05" onChange={this.childAgeBand05} checked={this.state.dogWithChildren05 === true} />
                             }
                             <label className="form-check-label" htmlFor="inlineCheckbox1">aged 0 to 5</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            {(this.state.dogWithChildren)?
+                            {(this.state.dogWithChildren) ?
                                 <input className="form-check-input" type="checkbox" name="childAges" id="inlineCheckbox2" value="612" onChange={this.childAge612Selected} checked={this.state.dogWithChildren612 === true} />
                                 :
-                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAges" id="inlineCheckbox2" value="612" onChange={this.childAgeBand612} checked={this.state.dogWithChildren612 === true} />
-                            }    
+                                <input className="form-check-input" type="checkbox" disabled="disabled" name="childAges" id="inlineCheckbox2" value="612" onChange={this.childAgeBand612} checked={this.state.dogWithChildren612 === true} />
+                            }
                             <label className="form-check-label" htmlFor="inlineCheckbox2">aged 6 to 12</label>
                         </div>
 
                         <div className="form-check form-check-inline">
-                            {(this.state.dogWithChildren)?
+                            {(this.state.dogWithChildren) ?
                                 <input className="form-check-input" type="checkbox" name="childAges" id="inlineCheckbox3" value="1318" onChange={this.childAge1318Selected} checked={this.state.dogWithChildren1318 === true} />
                                 :
-                                <input className="form-check-input" type="checkbox" disabled = "disabled" name="childAges" id="inlineCheckbox3" value="1318" onChange={this.childAgeBand1318} checked={this.state.dogWithChildren1318 === true} />
-                            }    
+                                <input className="form-check-input" type="checkbox" disabled="disabled" name="childAges" id="inlineCheckbox3" value="1318" onChange={this.childAgeBand1318} checked={this.state.dogWithChildren1318 === true} />
+                            }
                             <label className="form-check-label" htmlFor="inlineCheckbox3">aged 13 to 18</label>
                         </div>
                     </div>
@@ -330,28 +341,28 @@ class DogForm extends Component {
                     <h5>Any behaviour issues? (Select all that apply): </h5>
 
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Nervous" 
-                        onChange={this.behaviourNervousSelected} 
-                        checked={this.state.dogBehaviourNervous === true} />
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Nervous"
+                            onChange={this.behaviourNervousSelected}
+                            checked={this.state.dogBehaviourNervous === true} />
                         <label className="form-check-label" htmlFor="inlineCheckboxBehaviour">Nervous</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="LeadPulling" 
-                        onChange={this.behaviourLeadPullingSelected} 
-                        checked={this.state.dogBehaviourLeadPulling === true} />
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="LeadPulling"
+                            onChange={this.behaviourLeadPullingSelected}
+                            checked={this.state.dogBehaviourLeadPulling === true} />
                         <label className="form-check-label" htmlFor="inlineCheckboxLeadBehaviour">Lead Pulling</label>
                     </div>
 
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Barking" 
-                        onChange={this.behaviourBarkingSelected} 
-                        checked={this.state.dogBehaviourBarking === true} />
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Barking"
+                            onChange={this.behaviourBarkingSelected}
+                            checked={this.state.dogBehaviourBarking === true} />
                         <label className="form-check-label" htmlFor="inlineCheckboxBehaviour">Barking</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Reactive" 
-                        onChange={this.behaviourReactiveSelected} 
-                        checked={this.state.dogBehaviourReactive === true} />
+                        <input className="form-check-input" type="checkbox" id="inlineCheckboxBehaviour" value="Reactive"
+                            onChange={this.behaviourReactiveSelected}
+                            checked={this.state.dogBehaviourReactive === true} />
                         <label className="form-check-label" htmlFor="inlineCheckboxBehaviour">Reactive</label>
                     </div>
 

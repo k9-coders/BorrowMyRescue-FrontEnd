@@ -8,7 +8,7 @@ class AdminView extends Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="adminContainer">
 
                 <div>
                     <h5>Matched Borrowers</h5>

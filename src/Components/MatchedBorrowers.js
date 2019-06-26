@@ -5,29 +5,26 @@ class MatchedBorrowers extends Component {
     render() {
 
         return (
-            <div className="col">
 
-                <div className="row">
+                <tr>
 
-                    <div className="col-3">
+                    <td>
                         {this.props.firstName}
-                    </div>
+                    </td>
 
-                    <div className="col-3">
+                    <td>
                         {(this.props.surname)}
-                    </div>
+                    </td>
 
-                    <div className="col-3">
+                    <td>
                         {(this.props.email)}
-                    </div>
+                    </td>
 
-                    <div className="col-3">
+                    <td>
                         {(this.props.mobile)}
-                    </div>
+                    </td>
 
-                </div>
-
-            </div>
+                </tr>
 
         );
     }

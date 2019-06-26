@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import './DogsAvailable.css';
 
 class DogsAvailable extends Component {
-    
+
 
     matchDogClicked = e => {
         e.preventDefault();
@@ -13,7 +14,7 @@ class DogsAvailable extends Component {
         // if dogId has been selected
         if (matchDogId > 0) {
             this.props.getDogMatch(matchDogId);
-        } 
+        }
         // remove focus from the match button
         //document.getElementById("deleteTask").blur();
         document.activeElement.blur();
@@ -27,28 +28,28 @@ class DogsAvailable extends Component {
                 </td>
 
                 <td className="col">
-                    {(this.props.otherDogs)? "Y":"N"}
+                    {(this.props.otherDogs) ? "Y" : "N"}
                 </td>
 
                 <td className="col">
-                    {(this.props.adultMales)? "Y":"N"}
+                    {(this.props.adultMales) ? "Y" : "N"}
                 </td>
 
                 <td className="col">
-                    {(this.props.adultFemales)? "Y":"N"}
+                    {(this.props.adultFemales) ? "Y" : "N"}
                 </td>
 
                 <td className="col">
-                    {(this.props.withChildren)? "Y":"N"}
+                    {(this.props.withChildren) ? "Y" : "N"}
                 </td>
                 <td className="col">
-                    {(this.props.withChildren05)? "Y":"N"}
+                    {(this.props.withChildren05) ? "Y" : "N"}
                 </td>
                 <td className="col">
-                    {(this.props.withChildren612)? "Y":"N"}
+                    {(this.props.withChildren612) ? "Y" : "N"}
                 </td>
                 <td className="col">
-                    {(this.props.withChildren1318)? "Y":"N"}
+                    {(this.props.withChildren1318) ? "Y" : "N"}
                 </td>
                 <td className="col">
                     {this.props.dogSize}
@@ -59,29 +60,27 @@ class DogsAvailable extends Component {
                 </td>
 
                 <td className="col">
-                    {(this.props.behaviourNervous)? "Y":"N"}
+                    {(this.props.behaviourNervous) ? "Y" : "N"}
                 </td>
 
                 <td className="col">
-                    {(this.props.behaviourBarking)? "Y":"N"}
+                    {(this.props.behaviourBarking) ? "Y" : "N"}
                 </td>
 
                 <td className="col">
-                    {(this.props.behaviourLeadPulling)? "Y":"N"}
+                    {(this.props.behaviourLeadPulling) ? "Y" : "N"}
                 </td>
 
                 <td className="col">
-                    {(this.props.behaviourReactive)? "Y":"N"}
+                    {(this.props.behaviourReactive) ? "Y" : "N"}
                 </td>
 
                 <td>
                     <button type="button" className="btn btn-outline-primary"
-                        onClick={this.matchDogClicked}>Primary</button>
+                        onClick={this.matchDogClicked}>Match</button>
                 </td>
             </tr>
         )
-
-        
     }
 }
 

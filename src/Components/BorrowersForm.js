@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './BorrowersForm.css'
 
 class BorrowersForm extends Component {
 
@@ -417,7 +418,7 @@ class BorrowersForm extends Component {
 
         return (
             <div className="col">
-                <h2>Borrower Input Form</h2>
+                <h2 className="titleDogForm">Borrower Input Form</h2>
                 <h5>Please enter your personal details here:</h5>
                 <span className="invalidBorrowerDetails">
                     {this.state.borrowerDetailsInvalid &&
@@ -429,13 +430,13 @@ class BorrowersForm extends Component {
                     <div className="form-row">
 
                         <div className="form-group col-md-6">
-                            <label htmlFor="firstName">First name</label>
+                            <label htmlFor="firstName">First name:</label>
                             <input type="text" className="form-control" id="firstName" placeholder="First name"
                                 value={this.state.borrowerfirstName} ref={this.firstNameInput} onChange={this.firstNameData}></input>
                         </div>
 
                         <div className="form-group col-md-6">
-                            <label htmlFor="surname">Surname</label>
+                            <label htmlFor="surname">Surname:</label>
                             <input type="text" className="form-control" id="surname" placeholder="Surname"
                                 value={this.state.borrowersurname} onChange={this.surnameData} ></input>
                         </div>
@@ -443,13 +444,13 @@ class BorrowersForm extends Component {
 
                     <div className="form-row">
                         <div className="form-group col-md-8">
-                            <label htmlFor="inputEmail4">Email</label>
+                            <label htmlFor="inputEmail4">Email:</label>
                             <input type="email" className="form-control" id="inputEmail4" placeholder="Email"
                                 value={this.state.borroweremail} onChange={this.emailData} ></input>
                         </div>
 
                         <div className="form-group col-md-4">
-                            <label htmlFor="mobile">Mobile</label>
+                            <label htmlFor="mobile">Mobile:</label>
                             <input type="text" className="form-control" id="mobile" placeholder="Mobile"
                                 value={this.state.borrowermobile} onChange={this.mobileData} ></input>
                         </div>
@@ -458,13 +459,13 @@ class BorrowersForm extends Component {
                     <div className="form-row">
 
                         <div className="form-group col-md-6">
-                            <label htmlFor="address1">Address 1</label>
+                            <label htmlFor="address1">Address 1:</label>
                             <input type="text" className="form-control" id="address1" placeholder="1st line of address"
                                 value={this.state.borroweraddress1} onChange={this.address1Data} ></input>
                         </div>
 
                         <div className="form-group col-md-6">
-                            <label htmlFor="address2">Address 2</label>
+                            <label htmlFor="address2">Address 2:</label>
                             <input type="text" className="form-control" id="address2" placeholder="2nd line of address"
                                 value={this.state.borroweraddress2} onChange={this.address2Data} ></input>
                         </div>
@@ -474,19 +475,19 @@ class BorrowersForm extends Component {
                     <div className="form-row">
 
                         <div className="form-group col-md-6">
-                            <label htmlFor="address3">Address 3</label>
+                            <label htmlFor="address3">Address 3:</label>
                             <input type="text" className="form-control" id="address3" placeholder="3rd line of address"
                                 value={this.state.borroweraddress3} onChange={this.address3Data} ></input>
                         </div>
 
                         <div className="form-group col-md-4">
-                            <label htmlFor="townCity">Town/City</label>
-                            <input type="text" className="form-control" id="townCity" placeholder="town or city"
+                            <label htmlFor="townCity">Town/City:</label>
+                            <input type="text" className="form-control" id="townCity" placeholder="Town or City"
                                 value={this.state.borrowertownCity} onChange={this.townCityData} ></input>
                         </div>
 
                         <div className="form-group col-md-2">
-                            <label htmlFor="postcode">Post Code</label>
+                            <label htmlFor="postcode">Post Code:</label>
                             <input type="text" className="form-control" id="postcode"
                                 placeholder="Postcode" value={this.state.borrowerPostCode} onChange={this.postcodeData} ></input>
                         </div>
@@ -669,7 +670,7 @@ class BorrowersForm extends Component {
                     </div>
 
                     <div>
-                        <button className="btn btn-primary btn-am m-2" onClick={this.addBorrowerClicked} >Submit</button>
+                        <button type='button' className='btn2 btn-outline-light' onClick={this.addBorrowerClicked} > Submit</button>
                     </div>
                 </form>
             </div >

@@ -29,6 +29,7 @@ class ControlledCarousel extends React.Component {
 
     return (
       <div className="banner">
+        <br></br>
         <Carousel
           activeIndex={index}
           direction={direction}
@@ -71,6 +72,7 @@ class ControlledCarousel extends React.Component {
 
         </Carousel>
       </div>
+      
     );
   }
 }

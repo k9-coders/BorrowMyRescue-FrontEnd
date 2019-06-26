@@ -206,7 +206,7 @@ class App extends Component {
               clearMatchedBorrowersClicked={this.clearBorrowerMatches}
             />
         }
-
+        
       </div>
 
     );

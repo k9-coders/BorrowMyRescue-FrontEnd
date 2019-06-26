@@ -14,7 +14,7 @@ class UserSelection extends Component {
 
         return (
             <div className="col" >
-                
+
                 <h5>Please select whether you are a visitor or an admin to the website:</h5>
                 <form>
                     <div className="custom-control custom-radio custom-control-inline">

@@ -9,19 +9,19 @@ class MatchedBorrowers extends Component {
 
                 <div className="row">
 
-                    <div className="col">
+                    <div className="col-3">
                         {this.props.firstName}
                     </div>
 
-                    <div className="col">
+                    <div className="col-3">
                         {(this.props.surname)}
                     </div>
 
-                    <div className="col">
+                    <div className="col-3">
                         {(this.props.email)}
                     </div>
 
-                    <div className="col">
+                    <div className="col-3">
                         {(this.props.mobile)}
                     </div>
 

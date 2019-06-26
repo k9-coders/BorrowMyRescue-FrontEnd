@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DogForm from "./DogForm";
-import MatchedBorrowers from "./MatchedBorrowers";
 import DogsTable from "./DogsTable";
+import MatchedBorrowersTable from './MatchedBorrowersTable';
 
 
 class AdminView extends Component {
@@ -10,24 +10,18 @@ class AdminView extends Component {
         return (
             <div className="container">
 
-                <div className="row-12">
+                <div>
                     <h5>Matched Borrowers</h5>
                 </div>
 
-                {
-                    this.props.borrowerMatches.map((item, index) => {
 
-                        return <MatchedBorrowers
-                            borrowerId={item.borrowerId} key={index}
-                            firstName={item.firstName}
-                            surname={item.surname}
-                            email={item.email}
-                            mobile={item.mobile}
 
-                        />
-                    })}
+                <MatchedBorrowersTable
+                    borrowerMatches={this.props.borrowerMatches}
+                    getDogMatch={this.props.getDogMatch} />
 
-                <DogsTable dogs={this.props.dogs} getDogMatch={this.props.getDogMatch} />
+                <DogsTable dogs={this.props.dogs}
+                    getDogMatch={this.props.getDogMatch} />
 
 
 

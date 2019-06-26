@@ -167,6 +167,10 @@ class App extends Component {
     this.setState({ type: typeSelected });
   }
 
+  clearBorrowerMatches = () => {
+    this.setState({borrowerMatches: []})
+  }
+
 
   render() {
 
@@ -199,6 +203,7 @@ class App extends Component {
               dogs={this.state.dogs}
               addDogs={this.addDogs}
               getDogMatch={this.getDogMatch}
+              clearMatchedBorrowersClicked={this.clearBorrowerMatches}
             />
         }
 

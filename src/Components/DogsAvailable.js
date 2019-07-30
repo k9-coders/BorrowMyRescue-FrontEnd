@@ -20,6 +20,22 @@ class DogsAvailable extends Component {
         document.activeElement.blur();
     };
 
+    deleteDogClicked = e => {
+        e.preventDefault();
+        // retrieve  dog id 
+        const deleteDogId = this.props.dogId
+        // test that dog Id has been selected
+        console.log("Dog Id for delete " + deleteDogId);
+        // retrieve list of matching borrowers
+        // if dogId has been selected
+        if (deleteDogId > 0) {
+            this.props.deleteDogMatch(deleteDogId);
+        }
+        // remove focus from the match button
+        //document.getElementById("deleteTask").blur();
+        document.activeElement.blur();
+    };
+
     render() {
         return (
             <tr>
@@ -78,6 +94,10 @@ class DogsAvailable extends Component {
                 <td>
                 <button type='button' className='btn3 btn-outline-light'
                         onClick={this.matchDogClicked}>Match</button>
+                </td>
+                <td>
+                <button type='button' className='btn3 btn-outline-light'
+                        onClick={this.deleteDogClicked}>Delete</button>
                 </td>
             </tr>
         )
